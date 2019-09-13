@@ -1,15 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1> The Rock Event App</h1>>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae temporibus. Est nesciunt, eligendi dolorem odit quaerat quidem tempora corrupti cum, maiores aliquid ab architecto officia itaque. Eius, a?</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae temporibus. Est nesciunt, eligendi dolorem odit quaerat quidem tempora corrupti cum, maiores aliquid ab architecto officia itaque. Eius, a?</p>
 
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <title>The Rock Event App</title>
+</head>
+
+
+<!-- <body background="images\backgroundImg-temporary.jpg"> -->
+
+<body>
+    <!-- Title "Jumbotron" -->
+    <div class="jumbotron">
+
+        <!-- Main Materialize Container -->
+        <div class="container">
+            <h1>Rock Events in Washington</h1>
+            <div class="row">
+
+                <div class="input-field col s4">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Sub Genre</label>
+                </div>
+
+                <div class="input-field col s4">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Distance</label>
+                </div>
+                <div class="input-field col s4">
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>put label here</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <a class="waves-effect waves-light btn-large offset-s6"><i
+                            class="material-icons left">search</i>Search</a>
+                    <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a>
+                </div>
+
+                <p>Lorem, ih1sum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae
+                    temporibus. Est
+                    nesciunt, eligendi dolorem odit quaerat quidem tempora corrupti cum, maiores aliquid ab architecto
+                    officia itaque. Eius, a?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae temporibus. Est
+                    nesciunt, eligendi dolorem odit quaerat quidem tempora corrupti cum, maiores aliquid ab architecto
+                    officia itaque. Eius, a?</p>
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- jQuery CDN JS -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+
+        <!-- Code to the JavaScript File -->
+        <script src="javascript\bandInfo.js"></script>
+        <script src="javascript\email.js"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\spotify.js"></script>
+
+        <script> document.addEventListener('DOMContentLoaded', function () {
+                var dropDown = document.querySelectorAll('.dropdown-trigger');
+                var instances = M.Dropdown.init(dropDown);
+                var select = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(select);
+            });
+
+
+        </script>
 </body>
+
 </html>
