@@ -1,15 +1,21 @@
 
-var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4"
+var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101"
 
 
-
+var embed=[]
 
 function bandInfo() {
 $.ajax({ 
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-      console.log(response)
+      
 
-  })}
+     var embed=response._embedded.events
+     console.log(embed)
+      for (var i = 0; i < embed.length; i++){
+    
+    var genres = embed[i].classifications[0].subGenre.name
+    console.log(genres)
+  }})}
   bandInfo()
