@@ -1,8 +1,4 @@
-
-var queryURL ="https://rest.bandsintown.com/artists/tool?app_id=bootcampspot"
-
-
-
+var queryURL = "http://itunes.apple.com/WebObjects/MZStoreServices.woa/ws/genres?id=21"
 
 function bandInfo() {
 $.ajax({ 
@@ -10,6 +6,5 @@ $.ajax({
     method: "GET"
   }).then(function(response) {
       console.log(response)
-
   })}
   bandInfo()
