@@ -1,5 +1,5 @@
 
-var queryURL ="https://rest.bandsintown.com/artists/tool?app_id=bootcampspot"
+var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4"
 
 
 
