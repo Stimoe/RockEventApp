@@ -62,13 +62,4 @@ var image=embed[i].images[0].url
     })
     }
     
-         
-        
-
-      
-
-
-
   bandInfo()
- 
-  
