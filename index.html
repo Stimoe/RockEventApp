@@ -17,7 +17,6 @@
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style/style.css">
@@ -100,7 +99,13 @@
 
         </div>
 
-        <div id="map"></div>
+    
+        <div data-role="page" id="map_result">
+            <div data-role="header" data-position="fixed"><h1>Multiple Marker</h1></div>
+            <div data-role="content" style="padding:0;">
+                <div id="map"></div>
+            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -110,7 +115,9 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"type="text/javascript"></script> -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script>
+        
         <script src="javascript\TicketMaster.js"></script>
         <script src="javascript\email.js"></script>
         <script src="javascript\maps.js"></script>
