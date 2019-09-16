@@ -17,19 +17,37 @@ console.log('Itunes.js loaded')
 
 var artistLinks = [];
 
+// function itunesLink() {
+//     console.log('bandNames', bandNames);
+//     console.log(typeof bandNames);
+//     console.log('bandNames length', bandNames.length);
+//     for (var i = 0; i < bandNames.length; i++){
+//         console.log('forloop triggered')
+//         var queryURL = "https://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=&" + bandNames[i] + ""
+//         $.ajax({ 
+//             url: queryURL,
+//             method: "GET"
+//         }).then(function(response) {
+//             console.log('.then', response);
+//         })
+//   }}
+
+//   itunesLink();
+
 function itunesLink() {
     console.log('bandNames', bandNames);
-    console.log(typeof bandNames);
-    console.log('bandNames length', bandNames.length);
-    for (var i = 0; i < bandNames.length; i++){
         console.log('forloop triggered')
-        var queryURL = "http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=&" + bandNames[i] + ""
+        // bandNames = "metallica"
+        var queryURL = `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[0].split(" ").join("+")}`
+        console.log(queryURL)
         $.ajax({ 
             url: queryURL,
             method: "GET"
         }).then(function(response) {
             console.log('.then', response);
+            console.log();
+            
         })
-  }}
+  }
 
-//   itunesLink();
+//   itunesLink ()
