@@ -17,37 +17,40 @@ console.log('Itunes.js loaded')
 
 var artistLinks = [];
 
+function itunesLink() {
+    console.log('bandNames', bandNames);
+    console.log('bandNames length', bandNames.length);
+    for (var i = 0; i < bandNames.length; i++){
+        console.log('forloop triggered', bandNames[i])
+       var queryURL = `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`       
+        $.ajax({ 
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var data = JSON.parse(response)
+            if (data.resultCount > 0) {
+                console.log(data.results)
+
+            }
+            
+        })
+  }}
+
+//   itunesLink();
+
 // function itunesLink() {
 //     console.log('bandNames', bandNames);
-//     console.log(typeof bandNames);
-//     console.log('bandNames length', bandNames.length);
-//     for (var i = 0; i < bandNames.length; i++){
 //         console.log('forloop triggered')
-//         var queryURL = "https://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=&" + bandNames[i] + ""
+//         var queryURL = `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[0].split(" ").join("+")}`
+//         console.log(queryURL)
 //         $.ajax({ 
 //             url: queryURL,
 //             method: "GET"
 //         }).then(function(response) {
 //             console.log('.then', response);
-//         })
-//   }}
-
-//   itunesLink();
-
-function itunesLink() {
-    console.log('bandNames', bandNames);
-        console.log('forloop triggered')
-        // bandNames = "metallica"
-        var queryURL = `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[0].split(" ").join("+")}`
-        console.log(queryURL)
-        $.ajax({ 
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            console.log('.then', response);
-            console.log();
+//             console.log(response.results.artistLinkUrl);
             
-        })
-  }
+//         })
+//   }
 
 //   itunesLink ()
