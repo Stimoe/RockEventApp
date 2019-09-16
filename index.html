@@ -86,7 +86,7 @@
                     <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
                 </div>
             </div>
-
+<div id="test"></div>
             <div class="container">
                 <p>Lorem, ih1sum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae
                     temporibus. Est
@@ -100,12 +100,26 @@
         </div>
 
     
-        <div data-role="page" id="map_result">
-            <div data-role="header" data-position="fixed"><h1>Multiple Marker</h1></div>
-            <div data-role="content" style="padding:0;">
-                <div id="map"></div>
-            </div>
-        </div>
+        <p id="location"></p>
+    <div id="map"></div>
+    <div id="events"></div>
+    <button onclick=getLocation()>Try It</button>
+    <p id="demo"></p>
+
+    <div id="display"></div>
+    <div id="buttons"></div>
+    <button id="clear">clear</button>
+
+    
+  <div id="cards">
+    <div id="gif-row" class="row">
+
+      <div id="gifs-displayed">
+      </div>
+    </div>
+  </div>
+  <div id="buttons-view">
+</div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -116,13 +130,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"type="text/javascript"></script> -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script>
-        
-        <script src="javascript\TicketMaster.js"></script>
-        <script src="javascript\email.js"></script>
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async defer></script>
+      
+      
         <script src="javascript\maps.js"></script>
-        <script src="javascript\Itunes.js"></script>
-        </script>
+        <script src="javascript\TicketMaster.js"></script>
+
+        <script src="javascript\email.js"></script>
+=======
+
 
         <script> document.addEventListener('DOMContentLoaded', function () {
                 var dropDown = document.querySelectorAll('.dropdown-trigger');
