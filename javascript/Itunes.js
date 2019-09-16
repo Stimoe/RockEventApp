@@ -27,13 +27,18 @@ function itunesLink() {
             url: queryURL,
             method: "GET"
         }).then(function(response) {
-            var data = JSON.parse(response)
-            if (data.resultCount > 0) {
-                console.log(data.results)
-
-            }
+            data = JSON.parse(response)
+           
+            // if (response.resultCount > 0) {
+                console.log('artist link', data.results[0].artistLinkUrl)
+                // var array = response[i].artistLinkUrl;
+                // artistLinks.push(array);
+                
+                
+            // }
             
         })
+        // console.log('artist link', artistLinks);
   }}
 
 //   itunesLink();
