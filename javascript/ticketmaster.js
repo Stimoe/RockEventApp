@@ -29,22 +29,23 @@
 
 // var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+latLon+""
 
-var embed=[]
-var genre=[]
-var date=[]
-var time=[]
+var embed = []
+var genre = []
+var date = []
+var time = []
 var map;
-var longg=[]
-var latss=[]
-var venues=[]
-var bandNames=[]
-var images=[]
-var locations=[]
+var longg = []
+var latss = []
+var venues = []
+var bandNames = []
+var images = []
+var locations = []
 
 var search="seattle"
 var zip;
 var currentLocation;
-var seattle=(47.608013+ "," + -122.335167)
+var seattle = (47.608013 + "," + -122.335167)
+
 
 function mapFor(){
   if (search==="currentLocation"){
@@ -53,11 +54,14 @@ function mapFor(){
   
   if(search==="seattle"){
 seattleLocation()
+
+
   }
-  
+
 }
 
 mapFor()
+
 
 
 function bandInfo(startLatLon){
@@ -67,34 +71,37 @@ function bandInfo(startLatLon){
   var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
 
 
-$.ajax({ 
+
+
+  $.ajax({
 
 
 
     url: seattleQueryURL,
     method: "GET"
-  }).then(function(response) {
-  console.log(response)
+  }).then(function (response) {
+    // console.log(response)
 
-     var embed=response._embedded.events
-     
-     console.log(embed)
-     var longg=[]
-     var latss=[]
-     var venues=[]
-     
-      for (var i = 0; i < embed.length; i++){ 
-        if (embed[i].classifications[0].hasOwnProperty('subGenre')){
-  genre.push(embed[i].classifications[0].subGenre.name)
-      
-        var bandName=embed[i].name
-    var venue=embed[i]._embedded.venues[0].name
-var latit=embed[i]._embedded.venues[0].location.latitude
-var longit=embed[i]._embedded.venues[0].location.longitude
-var image=embed[i].images[0].url
-          images.push(image)
+    var embed = response._embedded.events
+
+    //  console.log(embed)
+    var longg = []
+    var latss = []
+    var venues = []
+
+    for (var i = 0; i < embed.length; i++) {
+      if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
+        genre.push(embed[i].classifications[0].subGenre.name)
+
+        var bandName = embed[i].name
+        var venue = embed[i]._embedded.venues[0].name
+        var latit = embed[i]._embedded.venues[0].location.latitude
+        var longit = embed[i]._embedded.venues[0].location.longitude
+        var image = embed[i].images[0].url
+        images.push(image)
         bandNames.push(bandName)
         venues.push(venue)
+
        latss.push(latit)
       longg.push(longit)
   
@@ -195,7 +202,7 @@ var image=embed[i].images[0].url
 //                   e.innerHTML = json.page.totalElements + " events found.";
 //                   showEvents(json);
 //                   initMap(position, json);
-                
+
 //                },
 //       error: function(xhr, status, err) {
 //                   console.log(err);
@@ -225,7 +232,7 @@ var image=embed[i].images[0].url
 // function showEvents(json) {
 //   for(var i=0; i<json.page.totalElements; i++) {
 //     // $("#events").append("<p>"+json._embedded.events[i]+"</p>");
-    
+
 
 
 
@@ -241,7 +248,7 @@ var image=embed[i].images[0].url
 //   });
 //   for(var i=0; i<json.page.totalElements; i++) {
 //     addMarker(map, json._embedded.events[i]);
-    
+
 //     var lats=json._embedded.events[i]._embedded.venues[0].location.latitude
 //     var longgg=json._embedded.events[i]._embedded.venues[0].location.longitude
 //     var dates=json._embedded.events[i].dates.start.localDate
@@ -253,7 +260,7 @@ var image=embed[i].images[0].url
 
 //     // json._embedded.events[""0""]
 //     // _embedded.events[0].type
-    
+
 
 //     genre.push(genres)
 //     longg.push(longgg)
@@ -261,14 +268,14 @@ var image=embed[i].images[0].url
 //     images.push(img)
 //     bandNames.push(bands)
 //     venues.push(venueName)
-  
-    
+
+
 //     date.push(dates)
 //     time.push(times)
-   
-   
+
+
 //   }
- 
+
 // }
 
 // console.log(latss)
@@ -302,8 +309,7 @@ var image=embed[i].images[0].url
 // locations.push(longg)
 
 
-  
-  
-  
-  
- 
+
+
+
+
