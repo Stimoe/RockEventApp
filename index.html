@@ -69,64 +69,48 @@
                 <label class="black-text">Search by Distance</label>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Search by Zip
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Search by Loction
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Search
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!--code below... to help SEE the containers when moving them around  -->
-        <style>
-            .row>div {
-                padding: 10px;
-                background: #ddd;
-                border: 1px solid #fff;
-                line-height: 60px;
-            }
-            
-            .row {
-                margin: 40px auto;
-            }
-            </style>
 
-
-
-
-<div class="container">
-<div class="col s12 m7">
-    <h2 class="header">Horizontal Card</h2>
-    <div class="card horizontal">
-        <div class="card-image">
-            <img src="https://lorempixel.com/100/190/nature/6">
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <h5 id="artist-name">Artist name appears here</h5>
-                <h6 id="venue-name">venue name appears here</h6>
-                <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-
-            <div class="card-action">
-                <a href="#" id="venue">Venue Location</a>
-                <a href="#" id="itunes">itunes</a>
-                <a href="#" id="event-details">Email Event Details</a>
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search by Zip
+                    <i class="material-icons right">send</i>
+                </button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search by Loction
+                    <i class="material-icons right">send</i>
+                </button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </div>
     </div>
-</div>
-<!-- removing to see if horizontal card is better than this one -->
-        <!-- below will be a container to hold the search results.  
+  <div class="main-card-container"></div>
+    <div class="col s12 m7">
+        <h2 class="header">Horizontal Card</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="https://lorempixel.com/100/190/nature/6">
+            </div>
+
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h5 id="artist-name">Artist name link here</h5>
+                    <h6 id="venue-name">Venue name link here</h6>
+                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="#" id="venue">Venue Location</a>
+                    <a href="#" id="itunes">iTunes</a>
+                    <a href="#" id="event-details">Email Event Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- removing to see if horizontal card is better than this one -->
+    <!-- below will be a container to hold the search results.  
                 Info will go from hidden to show upon selection of search results  -->
-        <!-- <div class="container">
+    <!-- <div class="container">
             <div id="main-div" class="row">
                 <div class="col s12">
                     <p><a href="https://htmlg.com/" target="_blank" rel="nofollow">with p</a></p>
@@ -144,25 +128,70 @@
                             <div class="col s4">Artists Name</div>
                             <div class="col s4">Email Info about Event</div>
                         </div>
-                    </div>
+    
+        <p id="location"></p>
+    <div id="map"></div>
+    <div id="events"></div>
+    <button onclick=getLocation()>Try It</button>
+    <p id="demo"></p>
 
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"type="text/javascript"></script> -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
+        defer></script>
+
+    <script src="javascript\email.js"></script>
+    <script src="javascript\maps.js"></script>
+    <script src="javascript\Itunes.js"></script>
+    <script src="javascript\TicketMaster.js"></script>
+
+
+    <script> document.addEventListener('DOMContentLoaded', function () {
+            var dropDown = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(dropDown);
+            var select = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(select);
+        });
+    </script>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                        footer
+                        content.</p>
                 </div>
-            </div> -->
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Info</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
+                    </ul>
+                </div>
 
+            </div>
+        </div> -->
 
-
-
-
-
-            <!-- <div class="col s12 m6 l3">
+        <!-- <div class="col s12 m6 l3">
                             <p>Artists</p>
                         </div>
                         <div class="col s12 m6 l3">
                             <p>Dates</p>
                         </div> -->
-            <!-- <div class="col s6">6-columns (one-half)</div>
+        <!-- <div class="col s6">6-columns (one-half)</div>
                             <div class="col s6">6-columns (one-half)</div> -->
-            <!-- </div>
+        <!-- </div>
                                 <div class="col s12 m6 l3">
                                     <p>Link to Spotify</p>
                                 </div>
@@ -175,28 +204,28 @@
                                 <div class="col s12 m6 l3">
                                     <p>Email about event</p> -->
         </div>
-    </div>
-    </div>
-<!-- removing these for now as i create the cards -->
-    <!-- <div class="row"> -->
+        </div>
+        </div>
+        <!-- removing these for now as i create the cards -->
+        <!-- <div class="row"> -->
 
         <!-- <div class="col s4"> -->
-            <!-- Promo Content 1 goes here -->
+        <!-- Promo Content 1 goes here -->
         <!-- </div> -->
         <!-- <div class="col s4"> -->
-            <!-- Promo Content 2 goes here -->
+        <!-- Promo Content 2 goes here -->
         <!-- </div> -->
         <!-- <div class="col s4"> -->
-            <!-- Promo Content 3 goes here -->
+        <!-- Promo Content 3 goes here -->
         <!-- </div> -->
 
-    <!-- </div> -->
+        <!-- </div> -->
 
 
-    <!-- We can use this for our artist info -->
-    
+        <!-- We can use this for our artist info -->
 
-    <p id="location">location there</p>
+
+        <p id="location">location there</p>
         <div id="map"></div>
         <div id="events"></div>
 
@@ -206,69 +235,70 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"
             type="text/javascript">
             </script> -->
-            <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
-                defer></script>
-            <script src="javascript\TicketMaster.js"></script>
-            <script src="javascript\email.js"></script>
-            <script src="javascript\maps.js"></script>
-            <script src="javascript\Itunes.js"></script>
-            </script>
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
+            defer></script>
+        <script src="javascript\TicketMaster.js"></script>
+        <script src="javascript\email.js"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\Itunes.js"></script>
+        </script>
 
-            <!-- below is a temp place holder if we want text -->
+        <!-- below is a temp place holder if we want text -->
 
 
+        </div>
+
+        <div id="map"></div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+        <script src="javascript\TicketMaster.js"></script>
+        <script src="javascript\email.js"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\Itunes.js"></script>
+        </script>
+
+        <script> document.addEventListener('DOMContentLoaded', function () {
+                var dropDown = document.querySelectorAll('.dropdown-trigger');
+                var instances = M.Dropdown.init(dropDown);
+                var select = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(select);
+            });
+        </script>
+        </div>
+
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                            footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Rock Events in Washington Info</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <div id="map"></div>
-
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
-            <script src="javascript\TicketMaster.js"></script>
-            <script src="javascript\email.js"></script>
-            <script src="javascript\maps.js"></script>
-            <script src="javascript\Itunes.js"></script>
-            </script>
-
-            <script> document.addEventListener('DOMContentLoaded', function () {
-                    var dropDown = document.querySelectorAll('.dropdown-trigger');
-                    var instances = M.Dropdown.init(dropDown);
-                    var select = document.querySelectorAll('select');
-                    var instances = M.FormSelect.init(select);
-                });
-            </script>
-
-            <footer class="page-footer">
+            <div class="footer-copyright">
                 <div class="container">
-                    <div class="row">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Footer Content</h5>
-                            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
-                                footer content.</p>
-                        </div>
-                        <div class="col l4 offset-l2 s12">
-                            <h5 class="white-text">Rock Events in Washington Info</h5>
-                            <ul>
-                                <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
-                                <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-                                <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    © 2019 Copyright
                 </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        © 2019 Copyright
-                    </div>
-                </div>
-            </footer>
+            </div>
+        </footer>
 </body>
 
 </html>

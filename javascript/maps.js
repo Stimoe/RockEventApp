@@ -1,24 +1,26 @@
-// infoWindow = new google.maps.InfoWindow;
-// var marker, i;
-//   // Try HTML5 geolocation.
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//     lat=position.coords.latitude,
-//     lng=position.coords.longitude
-
-//       var map = new google.maps.Map(document.getElementById('map'), {
-//         zoom: 12,
-//         center: new google.maps.LatLng(lat,lng),
-//         mapTypeId: google.maps.MapTypeId.ROADMAP 
+var startLat
+var startLong
 
 
-      var cardDiv = $('<div class="card horizontal">')
+      var cardHorizontalDiv = $('<div class="card horizontal">')
       var cardImageDiv = $('<div class="card-image">')
       cardImageDiv.append('<img>').attr('src', fakeResponse.data[i].img-url )
-      cardDiv.append(cardImageDiv)
+      cardHorizontalDiv.append(cardImageDiv)
 
-      var cardStacked = $("<div class=")
+      var cardStackedDiv = $('<div class="card-stacked">')
+      var cardContentDiv = $('<div class"card-content">')
+      cardContentDiv.append("<h5>").attr("#", fakeResponse2.data[i].img-url)
+      cardContentDiv.append("<h1>").attr("#", fakeResponse2.data[i].img-url)
+      cardStackedDiv.append(cardContentDiv)
       
+      var cardActionDiv = $('<div class="card-action">')
+      cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img-url )
+      cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img-url )
+      cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img-url )
+      cardActionDiv.append(cardActionImgDiv)
+
+    $(".main-card-container").append(cardHorizontalDiv, cardStackedDiv, cardActionDiv) 
+
 //       });
 //     })
 //   }
