@@ -41,29 +41,29 @@ var bandNames=[]
 var images=[]
 var locations=[]
 
-var search
+var search="seattle"
 var zip;
 var currentLocation;
 var seattle=(47.608013+ "," + -122.335167)
 
 function mapFor(){
-  if (search===currentLocation){
+  if (search==="currentLocation"){
     getLocation()
   }
   
-  else{
-
+  if(search==="seattle"){
+seattleLocation()
   }
   
 }
 
+mapFor()
 
 
-bandInfo(seattle)
 function bandInfo(startLatLon){
 
-  
-  var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
+  console.log(startLatLon, "inside bandInfo function")
+  // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
   var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
 
 
@@ -97,8 +97,7 @@ var image=embed[i].images[0].url
         venues.push(venue)
        latss.push(latit)
       longg.push(longit)
-
-      
+  
     date.push(embed[i].dates.start.localDate)
     time.push(embed[i].dates.start.localTime)   
       
@@ -107,17 +106,20 @@ var image=embed[i].images[0].url
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
-      console.log(venues)
-      console.log(genre)
-      console.log(date)
-      console.log(time)
-     console.log(images)
-      console.log(bandNames)
-      console.log(locations)
+      console.log("venues",venues)
+      console.log("genre", genre)
+      console.log("date",date)
+      console.log("time",time)
+     console.log("images",images)
+      console.log("band names",bandNames)
+      console.log("locations",locations)
+      display(locations)
     })
     }
   
   
+
+    
 
 // bandInfo(seattleLatLon)
 

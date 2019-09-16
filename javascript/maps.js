@@ -32,10 +32,28 @@ console.log(startLat)
 console.log(latLon)
     })
       }
+    }
+      function seattleLocation() {
       
+      // var seattleLat=47.608013
+      // var seattleLon=122.335167
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(47.608013,-122.335167),
+        mapTypeId: google.maps.MapTypeId.ROADMAP  
+      });
+      // startLat=seattleLat
+      // startLong=seattleLon
+    latLon=(47.608013 + ","+ -122.335167  )
+    console.log(latLon)
+    bandInfo(latLon)
+//      console.log(latLon)
+// console.log(startLong)
+// console.log(startLat)
+// console.log(latLon)
 
-
-  }
+    }
+  
 
 
 
