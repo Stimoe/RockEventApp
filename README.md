@@ -30,30 +30,49 @@ ________________________________________________________________________________
                J-Anne : Manatee Tank concept structure
                         Assignment of tasks (Github Projects)
                         Got (2) Google Map API keys
+                        Learning Materalize
                Thomas&Leah : Testing multiple API Keys
                Michelle : Narrowing down applications
                          Learning Materalize
 _________________________________________________________________
 
-9/13 Thursday
+9/12 Thursday
               Michelle : Created website framework
               Thomas&Leah : Sorted through working and non-working API keys
               J-Anne : Updated README documentation
                        Reviewed, pushed & merged branch updated to origin development
 __________________________________________________________________
 
-9/14 Friday:
+9/13 Friday
               Thomas : Finalized working API's Googlemaps, itunes, ticketmaster
               J-Anne : Reviewed, pushed & merged branch updated to origin development
-                       Held Team Meeting - Reassigned tasks, roles, focus 
+                       Held Team Meeting - Reassigned tasks, roles and project focus
+              Leah : Added API call music genre and subgenre
+              Michelle : Working on creating code for materalized calenddars & e-mail notification
               
 __________________________________________________________________
 
-9/15 Sunday:
+9/14 Saturday
+             Thomas : Creates variables and arrays for TicketMaster
+                      Created HTML code for Google Maps API
+             J-Anne : Reviewed, pushed & merged branch updated to origin development
+                      Researched top genres for rock bands, narrowed down variables
+                      Reviewed and updated website layout diagram
+                      Found high resolution image for background layout
+             Michelle : Added in finalized music genres
+                        Checked website responsiveness between platforms
+                        Relabeled everything on Materalize
 
 __________________________________________________________________
 
-9/16 Monday:
+9/15 Sunday
+           J-Anne : Reviewed, pushed & merged branch updated to origin development
+                    Held Team Meeting - Reassigned tasks, roles and project focus
+                    Updated Worklog README
+                    Pulled (1) Google API key for "Places"
+           Thomas : Replaced Google API with TicketMaster (Google API)
+           Michelle : Creating collums on Materalize
+           Leah : Working on itunes API (remotely)
 
 __________________________________________________________________
 
