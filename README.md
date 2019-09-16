@@ -70,8 +70,11 @@ __________________________________________________________________
                     Held Team Meeting - Reassigned tasks, roles and project focus
                     Updated Worklog README
                     Pulled (1) Google API key for "Places"
+                    Working on Footer Links
            Thomas : Replaced Google API with TicketMaster (Google API)
-           Michelle : Creating collums on Materalize
+                    Google display fixed for event markers
+           Michelle : Creating collums (div containers) on Materalize
+                      Reviewed, pushed & merged branch updated to origin development
            Leah : Working on itunes API (remotely)
 
 __________________________________________________________________
