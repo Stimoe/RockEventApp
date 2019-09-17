@@ -1,26 +1,4 @@
 
-// // var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101"
-// var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z"
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// var embed=[]
-// var genre=[]
-// var date=[]
-// var time=[]
-// var event=[]
-// var longg=[]
-// var latss=[]
-// var venues=[]
-// var bandNames=[]
-// var images=[]
-// var locations=[];
-
-
 //url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
 
 
@@ -40,35 +18,102 @@ var venues = []
 var bandNames = []
 var images = []
 var locations = []
-
+var radius=[]
+markerToMake={}
+    venueForMarkers=[]
 var search="seattle"
 var zip;
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
-
-function mapFor(){
-  if (search==="currentLocation"){
-    getLocation()
+$(document).on("click", "#searchButton", function(event) {
+  radius.pop()
+  if($("#distance").val()==="1"){
+    console.log("5 miles!!")
+    radius1=5
+   radius.push(radius1)
   }
-  
-  if(search==="seattle"){
-seattleLocation()
-
-
+  if ($("#distance").val()==="2"){
+    radius1=20
+     radius.push(radius1)
+    console.log("20 Miles!!")
   }
+  if ($("#distance").val()==="3"){
+    radius1=50
+    console.log("50 Miles!!")
+     radius.push(radius1)
+  }
+subGenre()
+  function subGenre(){ 
+    var subGenress = $( "#subGenre" ).val(); 
+  console.log(subGenress)
+
+  if(subGenress==="1"){
+    console.log("Alternative")
+  }
+  if(subGenress==="2"){
+    console.log("Blues Rock")
+  }
+  if(subGenress==="3"){
+    console.log("British Invasion")
+  }
+  if(subGenress==="4"){
+    console.log("Death Metal")
+  }
+  if(subGenress==="5"){
+    console.log("Hair Metal")
+  }
+  if(subGenress==="6"){
+    console.log("Hard Rock")
+  }
+  if(subGenress==="7"){
+    console.log("Metal")
+  }
+  if(subGenress==="8"){
+    console.log("Progressive Rock")
+  }
+  if(subGenress==="9"){
+    console.log("Punk Rock")
+  }if(subGenress==="10"){
+    console.log("Rock & Roll")
+  }
+  if(subGenress==="11"){
+    console.log("Rockabilly")
+  }
+  if(subGenress==="12"){
+    console.log("Traditional Rock")
+  }
+
+
+
+
+
+
+
+
+
 
 }
 
-mapFor()
 
-
-
+ console.log(radius)
+ mapFor()
+  function mapFor(){
+    if (search==="currentLocation"){
+      getLocation()
+    }
+    
+    if(search==="seattle"){
+  
+  seattleLocation()
+    }
+  }
+})
 function bandInfo(startLatLon){
 
   console.log(startLatLon, "inside bandInfo function")
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-  var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
+  var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius="+radius+"&latlong="+startLatLon+""
 
 
 
@@ -80,7 +125,7 @@ function bandInfo(startLatLon){
     url: seattleQueryURL,
     method: "GET"
   }).then(function (response) {
-    // console.log(response)
+    console.log(response)
 
     var embed = response._embedded.events
 
@@ -113,13 +158,13 @@ function bandInfo(startLatLon){
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
-      console.log("venues",venues)
-      console.log("genre", genre)
-      console.log("date",date)
-      console.log("time",time)
-     console.log("images",images)
-      console.log("band names",bandNames)
-      console.log("locations",locations)
+    //   console.log("venues",venues)
+    //   console.log("genre", genre)
+    //   console.log("date",date)
+    //   console.log("time",time)
+    //  console.log("images",images)
+    //   console.log("band names",bandNames)
+    //   console.log("locations",locations)
       display(locations)
     })
     }
@@ -128,7 +173,40 @@ function bandInfo(startLatLon){
 
     
 
-// bandInfo(seattleLatLon)
+    
+   
+      
+      
+      function display(){
+          
+        $("#buttons-view").empty();
+        for (var j = 0; j < locations[0].length; j++) {
+            
+          var a = $("<button>");
+          a.attr({"data-name1": locations[0][j]}) 
+          a.attr({"data-name2": locations[1][j]})
+          a.attr({"data-name3": locations[2][j]})
+         a.attr("class","venue-buttons")
+          a.text(locations[0][j]);
+          $("#buttons-view").append(a)
+      }}
+    
+      $(document).on("click", ".venue-buttons", function(event) {
+        // console.log("clicked")
+        event.preventDefault();
+        var lats=$(this).attr("data-name2")
+        var lon=$(this).attr("data-name3")
+         var ven=$(this).attr("data-name1")
+    
+        
+    lat2= JSON.parse(lats)
+    lon2= JSON.parse(lon)
+      ven2=JSON.stringify(ven)
+    console.log("venue name" +ven2)
+        markerToMake={lat: lat2, lng: lon2}
+         console.log(markerToMake)
+        venueMarkers(markerToMake, ven2)
+      })
 
 
 

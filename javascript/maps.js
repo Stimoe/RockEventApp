@@ -1,6 +1,6 @@
 var startLat
 var startLong
-
+var makeMarker={}
 
 // var cardHorizontalDiv = $('<div class="card horizontal">')
 // var cardImageDiv = $('<div class="card-image">')
@@ -82,6 +82,7 @@ function getLocation() {
       console.log(startLat)
       console.log(latLon)
     })
+<<<<<<< HEAD
   }
 }
 function seattleLocation() {
@@ -109,10 +110,71 @@ function seattleLocation() {
 
 
 
+=======
+      }
+    }
+      function seattleLocation() {
+      
+      // var seattleLat=47.608013
+      // var seattleLon=122.335167
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(47.608013,-122.335167),
+        mapTypeId: google.maps.MapTypeId.ROADMAP  
+      });
+      // startLat=seattleLat
+      // startLong=seattleLon
+    latLon=(47.608013 + ","+ -122.335167  )
+    console.log(latLon)
+    bandInfo(latLon)
+>>>>>>> bd70d8d00a233453277aac6f566c7f38f8b3e6c6
 
+   
+   
 
+  }
 
+  function venueMarkers(){
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(47.608013,-122.335167),
+      mapTypeId: google.maps.MapTypeId.ROADMAP  
+    });
+    // startLat=seattleLat
+    // startLong=seattleLon
+  latLon=(47.608013 + ","+ -122.335167  )
+ 
+  bandInfo(latLon)
+  console.log("venue name" +ven2)
+    // console.log("markers"+markerToMake)
+    var marker = new google.maps.Marker({
+      position: markerToMake,
+      map: map,
+      title: ven2
+    });
+   
 
+  }
+
+<<<<<<< HEAD
+=======
+  
+  // function venueMarkers(){
+  
+  //   console.log(markerToMake)
+  //   var marker = new google.maps.Marker({
+  //     position: markerToMake,
+  //     map: map,
+  //     title: 'Hello World!'
+  //   });
+   
+
+  // }
+    
+    
+  
+  
+>>>>>>> bd70d8d00a233453277aac6f566c7f38f8b3e6c6
 
 
   // url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
