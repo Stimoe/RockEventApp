@@ -58,16 +58,16 @@ function cards() {
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
 
     var a = $("<button>");
-      a.attr({"data-name1": eventsFromUserChoices[5][i]}) 
-      a.attr({"data-name2": eventsFromUserChoices[6][i]})
-      a.attr({"data-name3": eventsFromUserChoices[7][i]})
-     a.attr("class","venue-buttons")
-      // a.text(eventsFromUserChoices[5][i]);
-      $("#buttons-view").append(a)
+    a.attr({ "data-name1": eventsFromUserChoices[5][i] })
+    a.attr({ "data-name2": eventsFromUserChoices[6][i] })
+    a.attr({ "data-name3": eventsFromUserChoices[7][i] })
+    a.attr("class", "venue-buttons")
+    // a.text(eventsFromUserChoices[5][i]);
+    $("#buttons-view").append(a)
 
 
 
-   
+
     $(".main-container>.row").append(` <div class="col s2 m7"> 
     <h2 class="header">Horizontal Card</h2>
     <div class="card horizontal">

@@ -1,8 +1,8 @@
 var artistLinks = [];
 
 function itunesLink() {
-    // console.log('bandNames', bandNames);
-    // console.log('bandNames length', bandNames.length);
+    console.log('bandNames', bandNames);
+    console.log('bandNames length', bandNames.length);
     for (var i = 0; i < bandNames.length; i++) {
         // console.log('forloop triggered', bandNames[i])
         $.ajax({
@@ -12,7 +12,7 @@ function itunesLink() {
         .then(function(response){
             // console.log('.then', JSON.parse(response));
             var responseObject = JSON.parse(response);
-            console.log('response', response);
+            console.log('response',);
             
             if (responseObject.resultCount > 0){
                 // console.log(responseObject.results[0].artistName);
@@ -40,25 +40,8 @@ function itunesLink() {
         
     }
     // $.when.apply( undefined, artistLinks ).then(function(response) {
-    //     // var objects = arguments;
-    //     console.log('objects', response);
-    // });
-}
-//   itunesLink();
-
-// function itunesLink() {
-//     console.log('bandNames', bandNames);
-//         console.log('forloop triggered')
-//         var queryURL = `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[0].split(" ").join("+")}`
-//         console.log(queryURL)
-//         $.ajax({ 
-//             url: queryURL,
-//             method: "GET"
-//         }).then(function(response) {
-//             console.log('.then', response);
-//             console.log(response.results.artistLinkUrl);
-
-//         })
-//   }
-
-//   itunesLink ()
+        //     // var objects = arguments;
+        //     console.log('objects', response);
+        // });
+        makeArrays();
+    }

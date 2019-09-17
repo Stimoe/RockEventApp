@@ -7,7 +7,7 @@
 
 // var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+latLon+""
 
-var embed = []
+var embed;
 var genre = []
 var date = []
 var time = []
@@ -19,25 +19,25 @@ var bandNames = []
 var images = []
 var locations = []
 var radius;
-var subGenreFromUser=""
-markerToMake={}
-venueForMarkers=[]
-artistAndGenre=[]
-eventsFromUserChoices=[]
-bigArrayWithAllInfoOfEvents=[]
-userchoice1=[]
-userchoice2=[]
-userchoice3=[]
-userchoice4=[]
-userchoice5=[]
-userchoice6=[]
-userchoice7=[]
-userchoice8=[]
-userchoice9=[]
+var subGenreFromUser = ""
+markerToMake = {}
+venueForMarkers = []
+artistAndGenre = []
+eventsFromUserChoices = []
+bigArrayWithAllInfoOfEvents = []
+userchoice1 = []
+userchoice2 = []
+userchoice3 = []
+userchoice4 = []
+userchoice5 = []
+userchoice6 = []
+userchoice7 = []
+userchoice8 = []
+userchoice9 = []
 
 
 
-var search="seattle"
+var search = "seattle"
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
@@ -115,6 +115,7 @@ $(document).on("click", "#searchButton", function (event) {
     }
   }
 })
+
 function bandInfo(startLatLon) {
 
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
@@ -126,11 +127,19 @@ function bandInfo(startLatLon) {
   }).then(function (response) {
     console.log(response)
 
-    var embed = response._embedded.events
-    for (var i = 0; i < embed.length; i++) {
-      if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
-        genre.push(embed[i].classifications[0].subGenre.name)
-          if (embed[i]._embedded.hasOwnProperty('attractions')){
+    embed = response._embedded.events;
+    console.log('embed', embed);
+
+    itunesLink();
+  })
+
+}
+
+function makeArrays() {
+  for (var i = 0; i < embed.length; i++) {
+    if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
+      genre.push(embed[i].classifications[0].subGenre.name)
+      if (embed[i]._embedded.hasOwnProperty('attractions')) {
         var bandName = embed[i]._embedded.attractions[0].name
         console.log(bandName)
         var venue = embed[i]._embedded.venues[0].name
@@ -153,34 +162,36 @@ function bandInfo(startLatLon) {
         bigArrayWithAllInfoOfEvents.push(latss)
         bigArrayWithAllInfoOfEvents.push(longg)
         bigArrayWithAllInfoOfEvents.push(artistLinks)
-        console.log('artist link'+ artistLinks);
-        
+        // console.log('artist link'+ artistLinks);
       }
-    }}
-    artistAndGenre.push(genre)
-    artistAndGenre.push(bandNames)
-      locations.push(venues)
-      locations.push(latss)
-      locations.push(longg)
-    createArrayWithAllEventInfoForSameGenre()  
-    console.log(bandNames)
-    itunesLink ()
-    })
-    }
-    console.log()
-    function createArrayWithAllEventInfoForSameGenre() {
-      for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
-        if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
 
-          userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
-          userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
-          userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
-          userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
-          userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
-          userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
-          userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
-          userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
-          userchoice9.push(bigArrayWithAllInfoOfEvents[8][l])
+    }
+  }
+
+  artistAndGenre.push(genre)
+  artistAndGenre.push(bandNames)
+  locations.push(venues)
+  locations.push(latss)
+  locations.push(longg)
+  createArrayWithAllEventInfoForSameGenre()
+  console.log(bandNames)
+}
+
+
+console.log()
+function createArrayWithAllEventInfoForSameGenre() {
+  for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
+    if (bigArrayWithAllInfoOfEvents[4][l] === subGenreFromUser) {
+
+      userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
+      userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
+      userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
+      userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
+      userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
+      userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
+      userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
+      userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
+      userchoice9.push(bigArrayWithAllInfoOfEvents[8][l])
     }
   }
   eventsFromUserChoices.push(userchoice1)
@@ -196,3 +207,4 @@ function bandInfo(startLatLon) {
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
 }
+
