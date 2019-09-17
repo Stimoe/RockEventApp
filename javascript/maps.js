@@ -1,15 +1,5 @@
 var startLat
 var startLong
-
-
-
-
-
-
-
-
-
-
  
   function getLocation() {
     if (navigator.geolocation) {

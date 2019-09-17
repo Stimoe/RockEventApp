@@ -8,6 +8,7 @@
     <title>Document</title>
 
 
+    
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -20,6 +21,10 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!-- Materalize Social Media Images -->
+    <!-- <link rel="stylesheet" type="text/css" href="node_modules\materialize-social\materialize-social.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <title>The Rock Event App</title>
 </head>
@@ -86,7 +91,7 @@
                     <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
                 </div>
             </div>
-<div id="test"></div>
+            <div id="test"></div>
             <div class="container">
                 <p>Lorem, ih1sum dolor sit amet consectetur adipisicing elit. Laudantium impedit quae
                     temporibus. Est
@@ -99,55 +104,56 @@
 
         </div>
 
-    
+
         <p id="location"></p>
-    <div id="map"></div>
-    <div id="events"></div>
-    <button onclick=getLocation()>Try It</button>
-    <p id="demo"></p>
+        <div id="map"></div>
+        <div id="events"></div>
+        <button onclick=getLocation()>Try It</button>
+        <p id="demo"></p>
 
-    <div id="display"></div>
-    <div id="buttons"></div>
-    <button id="clear">clear</button>
+        <div id="display"></div>
+        <div id="buttons"></div>
+        <button id="clear">clear</button>
 
-    
-  <div id="cards">
-    <div id="gif-row" class="row">
 
-      <div id="gifs-displayed">
-      </div>
-    </div>
-  </div>
-  <div id="buttons-view">
-</div>
+        <div id="cards">
+            <div id="gif-row" class="row">
+
+                <div id="gifs-displayed">
+                </div>
+            </div>
+        </div>
+        <div id="buttons-view">
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"type="text/javascript"></script> -->
         <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async defer></script>
-      
-      
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async defer>
+        </script>
+
+
         <script src="javascript\maps.js"></script>
         <script src="javascript\TicketMaster.js"></script>
-
         <script src="javascript\email.js"></script>
-=======
+        =======
 
 
-        <script> document.addEventListener('DOMContentLoaded', function () {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
                 var dropDown = document.querySelectorAll('.dropdown-trigger');
                 var instances = M.Dropdown.init(dropDown);
                 var select = document.querySelectorAll('select');
                 var instances = M.FormSelect.init(select);
             });
-        </script>                                                               
+        </script>
 
         <footer class="page-footer">
             <div class="container">
@@ -155,8 +161,8 @@
                     <div class="col l6 s12">
                         <h5 class="white-text"></h5>
                         <p class="grey-text text-lighten-4">
-                        <ol></ol>
-                        <!-- ordered list on common links -->
+                            <ol></ol>
+                            <!-- ordered list on common links -->
                             <h5><b>About Us</b></h5>
                             <h6>Our Team</h6>
                             <h6>Careers</h6>
@@ -167,50 +173,50 @@
                             <h6>Seattle WA 98101</h6>
                             <h6>Phone: 1-800-000-0000</h6>
                             <h6>Fax: 1-800-808-0808</h6>
-                            
-                            
+
+
                         </p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h6 class="white-text"><b>Event Notifications Signup</b></h6>
-                        
-                        <!-- E-mail Notification for Events -->
-                                                    <div class="row">
-                                                            <form class="col s12">
-                                                                <div class="row">
-                                                                <div class="input-field col s6">
-                                                                  <i class="material-icons prefix">account_circle</i>
-                                                                  <input id="icon_prefix" type="text" class="validate">
-                                                                  <label for="icon_prefix">Full Name</label>
-                                                                </div>
-                                                                <div class="input-field col s6">
-                                                                  <i class="material-icons prefix"></i>
-                                                                  <input id="icon_email" type="tel" class="validate">
-                                                                  <label for="icon_email">E-mail</label>
-                                                                </div>
-                                                              </div>
-                                                            </form>
-                                                          </div>
-                                                          
-                                                          <!-- Large Icons on Materalize CSS -->
-                                                          <h5>Follow us on Social Media</h5>
-                                                          <!-- Facebook Icon -->
-                                                          <a class="waves-effect waves-light btn-floating btn-large social facebook">
-                                                                  <i class="fa fa-facebook"></i></a>
-                                                          <!-- Instagram Icon -->        
-                                                          <a class="waves-effect waves-light btn-large social instagram">
-                                                                  <i class="fa fa-instagram"></i></a>
-                                                          <!-- Twitter Icon -->
-                                                          <a class="waves-effect waves-light btn-floating btn-large social twitter">
-                                                                  <i class="fa fa-twitter"></i></a>
-                                                          <!-- Soundcloud Icon -->
-                                                          <a class="waves-effect waves-light btn-floating btn-large social soundcloud">
-                                                                  <i class="fa fa-soundcloud"></i></a>
 
-                               <!-- <a class="grey-text text-lighten-3" href="#!">About Us</a></li> -->
-                               <!-- Our Team -->
-                               <!-- Thomas: -->
-                               <!--J-Anne: During my highschool years in the 2000's I grew up and fell in love with Punk Rock.
+                        <!-- E-mail Notification for Events -->
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="fullname" type="text" class="validate">
+                                        <label for="icon_prefix">Full Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix"></i>
+                                        <input id="email" type="tel" class="validate">
+                                        <label for="icon_email">E-mail</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Large Icons on Materalize CSS -->
+                        <h5>Follow us on Social Media</h5>
+                        <!-- Facebook Icon -->
+                        <a class="waves-effect waves-light btn-floating btn-large social facebook">
+                            <i class="social fa fa-facebook"></i></a>
+                        <!-- Instagram Icon -->
+                        <a class="waves-effect waves-light btn-floating btn-large social instagram">
+                            <i class="fa fa-instagram"></i></a>
+                        <!-- Twitter Icon -->
+                        <a class="waves-effect waves-light btn-floating btn-large social twitter">
+                            <i class="fa fa-twitter"></i></a>
+                        <!-- Soundcloud Icon -->
+                        <a class="waves-effect waves-light btn-floating btn-large social soundcloud">
+                            <i class="fa fa-soundcloud"></i></a>
+
+                        <!-- <a class="grey-text text-lighten-3" href="#!">About Us</a></li> -->
+                        <!-- Our Team -->
+                        <!-- Thomas: -->
+                        <!--J-Anne: During my highschool years in the 2000's I grew up and fell in love with Punk Rock.
                                 The topics that punk rock artists would sing about were realatable to my slightly angsty teenage life.
                                 I felt misunderstood at the time and listening to the artists scream about their feelings were a way
                                 to avoid me screaming at people in real life. Lyrics that conveyed what I was feeling and couldn't articulate
@@ -218,14 +224,14 @@
                             music that carried me though highschool will always have a special place in my heart. If you have a tendency
                             to gravitate towards pop music but have a love of deeply depressing or melancholy music punk rock may be for
                             you too. -->
-                            <!-- Michelle: -->
-                            <!-- Leah -->
-                
-                            <!-- If you are an artist or local event planner please send us a detailed message about
+                        <!-- Michelle: -->
+                        <!-- Leah -->
+
+                        <!-- If you are an artist or local event planner please send us a detailed message about
                                 your event and we will add you to our database within 48hrs of your request. Please
                                 give us time to process your request, due to our high e-mail volumes we will respond
                                 as soon as possible. -->
-                            </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
