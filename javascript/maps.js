@@ -82,8 +82,8 @@ function cards() {
         </div> 
 
         <div class="card-action">
-            <button id="button-view">${""}Venue Location</button>
-            <a href="#" id="itunes">iTunes</a>
+            <button id="button-view">Venue Location</button>
+            <a href="" id="itunes">iTunes</a>
             <a href="#" id="event-details">Email Event Details</a>
            
         </div>

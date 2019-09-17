@@ -33,6 +33,7 @@ userchoice5=[]
 userchoice6=[]
 userchoice7=[]
 userchoice8=[]
+userchoice9=[]
 
 
 
@@ -151,6 +152,9 @@ function bandInfo(startLatLon) {
         bigArrayWithAllInfoOfEvents.push(venues)
         bigArrayWithAllInfoOfEvents.push(latss)
         bigArrayWithAllInfoOfEvents.push(longg)
+        bigArrayWithAllInfoOfEvents.push(artistLinks)
+        console.log('artist link'+ artistLinks);
+        
       }
     }}
     artistAndGenre.push(genre)
@@ -176,6 +180,7 @@ function bandInfo(startLatLon) {
           userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
           userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
           userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
+          userchoice9.push(bigArrayWithAllInfoOfEvents[8][l])
     }
   }
   eventsFromUserChoices.push(userchoice1)
@@ -186,6 +191,7 @@ function bandInfo(startLatLon) {
   eventsFromUserChoices.push(userchoice6)
   eventsFromUserChoices.push(userchoice7)
   eventsFromUserChoices.push(userchoice8)
+  eventsFromUserChoices.push(userchoice9)
   // displayNew(eventsFromUserChoices)
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
