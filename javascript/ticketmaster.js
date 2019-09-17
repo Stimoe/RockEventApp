@@ -18,30 +18,34 @@ var venues = []
 var bandNames = []
 var images = []
 var locations = []
-var radius=[]
+var radius;
+var subGenreFromUser=""
 markerToMake={}
-    venueForMarkers=[]
+venueForMarkers=[]
+artistAndGenre=[]
+eventsFromUserChoices=[]
+
+
 var search="seattle"
-var zip;
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
 $(document).on("click", "#searchButton", function(event) {
-  radius.pop()
+
   if($("#distance").val()==="1"){
     console.log("5 miles!!")
-    radius1=5
-   radius.push(radius1)
+    radius=5
+ 
   }
   if ($("#distance").val()==="2"){
-    radius1=20
-     radius.push(radius1)
+    radius=20
+
     console.log("20 Miles!!")
   }
   if ($("#distance").val()==="3"){
-    radius1=50
-    console.log("50 Miles!!")
-     radius.push(radius1)
+    radius=50
+   
+     
   }
 subGenre()
   function subGenre(){ 
@@ -50,49 +54,53 @@ subGenre()
 
   if(subGenress==="1"){
     console.log("Alternative")
+    subGenreFromUser=("Alternative Rock")
   }
   if(subGenress==="2"){
     console.log("Blues Rock")
+    subGenreFromUser=("Blues Rock")
   }
   if(subGenress==="3"){
     console.log("British Invasion")
+    subGenreFromUser=("British Invasion")
   }
   if(subGenress==="4"){
     console.log("Death Metal")
+    subGenreFromUser=("Death Metal")
   }
   if(subGenress==="5"){
     console.log("Hair Metal")
+    subGenreFromUser=("Hair Metal")
   }
   if(subGenress==="6"){
     console.log("Hard Rock")
+    subGenreFromUser=("Hard Rock")
   }
   if(subGenress==="7"){
     console.log("Metal")
+    subGenreFromUser=("Metal")
   }
   if(subGenress==="8"){
     console.log("Progressive Rock")
+    subGenreFromUser=("Progressive Rock")
   }
   if(subGenress==="9"){
     console.log("Punk Rock")
-  }if(subGenress==="10"){
+    subGenreFromUser=("Punk Rock")
+  }
+  if(subGenress==="10"){
     console.log("Rock & Roll")
+    subGenreFromUser=("Rock & Roll")
   }
   if(subGenress==="11"){
     console.log("Rockabilly")
+    subGenreFromUser=("Rockabilly")
   }
   if(subGenress==="12"){
     console.log("Traditional Rock")
+    subGenreFromUser=("Traditional Rock")
   }
-
-
-
-
-
-
-
-
-
-
+  
 }
 
 
@@ -155,6 +163,9 @@ function bandInfo(startLatLon){
       
       }
     }
+    artistAndGenre.push(genre)
+    artistAndGenre.push(bandNames)
+   
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
@@ -165,18 +176,13 @@ function bandInfo(startLatLon){
     //  console.log("images",images)
     //   console.log("band names",bandNames)
     //   console.log("locations",locations)
+    console.log(artistAndGenre)
+    checkIfSameGenre()
       display(locations)
+      
     })
     }
   
-  
-
-    
-
-    
-   
-      
-      
       function display(){
           
         $("#buttons-view").empty();
@@ -202,14 +208,28 @@ function bandInfo(startLatLon){
     lat2= JSON.parse(lats)
     lon2= JSON.parse(lon)
       ven2=JSON.stringify(ven)
-    console.log("venue name" +ven2)
+   
         markerToMake={lat: lat2, lng: lon2}
-         console.log(markerToMake)
+       
         venueMarkers(markerToMake, ven2)
+        
       })
 
+      function checkIfSameGenre(){
+        for (var k = 0; k < artistAndGenre[0].length; k++) {
+          if(artistAndGenre[0][k]===subGenreFromUser){
+            console.log(artistAndGenre[1][k])
+          console.log(artistAndGenre[0][k])
+          eventsFromUserChoices.push(artistAndGenre[1][k])
 
 
+
+          }
+          
+      }
+      console.log(eventsFromUserChoices)
+
+    }
 
 
 
