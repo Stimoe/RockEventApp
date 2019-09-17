@@ -24,6 +24,13 @@ markerToMake={}
 venueForMarkers=[]
 artistAndGenre=[]
 eventsFromUserChoices=[]
+bigArrayWithAllInfoOfEvents=[]
+userchoice1=[]
+userchoice2=[]
+userchoice3=[]
+userchoice4=[]
+userchoice5=[]
+userchoice6=[]
 
 
 var search="seattle"
@@ -159,10 +166,20 @@ function bandInfo(startLatLon){
       longg.push(longit)
   
     date.push(embed[i].dates.start.localDate)
-    time.push(embed[i].dates.start.localTime)   
+    time.push(embed[i].dates.start.localTime)  
+    bigArrayWithAllInfoOfEvents.push(date)
+    bigArrayWithAllInfoOfEvents.push(time)
+    bigArrayWithAllInfoOfEvents.push(bandNames)
+    bigArrayWithAllInfoOfEvents.push(images)
+    bigArrayWithAllInfoOfEvents.push(genre)
+    bigArrayWithAllInfoOfEvents.push(venues) 
       
       }
     }
+  
+   
+
+
     artistAndGenre.push(genre)
     artistAndGenre.push(bandNames)
    
@@ -176,8 +193,9 @@ function bandInfo(startLatLon){
     //  console.log("images",images)
     //   console.log("band names",bandNames)
     //   console.log("locations",locations)
-    console.log(artistAndGenre)
-    checkIfSameGenre()
+    // console.log(artistAndGenre)
+    // console.log(bigArrayWithAllInfoOfEvents)
+    createArrayWithAllEventInfoForSameGenre()
       display(locations)
       
     })
@@ -215,21 +233,53 @@ function bandInfo(startLatLon){
         
       })
 
-      function checkIfSameGenre(){
-        for (var k = 0; k < artistAndGenre[0].length; k++) {
-          if(artistAndGenre[0][k]===subGenreFromUser){
-            console.log(artistAndGenre[1][k])
-          console.log(artistAndGenre[0][k])
-          eventsFromUserChoices.push(artistAndGenre[1][k])
+    //   function checkIfSameGenre(){
+    //     for (var k = 0; k < artistAndGenre[0].length; k++) {
+    //       if(artistAndGenre[0][k]===subGenreFromUser){
+    //         console.log(artistAndGenre[1][k])
+    //       console.log(artistAndGenre[0][k])
+    //       // eventsFromUserChoices.push(artistAndGenre[1][k])
+    //       }     
+    //   }
+    //   // console.log(eventsFromUserChoices)
+    // }
+
+    function createArrayWithAllEventInfoForSameGenre() {
+      for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
+        if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
 
 
 
-          }
-          
-      }
-      console.log(eventsFromUserChoices)
+
+          userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
+          userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
+          userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
+          userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
+          userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
+          userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
+         
+
+
+        
 
     }
+    
+
+  }
+  eventsFromUserChoices.push(userchoice1)
+  eventsFromUserChoices.push(userchoice2)
+  eventsFromUserChoices.push(userchoice3)
+  eventsFromUserChoices.push(userchoice4)
+  eventsFromUserChoices.push(userchoice5)
+  eventsFromUserChoices.push(userchoice6)
+  console.log(userchoice1)
+    console.log(userchoice2)
+    console.log(userchoice3)
+    console.log(userchoice4)
+    console.log(userchoice5)
+    console.log(userchoice6)
+  console.log(eventsFromUserChoices)
+  }
 
 
 
