@@ -18,6 +18,13 @@ var venues = []
 var bandNames = []
 var images = []
 var locations = []
+<<<<<<< HEAD
+var radius=[]
+markerToMake={}
+    venueForMarkers=[]
+var search="seattle"
+var zip;
+=======
 var radius;
 var subGenreFromUser=""
 markerToMake={}
@@ -36,10 +43,78 @@ userchoice8=[]
 
 
 var search="seattle"
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
 $(document).on("click", "#searchButton", function(event) {
+<<<<<<< HEAD
+  radius.pop()
+  if($("#distance").val()==="1"){
+    console.log("5 miles!!")
+    radius1=5
+   radius.push(radius1)
+  }
+  if ($("#distance").val()==="2"){
+    radius1=20
+     radius.push(radius1)
+    console.log("20 Miles!!")
+  }
+  if ($("#distance").val()==="3"){
+    radius1=50
+    console.log("50 Miles!!")
+     radius.push(radius1)
+  }
+subGenre()
+  function subGenre(){ 
+    var subGenress = $( "#subGenre" ).val(); 
+  console.log(subGenress)
+
+  if(subGenress==="1"){
+    console.log("Alternative")
+  }
+  if(subGenress==="2"){
+    console.log("Blues Rock")
+  }
+  if(subGenress==="3"){
+    console.log("British Invasion")
+  }
+  if(subGenress==="4"){
+    console.log("Death Metal")
+  }
+  if(subGenress==="5"){
+    console.log("Hair Metal")
+  }
+  if(subGenress==="6"){
+    console.log("Hard Rock")
+  }
+  if(subGenress==="7"){
+    console.log("Metal")
+  }
+  if(subGenress==="8"){
+    console.log("Progressive Rock")
+  }
+  if(subGenress==="9"){
+    console.log("Punk Rock")
+  }if(subGenress==="10"){
+    console.log("Rock & Roll")
+  }
+  if(subGenress==="11"){
+    console.log("Rockabilly")
+  }
+  if(subGenress==="12"){
+    console.log("Traditional Rock")
+  }
+
+
+
+
+
+
+
+
+
+=======
 
   if($("#distance").val()==="1"){
     // console.log("5 miles!!")
@@ -48,6 +123,7 @@ $(document).on("click", "#searchButton", function(event) {
   }
   if ($("#distance").val()==="2"){
     radius=20
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
 
     // console.log("20 Miles!!")
   }
@@ -113,7 +189,11 @@ subGenre()
 }
 
 
+<<<<<<< HEAD
+ console.log(radius)
+=======
 //  console.log(radius)
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
  mapFor()
   function mapFor(){
     if (search==="currentLocation"){
@@ -128,7 +208,11 @@ subGenre()
 })
 function bandInfo(startLatLon){
 
+<<<<<<< HEAD
+  console.log(startLatLon, "inside bandInfo function")
+=======
   // console.log(startLatLon, "inside bandInfo function")
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
   var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius="+radius+"&latlong="+startLatLon+""
 
@@ -168,6 +252,12 @@ function bandInfo(startLatLon){
       longg.push(longit)
   
     date.push(embed[i].dates.start.localDate)
+<<<<<<< HEAD
+    time.push(embed[i].dates.start.localTime)   
+      
+      }
+    }
+=======
     time.push(embed[i].dates.start.localTime)  
     bigArrayWithAllInfoOfEvents.push(date)
     bigArrayWithAllInfoOfEvents.push(time)
@@ -188,6 +278,7 @@ function bandInfo(startLatLon){
     artistAndGenre.push(genre)
     artistAndGenre.push(bandNames)
    
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
@@ -198,6 +289,20 @@ function bandInfo(startLatLon){
     //  console.log("images",images)
     //   console.log("band names",bandNames)
     //   console.log("locations",locations)
+<<<<<<< HEAD
+      display(locations)
+    })
+    }
+  
+  
+
+    
+
+    
+   
+      
+      
+=======
     // console.log(artistAndGenre)
     // console.log(bigArrayWithAllInfoOfEvents)
     createArrayWithAllEventInfoForSameGenre()
@@ -208,6 +313,7 @@ function bandInfo(startLatLon){
     
     }
   
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
       function display(){
           
         $("#buttons-view").empty();
@@ -233,6 +339,16 @@ function bandInfo(startLatLon){
     lat2= JSON.parse(lats)
     lon2= JSON.parse(lon)
       ven2=JSON.stringify(ven)
+<<<<<<< HEAD
+    console.log("venue name" +ven2)
+        markerToMake={lat: lat2, lng: lon2}
+         console.log(markerToMake)
+        venueMarkers(markerToMake, ven2)
+      })
+
+
+
+=======
    
         markerToMake={lat: lat2, lng: lon2}
        
@@ -286,6 +402,7 @@ function bandInfo(startLatLon){
   //   console.log(userchoice6)
   console.log(eventsFromUserChoices)
   }
+>>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
 
 
 
