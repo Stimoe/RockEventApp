@@ -52,6 +52,39 @@ function displayCards(arr) {
 displayCards()
 
 
+
+function cards() {
+  console.log(eventsFromUserChoices)
+  for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
+   
+    $(".main-card-container>.row").append(` <div class="col s2 m7"> 
+    <h2 class="header">Horizontal Card</h2>
+    <div class="card horizontal">
+    <div class="card-image">
+    <img id ="band-image" src="${eventsFromUserChoices[3][i]}">
+    </div>
+    <div class="card-stacked">
+        <div id= "card-contents" class="card-content">
+            <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
+            <h6 id="venue-name">Venue name link here</h6>
+            <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+
+        <div class="card-action">
+            <a href="#" id="venue">Venue Location</a>
+            <a href="#" id="itunes">iTunes</a>
+            <a href="#" id="event-details">Email Event Details</a>
+        </div>
+    </div>
+</div>
+</div>`)
+  }
+}
+
+
+
+
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -67,71 +100,39 @@ function getLocation() {
       startLong = lng
       latLon = (startLat + "," + startLong)
       bandInfo(latLon)
-
-
     })
   }
 }
 function seattleLocation() {
-
-  // var seattleLat=47.608013
-  // var seattleLon=122.335167
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
-  // startLat=seattleLat
-  // startLong=seattleLon
   latLon = (47.608013 + "," + -122.335167)
-  // console.log(latLon)
   bandInfo(latLon)
-
-   
-    }
-      
-    
-      function seattleLocation() {
-      
-      // var seattleLat=47.608013
-      // var seattleLon=122.335167
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: new google.maps.LatLng(47.608013,-122.335167),
-        mapTypeId: google.maps.MapTypeId.ROADMAP  
-      });
-      // startLat=seattleLat
-      // startLong=seattleLon
-    latLon=(47.608013 + ","+ -122.335167  )
-    // console.log(latLon)
-    bandInfo(latLon)
-
-
-
-
-
 }
-
+function seattleLocation() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: new google.maps.LatLng(47.608013, -122.335167),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  latLon = (47.608013 + "," + -122.335167)
+  bandInfo(latLon)
+}
 function venueMarkers() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
-  // startLat=seattleLat
-  // startLong=seattleLon
-  latLon = (47.608013 + "," + -122.335167)
-
-  bandInfo(latLon)
   console.log("venue name" + ven2)
-  // console.log("markers"+markerToMake)
   var marker = new google.maps.Marker({
     position: markerToMake,
     map: map,
     title: ven2
   });
-
-
 }
 
 
@@ -140,4 +141,3 @@ function venueMarkers() {
 
 
 
-  
