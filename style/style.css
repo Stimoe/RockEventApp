@@ -1,7 +1,10 @@
 #main-div{
     border-color: red;
 }
-
+#main-container{
+    margin: 0px; 
+    content: center;
+}
 
 
 
@@ -18,10 +21,17 @@
 
 #map {
     width: 500px;
-    height: 400px
+    height: 400px;
+    float: right;
 
 }
-
+/* .row {
+    display: flex;
+  } */
+/* #card-container {
+    
+        display: inline-flex; /* or inline-flex */
+      
 
 /* 
 body{

@@ -34,6 +34,8 @@ userchoice6=[]
 userchoice7=[]
 userchoice8=[]
 
+
+
 var search="seattle"
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
@@ -128,8 +130,9 @@ function bandInfo(startLatLon){
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
-
-        var bandName = embed[i].name
+          if (embed[i]._embedded.hasOwnProperty('attractions')){
+        var bandName = embed[i]._embedded.attractions[0].name
+        console.log(bandName)
         var venue = embed[i]._embedded.venues[0].name
         var latit = embed[i]._embedded.venues[0].location.latitude
         var longit = embed[i]._embedded.venues[0].location.longitude
@@ -150,15 +153,17 @@ function bandInfo(startLatLon){
     bigArrayWithAllInfoOfEvents.push(latss) 
     bigArrayWithAllInfoOfEvents.push(longg) 
       }
-    }
+    }}
     artistAndGenre.push(genre)
     artistAndGenre.push(bandNames)
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
     createArrayWithAllEventInfoForSameGenre()  
+    console.log(bandNames)
     })
     }
+    console.log()
     function createArrayWithAllEventInfoForSameGenre() {
       for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
         if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
@@ -181,7 +186,7 @@ function bandInfo(startLatLon){
   eventsFromUserChoices.push(userchoice6)
   eventsFromUserChoices.push(userchoice7)
   eventsFromUserChoices.push(userchoice8)
-  displayNew(eventsFromUserChoices)
+  // displayNew(eventsFromUserChoices)
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
   }
