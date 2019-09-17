@@ -4,17 +4,23 @@
 
 
 
-/* body {
-    border: 1px;
 
 
-p { color:blue
+#band-image {
+    max-width: 100px;
+    max-height: 100px;
+
 }
+
+#card-contents {
+    padding: 0px;
+}
+
 #map {
     width: 500px;
     height: 400px
-<<<<<<< HEAD
-} */
+
+}
 
 
 /* 
@@ -67,7 +73,5 @@ body{
     z-index: -2;
     opacity: 0.4;
     } */
-=======
-}
 
->>>>>>> a9252cd541016c51e135f2fc2dc72bfe90f55e8f
+

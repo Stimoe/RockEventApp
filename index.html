@@ -29,7 +29,7 @@
         <h1>Rock Events in Washington</h1>
         <div class="row">
             <div class="input-field col s4">
-                <select>
+                <select id="subGenre">
                     <option value="" disabled selected>Sub Genre</option>
                     <option value="1">Alternative</option>
                     <option value="2">Blues Rock</option>
@@ -57,17 +57,17 @@
                     <option value="2">This Weekend</option>
                     <option value="3">Date Range</option>
                 </select>
-                <label class="black-text">Search by Dates</label>
+                <label id="searchButton" class="black-text">Search by Dates</label>
             </div>
 
             <div class="input-field col s4">
-                <select>
+                <select id="distance">
                     <option value="" disabled selected>Distance</option>
                     <option value="1">5 Miles</option>
                     <option value="2">20 Miles</option>
                     <option value="3">50 Miles</option>
                 </select>
-                <label class="black-text">Search by Distance</label>
+                <label id="searchButton" class="black-text">Search by Distance</label>
             </div>
         </div>
 
@@ -76,21 +76,22 @@
                 <button class="btn waves-effect waves-light" type="submit" name="action">Search by Loction
                     <i class="material-icons center">send</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search
                     <i class="material-icons right">send</i>
                 </button>
             </div>
         </div>
     </div>
     <div class="container">
-    <div class="main-card-container">
-        <div class="row">
-
-
+        <div class="main-card-container">
+            <div class="row">
+            </div>
         </div>
     </div>
-</div>
-    <div class="row">
+    <div id="map"></div>
+
+
+    <!-- <div class="row">
         <div class="col s3 m7">
             <h2 class="header">Horizontal Card</h2>
             <div class="card horizontal">
@@ -116,11 +117,11 @@
                 </div>
 
                 <div class="input-field col s4">
-                    <select id="searchByDate">
-                        <!-- "this weekend" is using a filter.  All Dates will populate everything
+                    <select id="searchByDate"> --> -->
+    <!-- "this weekend" is using a filter.  All Dates will populate everything
                         and date range will populate a popup calendar -->
-                        <!-- click event-shows all info- click on show in maps -->
-                        <option value="" disabled selected>Dates</option>
+    <!-- click event-shows all info- click on show in maps -->
+    <!-- <option value="" disabled selected>Dates</option>
                         <option value="1">All Dates</option>
                         <option value="2">This Weekend</option>
                         <option value="3">Date Range</option>
@@ -148,50 +149,15 @@
                         <a href="#" id="venue">Venue Location</a>
                         <a href="#" id="itunes">iTunes</a>
                         <a href="#" id="event-details">Email Event Details</a>
-                    </div>
-            <div class="row">
+                    </div> -->
+    <!-- <div class="row">
                 <div class="col s6 offset-s3">
                     <a id="searchButton"class="waves-effect waves-light btn-large offset-s6"><i
-                            class="material-icons left">search</i>Search</a>
-                    <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
-                </div>
-            </div>
-        </div>
+                            class="material-icons left">search</i>Search</a> -->
+    <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
+ 
+    <div id="buttons-view">
     </div>
-    </div>
-    
-        <p id="location"></p>
-    <div id="map"></div>
-    <div id="events"></div>
-  
-   
-
-    <div id="display"></div>
-    <div id="buttons"></div>
-    
-
-    
-  <div id="cards">
-    <div id="gif-row" class="row">
-
-      <div id="gifs-displayed">
-      </div>
-    </div>
-  </div>
-  <div id="buttons-view">
-</div>
-
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"type="text/javascript"></script> -->
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
-
 
     <footer class="page-footer">
         <div class="container">
@@ -256,8 +222,8 @@
         <!-- We can use this for our artist info -->
 
 
-        <p id="location">location there</p>
-        <div id="map"></div>
+
+
         <div id="events"></div>
 
         <!-- We can use this for our artist info -->
@@ -303,13 +269,21 @@
                 </div>
             </div>
         </footer>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
-            defer></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
+            defer></script> -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
         <script src="javascript\maps.js"></script>
         <script src="javascript\Itunes.js"></script>
         <script src="javascript\TicketMaster.js"></script>
@@ -322,12 +296,12 @@
 
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+
         <!-- <script src="javascript\TicketMaster.js"></script>
 <script src="javascript\email.js"></script>
 <script src="javascript\maps.js"></script>
 <script src="javascript\Itunes.js"></script> -->
-        </script>
+
 
         <script> document.addEventListener('DOMContentLoaded', function () {
                 var dropDown = document.querySelectorAll('.dropdown-trigger');
