@@ -50,13 +50,6 @@ function displayCards(arr){
 }
 }
 displayCards()
-<<<<<<< HEAD
-//       });
-//     })
-//   }
-=======
-
->>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
 
 
 function getLocation() {
@@ -74,14 +67,7 @@ function getLocation() {
       startLong = lng
       latLon = (startLat + "," + startLong)
       bandInfo(latLon)
-<<<<<<< HEAD
-      console.log(latLon)
-      console.log(startLong)
-      console.log(startLat)
-      console.log(latLon)
-=======
    
->>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
     })
       }
     }
@@ -97,11 +83,7 @@ function getLocation() {
       // startLat=seattleLat
       // startLong=seattleLon
     latLon=(47.608013 + ","+ -122.335167  )
-<<<<<<< HEAD
-    console.log(latLon)
-=======
     // console.log(latLon)
->>>>>>> 3a14d072442e15fe4f639c4aa8c921060078c254
     bandInfo(latLon)
 
    
