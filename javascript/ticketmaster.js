@@ -19,22 +19,24 @@ var bandNames = []
 var images = []
 var locations = []
 var radius;
-var subGenreFromUser = ""
-markerToMake = {}
-venueForMarkers = []
-artistAndGenre = []
-eventsFromUserChoices = []
-bigArrayWithAllInfoOfEvents = []
-userchoice1 = []
-userchoice2 = []
-userchoice3 = []
-userchoice4 = []
-userchoice5 = []
-userchoice6 = []
-userchoice7 = []
-userchoice8 = []
+var subGenreFromUser=""
+markerToMake={}
+venueForMarkers=[]
+artistAndGenre=[]
+eventsFromUserChoices=[]
+bigArrayWithAllInfoOfEvents=[]
+userchoice1=[]
+userchoice2=[]
+userchoice3=[]
+userchoice4=[]
+userchoice5=[]
+userchoice6=[]
+userchoice7=[]
+userchoice8=[]
 
-var search = "seattle"
+
+
+var search="seattle"
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
@@ -127,8 +129,9 @@ function bandInfo(startLatLon) {
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
-
-        var bandName = embed[i].name
+          if (embed[i]._embedded.hasOwnProperty('attractions')){
+        var bandName = embed[i]._embedded.attractions[0].name
+        console.log(bandName)
         var venue = embed[i]._embedded.venues[0].name
         var latit = embed[i]._embedded.venues[0].location.latitude
         var longit = embed[i]._embedded.venues[0].location.longitude
@@ -149,29 +152,30 @@ function bandInfo(startLatLon) {
         bigArrayWithAllInfoOfEvents.push(latss)
         bigArrayWithAllInfoOfEvents.push(longg)
       }
-    }
-    console.log('bandNames:', bandNames)
-    itunesLink();
+    }}
     artistAndGenre.push(genre)
     artistAndGenre.push(bandNames)
-    locations.push(venues)
-    locations.push(latss)
-    locations.push(longg)
-    createArrayWithAllEventInfoForSameGenre()
-  })
-}
-function createArrayWithAllEventInfoForSameGenre() {
-  for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
-    if (bigArrayWithAllInfoOfEvents[4][l] === subGenreFromUser) {
+      locations.push(venues)
+      locations.push(latss)
+      locations.push(longg)
+    createArrayWithAllEventInfoForSameGenre()  
+    console.log(bandNames)
+    itunesLink ()
+    })
+    }
+    console.log()
+    function createArrayWithAllEventInfoForSameGenre() {
+      for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
+        if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
 
-      userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
-      userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
-      userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
-      userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
-      userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
-      userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
-      userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
-      userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
+          userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
+          userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
+          userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
+          userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
+          userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
+          userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
+          userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
+          userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
     }
   }
   eventsFromUserChoices.push(userchoice1)
@@ -182,7 +186,7 @@ function createArrayWithAllEventInfoForSameGenre() {
   eventsFromUserChoices.push(userchoice6)
   eventsFromUserChoices.push(userchoice7)
   eventsFromUserChoices.push(userchoice8)
-  displayNew(eventsFromUserChoices)
+  // displayNew(eventsFromUserChoices)
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
 }
