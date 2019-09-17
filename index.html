@@ -1,12 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rock Events In Washington</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
+
+
+
 <body>
-    <h1> The Rock Event App</h1>>
+    <div id="header-container" class="main-card-container"></div>
+    <!-- Main Materialize Container -->
+    <div class="container">
+        <h1>Rock Events in Washington</h1>
+        <div class="row">
+            <div class="input-field col s4">
+                <select id="subGenre">
+                    <option value="" disabled selected>Sub Genre</option>
+                    <option value="1">Alternative</option>
+                    <option value="2">Blues Rock</option>
+                    <option value="3">British Invasion</option>
+                    <option value="4">Death Metal</option>
+                    <option value="5">Hair Metal</option>
+                    <option value="6">Hard Rock</option>
+                    <option value="7">Metal</option>
+                    <option value="8">Progressive Rock</option>
+                    <option value="9">Punk Rock</option>
+                    <option value="10">Rock & Roll</option>
+                    <option value="11">Rockabilly</option>
+                    <option value="12">Traditional Rock</option>
+                </select>
+                <label class="black-text">Search by Sub Genre</label>
+            </div>
+
+            <div class="input-field col s4">
+                <select>
+                    <!-- "this weekend" is using a filter.  All Dates will populate everything
+                        and date range will populate a popup calendar -->
+                    <!-- click event-shows all info- click on show in maps -->
+                    <option value="" disabled selected>Dates</option>
+                    <option value="1">All Dates</option>
+                    <option value="2">This Weekend</option>
+                    <option value="3">Date Range</option>
+                </select>
+                <label id="searchButton" class="black-text">Search by Dates</label>
+            </div>
+
+            <div class="input-field col s4">
+                <select id="distance">
+                    <option value="" disabled selected>Distance</option>
+                    <option value="1">5 Miles</option>
+                    <option value="2">20 Miles</option>
+                    <option value="3">50 Miles</option>
+                </select>
+                <label id="searchButton" class="black-text">Search by Distance</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search by Location
+                    <i class="material-icons center">send</i>
+                </button>
+                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="card-container" class="container">
+        <div class="main-container">
+            <div id = "card" class="row">
+                <div id=card-info class="col l8">
+
+                </div>
+                <div class="col l4">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="map"></div> -->
+    <div id="buttons-view">
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                        footer
+                        content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Info</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+        </div>
+        </div>
+        </div>
+        <div id="events"></div>
+        </div>
+
+        </div>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                            footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Rock Events in Washington Info</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 Copyright
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\Itunes.js"></script>
+        <script src="javascript\TicketMaster.js"></script>
+        <script src="javascript\email.js"></script>
+        </script>
+
+        <script> document.addEventListener('DOMContentLoaded', function () {
+                var dropDown = document.querySelectorAll('.dropdown-trigger');
+                var instances = M.Dropdown.init(dropDown);
+                var select = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(select);
+            });
+        </script>
 </body>
+
 </html>
