@@ -198,19 +198,30 @@ function bandInfo(startLatLon){
     //  console.log("images",images)
     //   console.log("band names",bandNames)
     //   console.log("locations",locations)
+
+      display(locations)
+    })
+    }
+  
+  
+
+    
+
+    
+   
+      
+      
+
     // console.log(artistAndGenre)
     // console.log(bigArrayWithAllInfoOfEvents)
     
       // display(locations)
       // displayNew(eventsFromUserChoices)
       
-    }
-    
-    )
-    
-    }
-    
-    //   function display(){
+ 
+  
+      function display(){
+
           
     //     $("#buttons-view").empty();
     //     for (var j = 0; j < locations[0].length; j++) {
@@ -232,9 +243,14 @@ function bandInfo(startLatLon){
     //      var ven=$(this).attr("data-name1")
     
         
+
     // lat2= JSON.parse(lats)
     // lon2= JSON.parse(lon)
     //   ven2=JSON.stringify(ven)
+
+    lat2= JSON.parse(lats)
+    lon2= JSON.parse(lon)
+      ven2=JSON.stringify(ven)
    
     //     markerToMake={lat: lat2, lng: lon2}
        
@@ -288,6 +304,7 @@ function bandInfo(startLatLon){
   //   console.log(userchoice6)
   console.log(eventsFromUserChoices)
   }
+
 
 
 
@@ -463,9 +480,3 @@ function bandInfo(startLatLon){
 // locations.push(venues)
 // locations.push(latts)
 // locations.push(longg)
-
-
-
-
-
-

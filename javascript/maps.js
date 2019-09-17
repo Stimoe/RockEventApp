@@ -52,7 +52,6 @@ function displayCards(arr) {
 displayCards()
 
 
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -68,6 +67,7 @@ function getLocation() {
       startLong = lng
       latLon = (startLat + "," + startLong)
       bandInfo(latLon)
+
 
     })
   }
@@ -86,6 +86,26 @@ function seattleLocation() {
   latLon = (47.608013 + "," + -122.335167)
   // console.log(latLon)
   bandInfo(latLon)
+
+   
+    }
+      
+    
+      function seattleLocation() {
+      
+      // var seattleLat=47.608013
+      // var seattleLon=122.335167
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(47.608013,-122.335167),
+        mapTypeId: google.maps.MapTypeId.ROADMAP  
+      });
+      // startLat=seattleLat
+      // startLong=seattleLon
+    latLon=(47.608013 + ","+ -122.335167  )
+    // console.log(latLon)
+    bandInfo(latLon)
+
 
 
 
