@@ -1,4 +1,8 @@
-
+markerToMake={}
+venueForMarkers=[]
+ven=""
+  
+  
   function display(){
       
     $("#buttons-view").empty();
@@ -14,12 +18,26 @@
   }}
 
   $(document).on("click", ".venue-buttons", function(event) {
-    console.log("clicked")
+    // console.log("clicked")
     event.preventDefault();
+    var lats=$(this).attr("data-name2")
+    var lon=$(this).attr("data-name3")
+     var ven=$(this).attr("data-name1")
+
+    // console.log($(this).attr("data-name1"))
+    // console.log($(this).attr("data-name2"))
+    // console.log($(this).attr("data-name3"))
+lat2= JSON.parse(lats)
+lon2= JSON.parse(lon)
+  ven2=JSON.stringify(ven)
+console.log("venue name" +ven2)
+    markerToMake={lat: lat2, lng: lon2}
+     console.log(markerToMake)
+    venueMarkers(markerToMake, ven2)
+  })
     
 
-    console.log($(this).attr("data-name1"))
-    console.log($(this).attr("data-name2"))
-    console.log($(this).attr("data-name3"))
-  
-  })
+
+
+
+

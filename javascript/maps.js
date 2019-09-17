@@ -1,6 +1,6 @@
 var startLat
 var startLong
-
+var makeMarker={}
 
 
 
@@ -47,17 +47,46 @@ console.log(latLon)
     latLon=(47.608013 + ","+ -122.335167  )
     console.log(latLon)
     bandInfo(latLon)
-//      console.log(latLon)
-// console.log(startLong)
-// console.log(startLat)
-// console.log(latLon)
 
-    }
+   
+   
+
+  }
+
+  function venueMarkers(){
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(47.608013,-122.335167),
+      mapTypeId: google.maps.MapTypeId.ROADMAP  
+    });
+    // startLat=seattleLat
+    // startLong=seattleLon
+  latLon=(47.608013 + ","+ -122.335167  )
+ 
+  bandInfo(latLon)
+  console.log("venue name" +ven2)
+    // console.log("markers"+markerToMake)
+    var marker = new google.maps.Marker({
+      position: markerToMake,
+      map: map,
+      title: ven2
+    });
+   
+
+  }
+
   
+  // function venueMarkers(){
+  
+  //   console.log(markerToMake)
+  //   var marker = new google.maps.Marker({
+  //     position: markerToMake,
+  //     map: map,
+  //     title: 'Hello World!'
+  //   });
+   
 
-
-
-
+  // }
     
     
   
