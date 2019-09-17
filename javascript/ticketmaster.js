@@ -31,6 +31,8 @@ userchoice3=[]
 userchoice4=[]
 userchoice5=[]
 userchoice6=[]
+userchoice7=[]
+userchoice8=[]
 
 
 var search="seattle"
@@ -40,14 +42,14 @@ var seattle = (47.608013 + "," + -122.335167)
 $(document).on("click", "#searchButton", function(event) {
 
   if($("#distance").val()==="1"){
-    console.log("5 miles!!")
+    // console.log("5 miles!!")
     radius=5
  
   }
   if ($("#distance").val()==="2"){
     radius=20
 
-    console.log("20 Miles!!")
+    // console.log("20 Miles!!")
   }
   if ($("#distance").val()==="3"){
     radius=50
@@ -57,61 +59,61 @@ $(document).on("click", "#searchButton", function(event) {
 subGenre()
   function subGenre(){ 
     var subGenress = $( "#subGenre" ).val(); 
-  console.log(subGenress)
+  // console.log(subGenress)
 
   if(subGenress==="1"){
-    console.log("Alternative")
+    // console.log("Alternative")
     subGenreFromUser=("Alternative Rock")
   }
   if(subGenress==="2"){
-    console.log("Blues Rock")
+    // console.log("Blues Rock")
     subGenreFromUser=("Blues Rock")
   }
   if(subGenress==="3"){
-    console.log("British Invasion")
+    // console.log("British Invasion")
     subGenreFromUser=("British Invasion")
   }
   if(subGenress==="4"){
-    console.log("Death Metal")
+    // console.log("Death Metal")
     subGenreFromUser=("Death Metal")
   }
   if(subGenress==="5"){
-    console.log("Hair Metal")
+    // console.log("Hair Metal")
     subGenreFromUser=("Hair Metal")
   }
   if(subGenress==="6"){
-    console.log("Hard Rock")
+    // console.log("Hard Rock")
     subGenreFromUser=("Hard Rock")
   }
   if(subGenress==="7"){
-    console.log("Metal")
+    // console.log("Metal")
     subGenreFromUser=("Metal")
   }
   if(subGenress==="8"){
-    console.log("Progressive Rock")
+    // console.log("Progressive Rock")
     subGenreFromUser=("Progressive Rock")
   }
   if(subGenress==="9"){
-    console.log("Punk Rock")
+    // console.log("Punk Rock")
     subGenreFromUser=("Punk Rock")
   }
   if(subGenress==="10"){
-    console.log("Rock & Roll")
+    // console.log("Rock & Roll")
     subGenreFromUser=("Rock & Roll")
   }
   if(subGenress==="11"){
-    console.log("Rockabilly")
+    // console.log("Rockabilly")
     subGenreFromUser=("Rockabilly")
   }
   if(subGenress==="12"){
-    console.log("Traditional Rock")
+    // console.log("Traditional Rock")
     subGenreFromUser=("Traditional Rock")
   }
   
 }
 
 
- console.log(radius)
+//  console.log(radius)
  mapFor()
   function mapFor(){
     if (search==="currentLocation"){
@@ -126,7 +128,7 @@ subGenre()
 })
 function bandInfo(startLatLon){
 
-  console.log(startLatLon, "inside bandInfo function")
+  // console.log(startLatLon, "inside bandInfo function")
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
   var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius="+radius+"&latlong="+startLatLon+""
 
@@ -173,6 +175,9 @@ function bandInfo(startLatLon){
     bigArrayWithAllInfoOfEvents.push(images)
     bigArrayWithAllInfoOfEvents.push(genre)
     bigArrayWithAllInfoOfEvents.push(venues) 
+    bigArrayWithAllInfoOfEvents.push(latss) 
+    bigArrayWithAllInfoOfEvents.push(longg) 
+
       
       }
     }
@@ -196,9 +201,11 @@ function bandInfo(startLatLon){
     // console.log(artistAndGenre)
     // console.log(bigArrayWithAllInfoOfEvents)
     createArrayWithAllEventInfoForSameGenre()
-      display(locations)
+      // display(locations)
+      // displayNew(eventsFromUserChoices)
       
     })
+    
     }
   
       function display(){
@@ -257,14 +264,9 @@ function bandInfo(startLatLon){
           userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
           userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
           userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
-         
-
-
-        
-
+          userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
+          userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
     }
-    
-
   }
   eventsFromUserChoices.push(userchoice1)
   eventsFromUserChoices.push(userchoice2)
@@ -272,12 +274,16 @@ function bandInfo(startLatLon){
   eventsFromUserChoices.push(userchoice4)
   eventsFromUserChoices.push(userchoice5)
   eventsFromUserChoices.push(userchoice6)
-  console.log(userchoice1)
-    console.log(userchoice2)
-    console.log(userchoice3)
-    console.log(userchoice4)
-    console.log(userchoice5)
-    console.log(userchoice6)
+  eventsFromUserChoices.push(userchoice7)
+  eventsFromUserChoices.push(userchoice8)
+  displayNew(eventsFromUserChoices)
+
+  // console.log(userchoice1)
+  //   console.log(userchoice2)
+  //   console.log(userchoice3)
+  //   console.log(userchoice4)
+  //   console.log(userchoice5)
+  //   console.log(userchoice6)
   console.log(eventsFromUserChoices)
   }
 

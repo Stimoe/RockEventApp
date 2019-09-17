@@ -26,10 +26,10 @@ var makeMarker={}
       startLong=lng
     latLon=(startLat + ","  + startLong)
     bandInfo(latLon)
-     console.log(latLon)
-console.log(startLong)
-console.log(startLat)
-console.log(latLon)
+//      console.log(latLon)
+// console.log(startLong)
+// console.log(startLat)
+// console.log(latLon)
     })
       }
     }
@@ -45,7 +45,7 @@ console.log(latLon)
       // startLat=seattleLat
       // startLong=seattleLon
     latLon=(47.608013 + ","+ -122.335167  )
-    console.log(latLon)
+    // console.log(latLon)
     bandInfo(latLon)
 
    
