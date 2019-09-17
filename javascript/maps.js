@@ -55,13 +55,6 @@ displayCards()
 //   }
 
 
-
-
-
-
-
-
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -82,35 +75,6 @@ function getLocation() {
       console.log(startLat)
       console.log(latLon)
     })
-<<<<<<< HEAD
-  }
-}
-function seattleLocation() {
-
-  // var seattleLat=47.608013
-  // var seattleLon=122.335167
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: new google.maps.LatLng(47.608013, -122.335167),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
-  // startLat=seattleLat
-  // startLong=seattleLon
-  latLon = (47.608013 + "," + -122.335167)
-  console.log(latLon)
-  bandInfo(latLon)
-  //      console.log(latLon)
-  // console.log(startLong)
-  // console.log(startLat)
-  // console.log(latLon)
-
-}
-
-
-
-
-
-=======
       }
     }
       function seattleLocation() {
@@ -127,7 +91,6 @@ function seattleLocation() {
     latLon=(47.608013 + ","+ -122.335167  )
     console.log(latLon)
     bandInfo(latLon)
->>>>>>> bd70d8d00a233453277aac6f566c7f38f8b3e6c6
 
    
    
@@ -156,8 +119,6 @@ function seattleLocation() {
 
   }
 
-<<<<<<< HEAD
-=======
   
   // function venueMarkers(){
   
@@ -174,7 +135,6 @@ function seattleLocation() {
     
   
   
->>>>>>> bd70d8d00a233453277aac6f566c7f38f8b3e6c6
 
 
   // url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
