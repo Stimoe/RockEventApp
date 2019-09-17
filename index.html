@@ -30,6 +30,7 @@
         <div class="row">
             <div class="input-field col s4">
                 <select id="SubGenreBtn">
+                <select id="subGenre">
                     <option value="" disabled selected>Sub Genre</option>
                     <option value="1">Alternative</option>
                     <option value="2">Blues Rock</option>
@@ -54,17 +55,18 @@
                     <option value="2">This Weekend</option>
                     <option value="3">Date Range</option>
                 </select>
-                <label class="black-text">Search by Dates</label>
+                <label id="searchButton" class="black-text">Search by Dates</label>
             </div>
 
             <div class="input-field col s4">
                 <select id="searchByDistance">
+                <select id="distance">
                     <option value="" disabled selected>Distance</option>
                     <option value="1">5 Miles</option>
                     <option value="2">20 Miles</option>
                     <option value="3">50 Miles</option>
                 </select>
-                <label class="black-text">Search by Distance</label>
+                <label id="searchButton" class="black-text">Search by Distance</label>
             </div>
         </div>
 
@@ -73,7 +75,7 @@
                 <button class="btn waves-effect waves-light" type="submit" name="action">Search by Loction
                     <i class="material-icons center">send</i>
                 </button>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -88,6 +90,13 @@
         </div>
     </div>
     <div class="row">
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+
+
+    <!-- <div class="row">
         <div class="col s3 m7">
             <h2 class="header">Horizontal Card</h2>
             <div class="card horizontal">
@@ -130,6 +139,27 @@
                         </select>
                         <label>Search by Distance</label>
                     </div>
+                <div class="input-field col s4">
+                    <select id="searchByDate"> --> -->
+    <!-- "this weekend" is using a filter.  All Dates will populate everything
+                        and date range will populate a popup calendar -->
+    <!-- click event-shows all info- click on show in maps -->
+    <!-- <option value="" disabled selected>Dates</option>
+                        <option value="1">All Dates</option>
+                        <option value="2">This Weekend</option>
+                        <option value="3">Date Range</option>
+                    </select>
+                    <label>Search by Dates</label>
+                </div>
+                <div class="input-field col s4">
+                    <select id="distance">
+                        <option value="" disabled selected>Distance</option>
+                        <option class="distanceValue" id= "5-mile" value="1">5 Miles</option>
+                        <option class="distanceValue" id= "20-mile"value="2">20 Miles</option>
+                        <option class="distanceValue" id= "50-mile"value="3">50 Miles</option>
+                    </select>
+                    <label>Search by Distance</label>
+                </div>
 
                     <div class="card-stacked">
                         <div class="card-content">
@@ -216,6 +246,19 @@
 
 
     </div>
+                    <div class="card-action">
+                        <a href="#" id="venue">Venue Location</a>
+                        <a href="#" id="itunes">iTunes</a>
+                        <a href="#" id="event-details">Email Event Details</a>
+                    </div> -->
+    <!-- <div class="row">
+                <div class="col s6 offset-s3">
+                    <a id="searchButton"class="waves-effect waves-light btn-large offset-s6"><i
+                            class="material-icons left">search</i>Search</a> -->
+    <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
+ 
+    <div id="buttons-view">
+    </div>
 
     <footer class="page-footer">
         <div class="container">
@@ -239,6 +282,41 @@
             <div class="container">
                 © 2019 Copyright
             </div>
+        <!-- removing these for now as i create the cards -->
+        <!-- <div class="row"> -->
+
+        <!-- <div class="col s4"> -->
+        <!-- Promo Content 1 goes here -->
+        <!-- </div> -->
+        <!-- <div class="col s4"> -->
+        <!-- Promo Content 2 goes here -->
+        <!-- </div> -->
+        <!-- <div class="col s4"> -->
+        <!-- Promo Content 3 goes here -->
+        <!-- </div> -->
+
+        <!-- </div> -->
+
+
+        <!-- We can use this for our artist info -->
+
+
+
+
+        <div id="events"></div>
+
+        <!-- We can use this for our artist info -->
+
+        <!-- <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"
+            type="text/javascript">
+            </script> -->
+        <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
+
+
+        <!-- below is a temp place holder if we want text -->
+
+
         </div>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
@@ -282,6 +360,53 @@
     <!-- <script src="javascript\email.js"></script>
     <script src="javascript\maps.js"></script>
     <script src="javascript\Itunes.js"></script>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
+                            footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Rock Events in Washington Info</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 Copyright
+                </div>
+            </div>
+        </footer>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
+            defer></script> -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\Itunes.js"></script>
+        <script src="javascript\TicketMaster.js"></script>
+        <script src="javascript\email.js"></script>
+        </script>
+        <!-- <script src="javascript\email.js"></script>
+        <script src="javascript\maps.js"></script>
+        <script src="javascript\Itunes.js"></script>
         <script src="javascript\TicketMaster.js"></script> -->
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
@@ -299,6 +424,12 @@
         type="text/javascript">
         </script> -->
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
+
+        <!-- <script src="javascript\TicketMaster.js"></script>
+<script src="javascript\email.js"></script>
+<script src="javascript\maps.js"></script>
+<script src="javascript\Itunes.js"></script> -->
+
 
 
 </body>
