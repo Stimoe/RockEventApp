@@ -37,7 +37,7 @@
             <div class="row">
 
                 <div class="input-field col s4">
-                    <select>
+                    <select id="subGenre">
                         <option value="" disabled selected>Sub Genre</option>
                         <option value="1">Alternative</option>
                         <option value="2">Blues Rock</option>
@@ -68,11 +68,11 @@
                     <label>Search by Dates</label>
                 </div>
                 <div class="input-field col s4">
-                    <select>
+                    <select id="distance">
                         <option value="" disabled selected>Distance</option>
-                        <option value="1">5 Miles</option>
-                        <option value="2">20 Miles</option>
-                        <option value="3">50 Miles</option>
+                        <option class="distanceValue" id= "5-mile" value="1">5 Miles</option>
+                        <option class="distanceValue" id= "20-mile"value="2">20 Miles</option>
+                        <option class="distanceValue" id= "50-mile"value="3">50 Miles</option>
                     </select>
                     <label>Search by Distance</label>
                 </div>
@@ -81,7 +81,7 @@
 
             <div class="row">
                 <div class="col s6 offset-s3">
-                    <a class="waves-effect waves-light btn-large offset-s6"><i
+                    <a id="searchButton"class="waves-effect waves-light btn-large offset-s6"><i
                             class="material-icons left">search</i>Search</a>
                     <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons right">search</i>button</a> -->
                 </div>

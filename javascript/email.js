@@ -31,41 +31,13 @@ lat2= JSON.parse(lats)
 lon2= JSON.parse(lon)
   ven2=JSON.stringify(ven)
 console.log("venue name" +ven2)
-    // var myLatLng = {lat: lats, lng: lon};
     markerToMake={lat: lat2, lng: lon2}
-    
-    //  var markers= JSON.parse(markerToMake)
-    //  console.log(markers)
-    console.log(markerToMake)
-    // markerToMake.lat.push(lats)
-    // markerToMake.lng.push(lon)
-    // venueForMarkers.push(ven)
-    // console.log(myLatLng)
-    
+     console.log(markerToMake)
     venueMarkers(markerToMake, ven2)
-      
-     
-    
-    
-
   })
     
 
-    // addMarker()
-//      function addMarker(){
-//       console.log(myLatLng)
-//       var marker = new google.maps.Marker({
 
-       
-          
-        
-        
-//         position: myLatLng,
-//         map: map,
-//         title: 'Click to zoom'
-//       });
-
-//   }
 
 
 
