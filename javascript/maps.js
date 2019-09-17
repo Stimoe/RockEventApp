@@ -34,8 +34,8 @@ function displayCards(arr){
     </div>
     <div class="card-stacked">
         <div class="card-content">
-            <h5 id="artist-name">Artist name link here</h5>
-            <h6 id="venue-name">Venue name link here</h6>
+            <h5 id="artist-name">Artist name here</h5>
+            <h6 id="venue-name">Venue name here</h6>
             <p>I am a very simple card. I am good at containing small bits of information.</p>
         </div>
 
