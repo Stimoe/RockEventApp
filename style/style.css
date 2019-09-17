@@ -19,12 +19,20 @@
     padding: 0px;
 }
 
-#map {
+ /* #div-map-div {
     width: 500px;
     height: 400px;
-    float: right;
+    position: fixed;
+   
+    top:0"
+ }
+ #map-div {
+    width:100%; 
+    height:100%
+ } */
+    /* float: right; */
 
-}
+
 /* .row {
     display: flex;
   } */

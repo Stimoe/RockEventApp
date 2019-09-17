@@ -41,7 +41,7 @@ var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
 $(document).on("click", "#searchButton", function(event) {
-
+  eventsFromUserChoices===[]
   if($("#distance").val()==="1"){
     radius=5
   }
@@ -51,6 +51,7 @@ $(document).on("click", "#searchButton", function(event) {
   if ($("#distance").val()==="3"){
     radius=50  
   }
+  
 subGenre()
   function subGenre(){ 
     var subGenress = $( "#subGenre" ).val(); 
@@ -103,6 +104,7 @@ subGenre()
 
     subGenreFromUser=("Traditional Rock")
   }
+ 
 }
  mapFor()
   function mapFor(){
@@ -114,6 +116,8 @@ subGenre()
     }
   }
 })
+
+console.log(bigArrayWithAllInfoOfEvents)
 function bandInfo(startLatLon){
 
   
@@ -126,7 +130,13 @@ function bandInfo(startLatLon){
   }).then(function (response) {
     console.log(response)
 
-    var embed = response._embedded.events
+    embedd = response._embedded.events
+    embed=embedd
+    console.log
+    itunesLink()
+  })
+}
+function makeArray(){
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
@@ -152,6 +162,7 @@ function bandInfo(startLatLon){
     bigArrayWithAllInfoOfEvents.push(venues) 
     bigArrayWithAllInfoOfEvents.push(latss) 
     bigArrayWithAllInfoOfEvents.push(longg) 
+
       }
     }}
     artistAndGenre.push(genre)
@@ -161,9 +172,9 @@ function bandInfo(startLatLon){
       locations.push(longg)
     createArrayWithAllEventInfoForSameGenre()  
     console.log(bandNames)
-    })
-    }
-    console.log()
+  }
+    
+  
     function createArrayWithAllEventInfoForSameGenre() {
       for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
         if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
@@ -176,8 +187,10 @@ function bandInfo(startLatLon){
           userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
           userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
           userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
+
     }
   }
+  
   eventsFromUserChoices.push(userchoice1)
   eventsFromUserChoices.push(userchoice2)
   eventsFromUserChoices.push(userchoice3)

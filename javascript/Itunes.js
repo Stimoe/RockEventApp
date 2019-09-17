@@ -33,6 +33,7 @@ function itunesLink() {
         // var objects = arguments;
         console.log('objects', response);
     });
+    makeArray()
 }
 //   itunesLink();
 
