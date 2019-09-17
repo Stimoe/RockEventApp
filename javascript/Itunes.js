@@ -22,17 +22,26 @@ function itunesLink() {
     console.log('bandNames length', bandNames.length);
     for (var i = 0; i < bandNames.length; i++) {
         console.log('forloop triggered', bandNames[i])
-        artistLinks.push($.ajax({
-            url: `https://cors-anywhere.herokuapp.com/http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+        $.ajax({
+            url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+            // url: `https://cors-anywhere.herokuapp.com/http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
             method: 'GET'
         })
-        )
+        .then(function(response){
+            console.log('.then', JSON.parse(response));
+            var responseObject = JSON.parse(response);
+            if (responseObject.resultCount > 0){
+                console.log(responseObject.results[0].artistName);
+            
+            }
+            
+        })
         console.log('artist link', artistLinks);
     }
-    $.when.apply( undefined, artistLinks ).then(function(response) {
-        // var objects = arguments;
-        console.log('objects', response);
-    });
+    // $.when.apply( undefined, artistLinks ).then(function(response) {
+    //     // var objects = arguments;
+    //     console.log('objects', response);
+    // });
 }
 //   itunesLink();
 
