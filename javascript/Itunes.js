@@ -31,11 +31,11 @@ function itunesLink() {
                 }
                 
             
-                console.log('artist link', artistLinks);
+                // console.log('artist link', artistLinks);
             }
             
         })
-        console.log('artist links' + artistLinks);
+        // console.log('artist links' + artistLinks);
         
         
     }
@@ -43,5 +43,8 @@ function itunesLink() {
         //     // var objects = arguments;
         //     console.log('objects', response);
         // });
-        makeArrays();
+
+    console.log('artist links itunes', artistLinks);
+    
+        makeArrays(artistLinks);
     }

@@ -7,7 +7,7 @@
 
 // var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+latLon+""
 
-var embed;
+var embed = []
 var genre = []
 var date = []
 var time = []
@@ -130,55 +130,63 @@ function bandInfo(startLatLon) {
     embed = response._embedded.events;
     console.log('embed', embed);
 
+    
+    
+    
+    for (var i = 0; i < embed.length; i++) {
+      if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
+        genre.push(embed[i].classifications[0].subGenre.name)
+        if (embed[i]._embedded.hasOwnProperty('attractions')) {
+          var bandName = embed[i]._embedded.attractions[0].name
+          console.log(bandName)
+          var venue = embed[i]._embedded.venues[0].name
+          var latit = embed[i]._embedded.venues[0].location.latitude
+          var longit = embed[i]._embedded.venues[0].location.longitude
+          var image = embed[i].images[0].url
+          images.push(image)
+          bandNames.push(bandName)
+          venues.push(venue)
+          latss.push(latit)
+          longg.push(longit)
+          date.push(embed[i].dates.start.localDate)
+          time.push(embed[i].dates.start.localTime)
+          
+        }
+        
+      }
+    }
     itunesLink();
   })
-
+  console.log('band names', bandNames);
+  
 }
+console.log(bandNames);
 
-function makeArrays() {
-  for (var i = 0; i < embed.length; i++) {
-    if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
-      genre.push(embed[i].classifications[0].subGenre.name)
-      if (embed[i]._embedded.hasOwnProperty('attractions')) {
-        var bandName = embed[i]._embedded.attractions[0].name
-        console.log(bandName)
-        var venue = embed[i]._embedded.venues[0].name
-        var latit = embed[i]._embedded.venues[0].location.latitude
-        var longit = embed[i]._embedded.venues[0].location.longitude
-        var image = embed[i].images[0].url
-        images.push(image)
-        bandNames.push(bandName)
-        venues.push(venue)
-        latss.push(latit)
-        longg.push(longit)
-        date.push(embed[i].dates.start.localDate)
-        time.push(embed[i].dates.start.localTime)
-        bigArrayWithAllInfoOfEvents.push(date)
-        bigArrayWithAllInfoOfEvents.push(time)
-        bigArrayWithAllInfoOfEvents.push(bandNames)
-        bigArrayWithAllInfoOfEvents.push(images)
-        bigArrayWithAllInfoOfEvents.push(genre)
-        bigArrayWithAllInfoOfEvents.push(venues)
-        bigArrayWithAllInfoOfEvents.push(latss)
-        bigArrayWithAllInfoOfEvents.push(longg)
-        bigArrayWithAllInfoOfEvents.push(artistLinks)
-        // console.log('artist link'+ artistLinks);
-      }
+  function makeArrays(artistLinks) {
 
-    }
+    bigArrayWithAllInfoOfEvents.push(date)
+    bigArrayWithAllInfoOfEvents.push(time)
+    bigArrayWithAllInfoOfEvents.push(bandNames)
+    bigArrayWithAllInfoOfEvents.push(images)
+    bigArrayWithAllInfoOfEvents.push(genre)
+    bigArrayWithAllInfoOfEvents.push(venues)
+    bigArrayWithAllInfoOfEvents.push(latss)
+    bigArrayWithAllInfoOfEvents.push(longg)
+    bigArrayWithAllInfoOfEvents.push(artistLinks)
+    console.log('artist links'+ artistLinks);
+
+    artistAndGenre.push(genre)
+    artistAndGenre.push(bandNames)
+    locations.push(venues)
+    locations.push(latss)
+    locations.push(longg)
+    createArrayWithAllEventInfoForSameGenre()
+    console.log(bandNames)
   }
 
-  artistAndGenre.push(genre)
-  artistAndGenre.push(bandNames)
-  locations.push(venues)
-  locations.push(latss)
-  locations.push(longg)
-  createArrayWithAllEventInfoForSameGenre()
-  console.log(bandNames)
-}
 
 
-console.log()
+// console.log()
 function createArrayWithAllEventInfoForSameGenre() {
   for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
     if (bigArrayWithAllInfoOfEvents[4][l] === subGenreFromUser) {
