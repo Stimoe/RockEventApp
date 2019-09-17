@@ -23,6 +23,7 @@
 <!-- <body background="images\backgroudImg-v.2.jpg"> -->
 
 <body>
+    <div class="main-card-container"></div>
     <!-- Main Materialize Container -->
     <div class="container">
         <h1>Rock Events in Washington</h1>
@@ -84,28 +85,38 @@
             </div>
         </div>
     </div>
-  <div class="main-card-container"></div>
-    <div class="col s12 m7">
-        <h2 class="header">Horizontal Card</h2>
-        <div class="card horizontal">
-            <div class="card-image">
-                <img src="https://lorempixel.com/100/190/nature/6">
-            </div>
+    <div class="container">
+    <div class="main-card-container">
+        <div class="row">
 
-            <div class="card-stacked">
-                <div class="card-content">
-                    <h5 id="artist-name">Artist name link here</h5>
-                    <h6 id="venue-name">Venue name link here</h6>
-                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col s3 m7">
+            <h2 class="header">Horizontal Card</h2>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="https://lorempixel.com/100/190/nature/6">
                 </div>
 
-                <div class="card-action">
-                    <a href="#" id="venue">Venue Location</a>
-                    <a href="#" id="itunes">iTunes</a>
-                    <a href="#" id="event-details">Email Event Details</a>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h5 id="artist-name">Artist name link here</h5>
+                        <h6 id="venue-name">Venue name link here</h6>
+                        <p>I am a very simple card. I am good at containing small bits of information.</p>
+                    </div>
+
+                    <div class="card-action">
+                        <a href="#" id="venue">Venue Location</a>
+                        <a href="#" id="itunes">iTunes</a>
+                        <a href="#" id="event-details">Email Event Details</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- removing to see if horizontal card is better than this one -->
     <!-- below will be a container to hold the search results.  
@@ -134,6 +145,21 @@
     <div id="events"></div>
     <button onclick=getLocation()>Try It</button>
     <p id="demo"></p>
+
+    <div id="display"></div>
+    <div id="buttons"></div>
+    <button id="clear">clear</button>
+
+    
+  <div id="cards">
+    <div id="gif-row" class="row">
+
+      <div id="gifs-displayed">
+      </div>
+    </div>
+  </div>
+  <div id="buttons-view">
+</div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -221,7 +247,7 @@
             type="text/javascript">
             </script> -->
         <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw&callback=initMap"></script> -->
-     
+
 
         <!-- below is a temp place holder if we want text -->
 
@@ -230,7 +256,7 @@
 
         <div id="map"></div>
 
- 
+
         </div>
 
         <footer class="page-footer">
@@ -258,40 +284,40 @@
             </div>
         </footer>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8xQbq91K-eXxXZj9Ew_VEwG4YWAA-svw" async
-        defer></script>
+            defer></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
         <script src="javascript\maps.js"></script>
         <script src="javascript\Itunes.js"></script>
-    <script src="javascript\TicketMaster.js"></script>
-    <script src="javascript\email.js"></script>
-    </script>
-    <!-- <script src="javascript\email.js"></script>
+        <script src="javascript\TicketMaster.js"></script>
+        <script src="javascript\email.js"></script>
+        </script>
+        <!-- <script src="javascript\email.js"></script>
         <script src="javascript\maps.js"></script>
         <script src="javascript\Itunes.js"></script>
         <script src="javascript\TicketMaster.js"></script> -->
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
-<!-- <script src="javascript\TicketMaster.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+        <!-- <script src="javascript\TicketMaster.js"></script>
 <script src="javascript\email.js"></script>
 <script src="javascript\maps.js"></script>
 <script src="javascript\Itunes.js"></script> -->
-</script>
+        </script>
 
-<script> document.addEventListener('DOMContentLoaded', function () {
-        var dropDown = document.querySelectorAll('.dropdown-trigger');
-        var instances = M.Dropdown.init(dropDown);
-        var select = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(select);
-    });
-</script>
+        <script> document.addEventListener('DOMContentLoaded', function () {
+                var dropDown = document.querySelectorAll('.dropdown-trigger');
+                var instances = M.Dropdown.init(dropDown);
+                var select = document.querySelectorAll('select');
+                var instances = M.FormSelect.init(select);
+            });
+        </script>
 
-    <!-- <script> document.addEventListener('DOMContentLoaded', function () {
+        <!-- <script> document.addEventListener('DOMContentLoaded', function () {
             var dropDown = document.querySelectorAll('.dropdown-trigger');
             var instances = M.Dropdown.init(dropDown);
             var select = document.querySelectorAll('select');
