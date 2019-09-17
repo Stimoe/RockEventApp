@@ -64,12 +64,12 @@ console.log(latLon)
   latLon=(47.608013 + ","+ -122.335167  )
  
   bandInfo(latLon)
-  
-    console.log("markers"+markerToMake)
+  console.log("venue name" +ven2)
+    // console.log("markers"+markerToMake)
     var marker = new google.maps.Marker({
       position: markerToMake,
       map: map,
-      title: 'Hello World!'
+      title: ven2
     });
    
 

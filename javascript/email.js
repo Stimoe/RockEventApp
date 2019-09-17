@@ -1,6 +1,6 @@
 markerToMake={}
 venueForMarkers=[]
-
+ven=""
   
   
   function display(){
@@ -18,22 +18,22 @@ venueForMarkers=[]
   }}
 
   $(document).on("click", ".venue-buttons", function(event) {
-    console.log("clicked")
+    // console.log("clicked")
     event.preventDefault();
     var lats=$(this).attr("data-name2")
     var lon=$(this).attr("data-name3")
-     var ven=$(this).attr("data-name")
+     var ven=$(this).attr("data-name1")
 
-    console.log($(this).attr("data-name1"))
-    console.log($(this).attr("data-name2"))
-    console.log($(this).attr("data-name3"))
+    // console.log($(this).attr("data-name1"))
+    // console.log($(this).attr("data-name2"))
+    // console.log($(this).attr("data-name3"))
 lat2= JSON.parse(lats)
 lon2= JSON.parse(lon)
-  
-
+  ven2=JSON.stringify(ven)
+console.log("venue name" +ven2)
     // var myLatLng = {lat: lats, lng: lon};
     markerToMake={lat: lat2, lng: lon2}
-  
+    
     //  var markers= JSON.parse(markerToMake)
     //  console.log(markers)
     console.log(markerToMake)
@@ -42,7 +42,7 @@ lon2= JSON.parse(lon)
     // venueForMarkers.push(ven)
     // console.log(myLatLng)
     
-    venueMarkers(markerToMake)
+    venueMarkers(markerToMake, ven2)
       
      
     
