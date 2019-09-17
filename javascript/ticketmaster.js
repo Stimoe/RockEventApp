@@ -1,26 +1,4 @@
 
-// // var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101"
-// var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z"
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-// var embed=[]
-// var genre=[]
-// var date=[]
-// var time=[]
-// var event=[]
-// var longg=[]
-// var latss=[]
-// var venues=[]
-// var bandNames=[]
-// var images=[]
-// var locations=[];
-
-
 //url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
 
 
@@ -40,55 +18,113 @@ var venues = []
 var bandNames = []
 var images = []
 var locations = []
+var radius;
+var subGenreFromUser=""
+markerToMake={}
+venueForMarkers=[]
+artistAndGenre=[]
+eventsFromUserChoices=[]
+bigArrayWithAllInfoOfEvents=[]
+userchoice1=[]
+userchoice2=[]
+userchoice3=[]
+userchoice4=[]
+userchoice5=[]
+userchoice6=[]
+userchoice7=[]
+userchoice8=[]
 
 var search="seattle"
-var zip;
 var currentLocation;
 var seattle = (47.608013 + "," + -122.335167)
 
+$(document).on("click", "#searchButton", function(event) {
 
-function mapFor(){
-  if (search==="currentLocation"){
-    getLocation()
+  if($("#distance").val()==="1"){
+    radius=5
   }
-  
-  if(search==="seattle"){
-seattleLocation()
-
-
+  if ($("#distance").val()==="2"){
+    radius=20
   }
+  if ($("#distance").val()==="3"){
+    radius=50  
+  }
+subGenre()
+  function subGenre(){ 
+    var subGenress = $( "#subGenre" ).val(); 
 
+  if(subGenress==="1"){
+ 
+    subGenreFromUser=("Alternative Rock")
+  }
+  if(subGenress==="2"){
+ 
+    subGenreFromUser=("Blues Rock")
+  }
+  if(subGenress==="3"){
+
+    subGenreFromUser=("British Invasion")
+  }
+  if(subGenress==="4"){
+
+    subGenreFromUser=("Death Metal")
+  }
+  if(subGenress==="5"){
+
+    subGenreFromUser=("Hair Metal")
+  }
+  if(subGenress==="6"){
+
+    subGenreFromUser=("Hard Rock")
+  }
+  if(subGenress==="7"){
+
+    subGenreFromUser=("Metal")
+  }
+  if(subGenress==="8"){
+
+    subGenreFromUser=("Progressive Rock")
+  }
+  if(subGenress==="9"){
+
+    subGenreFromUser=("Punk Rock")
+  }
+  if(subGenress==="10"){
+
+    subGenreFromUser=("Rock & Roll")
+  }
+  if(subGenress==="11"){
+
+    subGenreFromUser=("Rockabilly")
+  }
+  if(subGenress==="12"){
+
+    subGenreFromUser=("Traditional Rock")
+  }
 }
-
-mapFor()
-
-
-
+ mapFor()
+  function mapFor(){
+    if (search==="currentLocation"){
+      getLocation()
+    } 
+    if(search==="seattle"){
+  seattleLocation()
+    }
+  }
+})
 function bandInfo(startLatLon){
 
-  console.log(startLatLon, "inside bandInfo function")
+  
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-  var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-
-
-
+  var seattleQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius="+radius+"&latlong="+startLatLon+""
 
   $.ajax({
-
-
-
     url: seattleQueryURL,
     method: "GET"
   }).then(function (response) {
-    // console.log(response)
+    console.log(response)
 
     var embed = response._embedded.events
-
-    //  console.log(embed)
-    var longg = []
-    var latss = []
-    var venues = []
-
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
@@ -101,215 +137,51 @@ function bandInfo(startLatLon){
         images.push(image)
         bandNames.push(bandName)
         venues.push(venue)
-
        latss.push(latit)
       longg.push(longit)
-  
     date.push(embed[i].dates.start.localDate)
-    time.push(embed[i].dates.start.localTime)   
-      
+    time.push(embed[i].dates.start.localTime)  
+    bigArrayWithAllInfoOfEvents.push(date)
+    bigArrayWithAllInfoOfEvents.push(time)
+    bigArrayWithAllInfoOfEvents.push(bandNames)
+    bigArrayWithAllInfoOfEvents.push(images)
+    bigArrayWithAllInfoOfEvents.push(genre)
+    bigArrayWithAllInfoOfEvents.push(venues) 
+    bigArrayWithAllInfoOfEvents.push(latss) 
+    bigArrayWithAllInfoOfEvents.push(longg) 
       }
     }
+    artistAndGenre.push(genre)
+    artistAndGenre.push(bandNames)
       locations.push(venues)
       locations.push(latss)
       locations.push(longg)
-      console.log("venues",venues)
-      console.log("genre", genre)
-      console.log("date",date)
-      console.log("time",time)
-     console.log("images",images)
-      console.log("band names",bandNames)
-      console.log("locations",locations)
-      display(locations)
+    createArrayWithAllEventInfoForSameGenre()  
     })
     }
-  
-  
-
-    
-
-// bandInfo(seattleLatLon)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition, showError);
-//     } else {
-//         var x = document.getElementById("location");
-//         x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-// function showPosition(position) {
-//     var x = document.getElementById("location");
-//     x.innerHTML = "Latitude: " + position.coords.latitude + 
-//     "<br>Longitude: " + position.coords.longitude; 
-//     var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-
-//     $.ajax({
-//       type:"GET",
-//       url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-//       async:true,
-//       dataType: "json",
-//       success: function(json) {
-//                   console.log(json);
-//                   var e = document.getElementById("events");
-//                   e.innerHTML = json.page.totalElements + " events found.";
-//                   showEvents(json);
-//                   initMap(position, json);
-
-//                },
-//       error: function(xhr, status, err) {
-//                   console.log(err);
-//                }
-//     });
-
-// }
-
-// function showError(error) {
-//     switch(error.code) {
-//         case error.PERMISSION_DENIED:
-//             x.innerHTML = "User denied the request for Geolocation."
-//             break;
-//         case error.POSITION_UNAVAILABLE:
-//             x.innerHTML = "Location information is unavailable."
-//             break;
-//         case error.TIMEOUT:
-//             x.innerHTML = "The request to get user location timed out."
-//             break;
-//         case error.UNKNOWN_ERROR:
-//             x.innerHTML = "An unknown error occurred."
-//             break;
-//     }
-// }
-
-
-// function showEvents(json) {
-//   for(var i=0; i<json.page.totalElements; i++) {
-//     // $("#events").append("<p>"+json._embedded.events[i]+"</p>");
-
-
-
-
-//   }
-// }
-
-
-// function initMap(position, json) {
-//   var mapDiv = document.getElementById('map');
-//   var map = new google.maps.Map(mapDiv, {
-//     center: {lat: position.coords.latitude, lng: position.coords.longitude},
-//     zoom: 10
-//   });
-//   for(var i=0; i<json.page.totalElements; i++) {
-//     addMarker(map, json._embedded.events[i]);
-
-//     var lats=json._embedded.events[i]._embedded.venues[0].location.latitude
-//     var longgg=json._embedded.events[i]._embedded.venues[0].location.longitude
-//     var dates=json._embedded.events[i].dates.start.localDate
-//     var times=json._embedded.events[i].dates.start.localTime
-//     var venueName=json._embedded.events[i]._embedded.venues[0].name
-//     var bands=json._embedded.events[i].name
-//     var img=json._embedded.events[i].images[0].url
-//     var genres=json._embedded.events[i].classifications[0].subGenre.name
-
-//     // json._embedded.events[""0""]
-//     // _embedded.events[0].type
-
-
-//     genre.push(genres)
-//     longg.push(longgg)
-//     latss.push(lats)
-//     images.push(img)
-//     bandNames.push(bands)
-//     venues.push(venueName)
-
-
-//     date.push(dates)
-//     time.push(times)
-
-
-//   }
-
-// }
-
-// console.log(latss)
-// console.log(longg)
-// console.log(venues)
-// console.log(event)
-// console.log(date)
-// console.log(time)
-
-// console.log(locations)
-// console.log(bandNames)
-// console.log(images)
-// console.log(genre)
-// function addMarker(map, event) {
-//   var marker = new google.maps.Marker({
-//     position: new google.maps.LatLng(event._embedded.venues[0].location.latitude, event._embedded.venues[0].location.longitude),
-//     map: map
-//   });
-//   marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
-// //   console.log(marker);
-// }
-
-
-
-
-// getLocation();
-
-
-// locations.push(venues)
-// locations.push(latts)
-// locations.push(longg)
-
-
-
-
-
-
+    function createArrayWithAllEventInfoForSameGenre() {
+      for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
+        if(bigArrayWithAllInfoOfEvents[4][l]===subGenreFromUser){
+
+          userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
+          userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
+          userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
+          userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
+          userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
+          userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
+          userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
+          userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
+    }
+  }
+  eventsFromUserChoices.push(userchoice1)
+  eventsFromUserChoices.push(userchoice2)
+  eventsFromUserChoices.push(userchoice3)
+  eventsFromUserChoices.push(userchoice4)
+  eventsFromUserChoices.push(userchoice5)
+  eventsFromUserChoices.push(userchoice6)
+  eventsFromUserChoices.push(userchoice7)
+  eventsFromUserChoices.push(userchoice8)
+  displayNew(eventsFromUserChoices)
+  cards(eventsFromUserChoices)
+  console.log(eventsFromUserChoices)
+  }
