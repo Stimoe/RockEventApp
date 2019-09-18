@@ -3,19 +3,15 @@ var startLong
 var makeMarker = {}
 var markerToMake={}
 var venueForMarkers=[]
+var name1
+var name2
+var name3
+var latLon
 
 //this function creates the cards based off the users input
 function cards() {
-  // console.log(eventsFromUserChoices)
+
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
-    
-    var a = $("<button>");
-    a.attr({ "data-name1": eventsFromUserChoices[5][i] })
-    a.attr({ "data-name2": eventsFromUserChoices[6][i] })
-    a.attr({ "data-name3": eventsFromUserChoices[7][i] })
-    a.attr("class", "venue-buttons")
-    // a.text(eventsFromUserChoices[5][i]);
-    $("#buttons-view").append(a)
     
     $(".main-container>.row").append(` <div class="col s2 m7"> 
     
@@ -35,6 +31,7 @@ function cards() {
         <a id="button-view" class="waves-effect waves-light btn venue-buttons"><i class="material-icons left">map</i>Location</a>
 
             <a class="waves-effect waves-light btn"><i class="material-icons left">music_video</i>button</a>
+            <button class="venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view">Venue Location</button>
             <a href="${eventsFromUserChoices[8][i]}" id="itunes">YouTube</a>
 
             <a href="#" id="event-details">Email Event Details</a>
@@ -57,6 +54,7 @@ function mapFor() {
   if (search === "seattle") {
     seattleLocation()
   }
+ 
 }
 //end leahs code
 
@@ -68,61 +66,55 @@ function getLocation() {
       lat = position.coords.latitude,
       lng = position.coords.longitude
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 8,
         center: new google.maps.LatLng(lat, lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       startLat = lat
       startLong = lng
       latLon = (startLat + "," + startLong)
-      bandInfo(latLon)
+      // bandInfo(latLon)
+      console.log(latLon)
+      usersLocationQuery(latLon)
     })
+   
   }
+  
 }
-
-
-
-
-
-
 
 //if we dont have the users location this runs the map over seattle and supplies those cordinates for the ajax pull
 function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'),{
-    zoom: 12,
+    zoom: 8,
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   latLon = (47.608013 + "," + -122.335167)
-  bandInfo(latLon)
+console.log(latLon)
+  // bandInfo(latLon)
+  seattleQuery(latLon)
 }
 //this doesnt work currently
-function displayNew(){
-      
-  $("#buttons-view").empty();
-  for (var j = 0; j < eventsFromUserChoices[0].length; j++) {
-      
-    var a = $("<button>");
-    a.attr({"data-name1": eventsFromUserChoices[5][j]}) 
-    a.attr({"data-name2": eventsFromUserChoices[6][j]})
-    a.attr({"data-name3": eventsFromUserChoices[7][j]})
-   a.attr("class","venue-buttons")
-    // a.text(eventsFromUserChoices[5][j]);
-    $("#buttons-view").append(a)
-}}
+
 //this doesnt work either, it is supposed to draw the longitude/latitude/venue name out of the venue button for placing a marker
 $(document).on("click", ".venue-buttons", function(event) {
   event.preventDefault();
-  var lats=$(this).attr("data-name2")
-  var lon=$(this).attr("data-name3")
-   var ven=$(this).attr("data-name1")
-lat2= JSON.parse(lats)
-lon2= JSON.parse(lon)
+  var lats=$(this).attr("data-lat")
+  var lon=$(this).attr("data-long")
+   var ven=$(this).attr("data-venue")
+console.log(ven)
+lats2=JSON.parse(lats)
+long2=JSON.parse(lon)
+
 ven2=JSON.stringify(ven)
 console.log("venue name" +ven2)
-  markerToMake={lat: lat2, lng: lon2}
+
+console.log("stringify latitude" +lats2);
+console.log("stringify longitude"+long2);
+
+  markerToMake={lat: lats2, lng: long2}
    console.log(markerToMake)
-  venueMarkers(markerToMake, ven2)
+  venueMarkers(markerToMake, ven)
 })
 
 //after we have the information from the button this function places the markers
