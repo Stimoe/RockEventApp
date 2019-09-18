@@ -62,7 +62,7 @@ function getLocation() {
       lat = position.coords.latitude,
       lng = position.coords.longitude
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 10,
         center: new google.maps.LatLng(lat, lng),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
@@ -81,12 +81,12 @@ function getLocation() {
 //if we dont have the users location this runs the map over seattle and supplies those cordinates for the ajax pull
 function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'),{
-    zoom: 8,
+    zoom: 11,
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   latLon = (47.608013 + "," + -122.335167)
-console.log(latLon)
+// console.log(latLon)
   // bandInfo(latLon)
   seattleQuery(latLon)
 }
@@ -98,15 +98,15 @@ $(document).on("click", ".venue-buttons", function(event) {
   var lats=$(this).attr("data-lat")
   var lon=$(this).attr("data-long")
    var ven=$(this).attr("data-venue")
-console.log(ven)
+// console.log(ven)
 lats2=JSON.parse(lats)
 long2=JSON.parse(lon)
 
 ven2=JSON.stringify(ven)
-console.log("venue name" +ven2)
+// console.log("venue name" +ven2)
 
-console.log("stringify latitude" +lats2);
-console.log("stringify longitude"+long2);
+// console.log("stringify latitude" +lats2);
+// console.log("stringify longitude"+long2);
 
   markerToMake={lat: lats2, lng: long2}
    console.log(markerToMake)
@@ -116,8 +116,8 @@ console.log("stringify longitude"+long2);
 //after we have the information from the button this function places the markers
 function venueMarkers() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: new google.maps.LatLng(47.608013, -122.335167),
+    zoom: 13,
+    center: new google.maps.LatLng(lats2, long2),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   console.log("venue name" + ven2)
