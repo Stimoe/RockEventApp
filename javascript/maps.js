@@ -32,9 +32,13 @@ function cards() {
         </div> 
 
         <div class="card-action">
-            <button class="venue-buttons" id="button-view">Venue Location</button>
+        <a id="button-view" class="waves-effect waves-light btn venue-buttons"><i class="material-icons left">map</i>Location</a>
+
+            <a class="waves-effect waves-light btn"><i class="material-icons left">music_video</i>button</a>
             <a href="${eventsFromUserChoices[8][i]}" id="itunes">YouTube</a>
+
             <a href="#" id="event-details">Email Event Details</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">email</i>button</a>
            
         </div>
     </div>

@@ -32,6 +32,18 @@ div.sticky {
     position: sticky;
 }
 
+h1 {
+    font-family: Helvetica, Impact, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    
+}
+
+li {
+ text-align: left
+
+}
+
+
 
 
  /* #div-map-div {
