@@ -50,7 +50,7 @@ var venueForMarkers=[]
 // </div>`)
 //   }
 // }
-Ω
+
 
 //this function creates the cards based off the users input
 function cards() {
@@ -80,8 +80,8 @@ function cards() {
         </div> 
 
         <div class="card-action">
-            <button data-name3 = ${ eventsFromUserChoices[7][i]} (data-name2 =${ eventsFromUserChoices[6][i]} data-name1= ${ eventsFromUserChoices[5][i]}class="venue-buttons" id="button-view">Venue Location</button>
-            <a href="" id="itunes">iTunes</a>
+            <button class="venue-buttons" id="button-view">Venue Location</button>
+            <a href="${eventsFromUserChoices[8][i]}" id="itunes">YouTube</a>
             <a href="#" id="event-details">Email Event Details</a>
            
         </div>
@@ -95,7 +95,7 @@ function cards() {
 
 //leahs code
 function mapFor() {
-  if (currentLocation === "currentLocation") {
+  if (search === "currentLocation") {
     getLocation()
   }
   if (search === "seattle") {
