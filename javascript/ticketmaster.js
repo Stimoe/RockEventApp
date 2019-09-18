@@ -22,6 +22,7 @@ var radius;
 var subGenreFromUser = ""
 markerToMake = {}
 venueForMarkers = []
+var artistLinks = [];
 artistAndGenre = []
 eventsFromUserChoices = []
 bigArrayWithAllInfoOfEvents = []
@@ -34,7 +35,7 @@ userchoice6 = []
 userchoice7 = []
 userchoice8 = []
 userchoice9 = []
-
+youtubeLink = []
 
 
 var search = "seattle"
@@ -126,71 +127,64 @@ function bandInfo(startLatLon) {
     method: "GET"
   }).then(function (response) {
     console.log(response)
-
     embed = response._embedded.events;
     console.log('embed', embed);
-
-    
-    
-    
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
         if (embed[i]._embedded.hasOwnProperty('attractions')) {
           var bandName = embed[i]._embedded.attractions[0].name
-          console.log(bandName)
+          if (embed[i]._embedded.hasOwnProperty('attractions')) {
+            if (embed[i]._embedded.attractions[0].hasOwnProperty("externalLinks")) {
+              if (embed[i]._embedded.attractions[0].externalLinks.hasOwnProperty("youtube")) {
+                youtubeLink.push(embed[i]._embedded.attractions[0].externalLinks.youtube[0].url)
+              }
+              else {
+                youtubeLink.push("no youtube")
+              }
+            }
+          }
           var venue = embed[i]._embedded.venues[0].name
           var latit = embed[i]._embedded.venues[0].location.latitude
           var longit = embed[i]._embedded.venues[0].location.longitude
           var image = embed[i].images[0].url
           images.push(image)
+
           bandNames.push(bandName)
           venues.push(venue)
           latss.push(latit)
           longg.push(longit)
           date.push(embed[i].dates.start.localDate)
           time.push(embed[i].dates.start.localTime)
-          
         }
-        
       }
     }
-    itunesLink();
+    makeArraYs();
   })
-  console.log('band names', bandNames);
-  
 }
-console.log(bandNames);
 
-  function makeArrays(artistLinks) {
+function makeArraYs() {
+  bigArrayWithAllInfoOfEvents.push(date)
+  bigArrayWithAllInfoOfEvents.push(time)
+  bigArrayWithAllInfoOfEvents.push(bandNames)
+  bigArrayWithAllInfoOfEvents.push(images)
+  bigArrayWithAllInfoOfEvents.push(genre)
+  bigArrayWithAllInfoOfEvents.push(venues)
+  bigArrayWithAllInfoOfEvents.push(latss)
+  bigArrayWithAllInfoOfEvents.push(longg)
+  bigArrayWithAllInfoOfEvents.push(youtubeLink)
+  artistAndGenre.push(genre)
+  artistAndGenre.push(bandNames)
+  locations.push(venues)
+  locations.push(latss)
+  locations.push(longg)
+  createArrayWithAllEventInfoForSameGenre()
+}
 
-    bigArrayWithAllInfoOfEvents.push(date)
-    bigArrayWithAllInfoOfEvents.push(time)
-    bigArrayWithAllInfoOfEvents.push(bandNames)
-    bigArrayWithAllInfoOfEvents.push(images)
-    bigArrayWithAllInfoOfEvents.push(genre)
-    bigArrayWithAllInfoOfEvents.push(venues)
-    bigArrayWithAllInfoOfEvents.push(latss)
-    bigArrayWithAllInfoOfEvents.push(longg)
-    bigArrayWithAllInfoOfEvents.push(artistLinks)
-    console.log('artist links'+ artistLinks);
-
-    artistAndGenre.push(genre)
-    artistAndGenre.push(bandNames)
-    locations.push(venues)
-    locations.push(latss)
-    locations.push(longg)
-    createArrayWithAllEventInfoForSameGenre()
-    console.log(bandNames)
-  }
-
-
-
-// console.log()
 function createArrayWithAllEventInfoForSameGenre() {
-  for (var l = 0; l < bigArrayWithAllInfoOfEvents[0].length; l++) {
+  console.log(bigArrayWithAllInfoOfEvents)
+  for (var l = 0; l < bigArrayWithAllInfoOfEvents[2].length; l++) {
     if (bigArrayWithAllInfoOfEvents[4][l] === subGenreFromUser) {
-
       userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
       userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
       userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
@@ -211,8 +205,55 @@ function createArrayWithAllEventInfoForSameGenre() {
   eventsFromUserChoices.push(userchoice7)
   eventsFromUserChoices.push(userchoice8)
   eventsFromUserChoices.push(userchoice9)
-  // displayNew(eventsFromUserChoices)
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
 }
 
+
+
+// function itunesLink() {
+//   // console.log('bandNames', bandNames);
+//   // console.log('bandNames length', bandNames.length);
+//   for (var i = 0; i < bandNames.length; i++) {
+//     // console.log('forloop triggered', bandNames[i])
+//     $.ajax({
+//       url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+//       method: 'GET'
+//     })
+//       .then(function (response) {
+//       //  console.log( "response in itunes"+response)
+
+//         var responseObject = JSON.parse(response);
+//           // console.log(" right before if in itunes" +responseObject.results)
+//         // console.log("responseObject" +responseObject)
+//         console.log('response', responseObject);
+//         // if (responseObject.results[0].hasOwnProperty('artistName')) {
+
+
+//           if (responseObject.resultCount >= 0){
+//           // console.log(responseObject.results[0].artistName);
+//           // console.log(`${responseObject.results[0].artistName} is in the bandname array? ${bandNames.indexOf(responseObject.results[0].artistName)}')
+//             console.log(responseObject.results[0].artistName)
+
+//           console.log(bandNames[i]? bandNames[i]:"no match");
+//           // var indexToInsert = bandNames.indexOf(responseObject.results[0].artistName);
+//           // console.log('index to insert' + indexToInsert);
+//           // if (indexToInsert >-1){
+//           // artistLinks[indexToInsert] = responseObject.results[0].artistLinkUrl;
+//           // artistLinks.push(responseObject.results[0].artistLinkUrl);
+//           // if(responseObject.results[0].hasOwnProperty("artistLinkUrl")){
+//           artistUrl = (responseObject.results[0].artistLinkUrl);
+//           console.log("artist url in itunes" + artistUrl);
+//           artistLinks.push(artistUrl)
+//           }
+//           else {
+//             console.log("no website")
+//             artistLinks.push("no website")
+//           }
+
+//           // console.log("artist link" + artistLinks)
+//         }  )}
+//         // console.log("this is after it runs" +artistLinks)
+
+//         // console.log(" this has urls in it" +bigArrayWithAllInfoOfEvents)
+//       }
