@@ -50,14 +50,13 @@ var venueForMarkers=[]
 // </div>`)
 //   }
 // }
-
-
+Ω
 
 //this function creates the cards based off the users input
 function cards() {
   // console.log(eventsFromUserChoices)
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
-
+    
     var a = $("<button>");
     a.attr({ "data-name1": eventsFromUserChoices[5][i] })
     a.attr({ "data-name2": eventsFromUserChoices[6][i] })
@@ -73,6 +72,7 @@ function cards() {
     <img id ="band-image" src="${eventsFromUserChoices[3][i]}">
     </div>
     <div class="card-stacked">
+
         <div id= "card-contents" class="card-content">
             <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
             <h6 id="venue-name">Venue Name: ${eventsFromUserChoices[5][i]}</h6>
@@ -86,33 +86,43 @@ function cards() {
            
         </div>
     </div>
-</div>
-</div>`)
+    </div>`)
   }
 }
 
 
 //this function is used to get the users location, make a map and supply the cordinates to the ticketmaster api
 
+//leahs code
+function mapFor() {
+  if (currentLocation === "currentLocation") {
+    getLocation()
+  }
+  if (search === "seattle") {
+    seattleLocation()
+  }
+}
 
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function (position) {
+//end leahs code
 
-//       lat = position.coords.latitude,
-//         lng = position.coords.longitude
-//       var map = new google.maps.Map(document.getElementById('map'), {
-//         zoom: 12,
-//         center: new google.maps.LatLng(lat, lng),
-//         mapTypeId: google.maps.MapTypeId.ROADMAP
-//       });
-//       startLat = lat
-//       startLong = lng
-//       latLon = (startLat + "," + startLong)
-//       bandInfo(latLon)
-//     })
-//   }
-// }
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      
+      lat = position.coords.latitude,
+      lng = position.coords.longitude
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(lat, lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      startLat = lat
+      startLong = lng
+      latLon = (startLat + "," + startLong)
+      bandInfo(latLon)
+    })
+  }
+}
 
 
 
@@ -173,16 +183,5 @@ function venueMarkers() {
     title: ven2
   });
 }
-
-function mapFor() {
-    if (search === "currentLocation") {
-      getLocation()
-    }
-    if (search === "seattle") {
-      seattleLocation()
-    }
-  }
-
-
 
 

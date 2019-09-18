@@ -32,7 +32,7 @@ youtubeLink = []
 
 
 var search = "seattle"
-var currentLocation;
+var currentLocation = "currentLocation"
 var seattle = (47.608013 + "," + -122.335167)
 //on click on search seattle, gets inputs from users.
 $(document).on("click", "#searchButton", function (event) {
@@ -102,15 +102,74 @@ $(document).on("click", "#searchButton", function (event) {
   }
   //this decides which function to run for the map, either based off seattle or at the users location
   mapFor()
-  function mapFor() {
-    if (search === "currentLocation") {
-      getLocation()
+})
+
+$(document).on("click", "#searchByLocationButton", function (event) {
+  if ($("#distance").val() === "1") {
+    radius = 5
+  }
+  if ($("#distance").val() === "2") {
+    radius = 20
+  }
+  if ($("#distance").val() === "3") {
+    radius = 50
+  }
+  subGenre()
+  function subGenre() {
+    var subGenress = $("#subGenre").val();
+
+    if (subGenress === "1") {
+
+      subGenreFromUser = ("Alternative Rock")
     }
-    if (search === "seattle") {
-      seattleLocation()
+    if (subGenress === "2") {
+
+      subGenreFromUser = ("Blues Rock")
+    }
+    if (subGenress === "3") {
+
+      subGenreFromUser = ("British Invasion")
+    }
+    if (subGenress === "4") {
+
+      subGenreFromUser = ("Death Metal")
+    }
+    if (subGenress === "5") {
+
+      subGenreFromUser = ("Hair Metal")
+    }
+    if (subGenress === "6") {
+
+      subGenreFromUser = ("Hard Rock")
+    }
+    if (subGenress === "7") {
+
+      subGenreFromUser = ("Metal")
+    }
+    if (subGenress === "8") {
+
+      subGenreFromUser = ("Progressive Rock")
+    }
+    if (subGenress === "9") {
+
+      subGenreFromUser = ("Punk Rock")
+    }
+    if (subGenress === "10") {
+
+      subGenreFromUser = ("Rock & Roll")
+    }
+    if (subGenress === "11") {
+
+      subGenreFromUser = ("Rockabilly")
+    }
+    if (subGenress === "12") {
+
+      subGenreFromUser = ("Traditional Rock")
     }
   }
+  mapFor()
 })
+
 //after we have cordinates of user and variables such as genre and distance this starts the ajax pull to ticketmaster
 function bandInfo(startLatLon) {
 
