@@ -103,7 +103,7 @@ var seattle = (47.608013 + "," + -122.335167)
 // })
 
 
-  //on click of search by location changes the search value to currentlocation, then runs userchoices
+//on click of search by location changes the search value to currentlocation, then runs userchoices
 $(document).on("click", "#searchByLocationButton", function (event) {
   search = "currentLocation"
   userChoices()
@@ -136,12 +136,12 @@ function userChoices() {
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
       var day = dateObj.getUTCDate();
       var year = dateObj.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -153,12 +153,12 @@ function userChoices() {
       var month = oneWeek.getUTCMonth() + 1; //months from 1-12
       var day = oneWeek.getUTCDate();
       var year = oneWeek.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateEnd = year + "-" + month + "-" + day;
     }
     if (dateChoice === "2") {
@@ -169,16 +169,16 @@ function userChoices() {
       }
       var date = new Date();
       var oneWeek = (date.addDays(7));
-       month = oneWeek.getUTCMonth() + 1; //months from 1-12
-       day = oneWeek.getUTCDate();
-       year = oneWeek.getUTCFullYear();
-       console.log(day);
-      if (day <10) {
+      month = oneWeek.getUTCMonth() + 1; //months from 1-12
+      day = oneWeek.getUTCDate();
+      year = oneWeek.getUTCFullYear();
+      console.log(day);
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -190,12 +190,12 @@ function userChoices() {
       var month = twoWeeks.getUTCMonth() + 1; //months from 1-12
       var day = twoWeeks.getUTCDate();
       var year = twoWeeks.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateEnd = year + "-" + month + "-" + day;
     }
   }
@@ -258,7 +258,7 @@ function userChoices() {
 function bandInfo(startLatLon) {
 
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime="+newDateStart+"T14:00:00Z&endDateTime="+newDateEnd+"T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + "&size=80"
+  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=" + newDateStart + "T14:00:00Z&endDateTime=" + newDateEnd + "T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + "&size=80"
 
   $.ajax({
     url: seattleQueryURL,
@@ -320,6 +320,7 @@ function makeArraYs() {
   locations.push(venues)
   locations.push(latss)
   locations.push(longg)
+  itunesLink()
   createArrayWithAllEventInfoForSameGenre()
 }
 //this checks the users choice of subgenre vs the ajax call.  if it matches it puts all the information from that line into more arrays
@@ -353,49 +354,35 @@ function createArrayWithAllEventInfoForSameGenre() {
 }
 
 
-// function itunesLink() {
-//   // console.log('bandNames', bandNames);
-//   // console.log('bandNames length', bandNames.length);
-//   for (var i = 0; i < bandNames.length; i++) {
-//     // console.log('forloop triggered', bandNames[i])
-//     $.ajax({
-//       url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
-//       method: 'GET'
-//     })
-//       .then(function (response) {
-//       //  console.log( "response in itunes"+response)
+function itunesLink() {
 
-//         var responseObject = JSON.parse(response);
-//           // console.log(" right before if in itunes" +responseObject.results)
-//         // console.log("responseObject" +responseObject)
-//         console.log('response', responseObject);
-//         // if (responseObject.results[0].hasOwnProperty('artistName')) {
+  for (var i = 0; i < bandNames.length; i++) {
+    $.ajax({
+      url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+      method: 'GET',
 
+    })
+      .then(function (response) {
+        if (response.hasOwnProperty()) {
+          // console.log("no website")
+          artistLinks.push("no website")
+        } else {
 
-//           if (responseObject.resultCount >= 0){
-//           // console.log(responseObject.results[0].artistName);
-//           // console.log(`${responseObject.results[0].artistName} is in the bandname array? ${bandNames.indexOf(responseObject.results[0].artistName)}')
-//             console.log(responseObject.results[0].artistName)
+          var responseObject = JSON.parse(response);
 
-//           console.log(bandNames[i]? bandNames[i]:"no match");
-//           // var indexToInsert = bandNames.indexOf(responseObject.results[0].artistName);
-//           // console.log('index to insert' + indexToInsert);
-//           // if (indexToInsert >-1){
-//           // artistLinks[indexToInsert] = responseObject.results[0].artistLinkUrl;
-//           // artistLinks.push(responseObject.results[0].artistLinkUrl);
-//           // if(responseObject.results[0].hasOwnProperty("artistLinkUrl")){
-//           artistUrl = (responseObject.results[0].artistLinkUrl);
-//           console.log("artist url in itunes" + artistUrl);
-//           artistLinks.push(artistUrl)
-//           }
-//           else {
-//             console.log("no website")
-//             artistLinks.push("no website")
-//           }
+          // console.log('response', responseObject);
+          result = responseObject.results[0];
+          // console.log('result', result);
 
-//           // console.log("artist link" + artistLinks)
-//         }  )}
-//         // console.log("this is after it runs" +artistLinks)
+          var urls = result.artistLinkUrl;
+          // console.log('urls', urls);
+          artistLinks.push(urls)
+        }
 
-//         // console.log(" this has urls in it" +bigArrayWithAllInfoOfEvents)
-//       }
+      }).catch(function (err) {
+        // console.log('this time it errored')
+        artistLinks.push('no website')
+      })
+  }
+  // console.log('artist links array', artistLinks);
+}

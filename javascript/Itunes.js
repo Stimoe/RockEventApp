@@ -39,6 +39,9 @@
        
         
 //     }
+
+
+//end code
 //     // $.when.apply( undefined, artistLinks ).then(function(response) {
 //         //     // var objects = arguments;
 //         //     console.log('objects', response);
