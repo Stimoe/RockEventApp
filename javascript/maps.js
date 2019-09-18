@@ -3,54 +3,6 @@ var startLong
 var makeMarker = {}
 var markerToMake={}
 var venueForMarkers=[]
-// var cardHorizontalDiv = $('<div class="card horizontal">')
-// var cardImageDiv = $('<div class="card-image">')
-// cardImageDiv.append('<img>').attr('src', "https://www.thegraciouspantry.com/wp-content/uploads/2018/08/clean-eating-lunch-box-burritos-v-1-.jpg")
-// cardHorizontalDiv.append(cardImageDiv)
-
-// var cardStackedDiv = $('<div class="card-stacked">')
-// var cardContentDiv = $('<div class"card-content">')
-// cardContentDiv.append("<h5>").attr("#", fakeResponse2.data[i].img - url)
-// cardContentDiv.append("<h1>").attr("#", fakeResponse2.data[i].img - url)
-// cardStackedDiv.append(cardContentDiv)
-
-// var cardActionDiv = $('<div class="card-action">')
-// cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img - url)
-// cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img - url)
-// cardActionImgDiv.append('<a>').attr('#', fakeResponse.data[i].img - url)
-// cardActionDiv.append(cardActionImgDiv)
-
-
-// function displayCards(arr) {
-//   for (let i = 0; i < 1; i++) {
-
-
-//     // <img src="${response.data[i].url}">
-
-//     $(".main-card-container>.row").append(` <div class="col s2 m7">
-//     <h2 class="header">Horizontal Card</h2>
-//     <div class="card horizontal">
-//     <div class="card-image">
-//     <img id ="band-image" src="https://www.thegraciouspantry.com/wp-content/uploads/2018/08/clean-eating-lunch-box-burritos-v-1-.jpg">
-//     </div>
-//     <div class="card-stacked">
-//         <div id= "card-contents" class="card-content">
-//             <h5 id="artist-name">Artist name link here</h5>
-//             <h6 id="venue-name">Venue name link here</h6>
-//             <p>I am a very simple card. I am good at containing small bits of information.</p>
-//         </div>
-
-//         <div class="card-action">
-//             <a href="#" id="venue">Venue Location</a>
-//             <a href="#" id="itunes">iTunes</a>
-//             <a href="#" id="event-details">Email Event Details</a>
-//         </div>
-//     </div>
-// </div>
-// </div>`)
-//   }
-// }
-
 
 //this function creates the cards based off the users input
 function cards() {
@@ -102,9 +54,9 @@ function mapFor() {
     seattleLocation()
   }
 }
-
 //end leahs code
 
+//if the user chooses to base it off their current location, this function gets their location, then uses the cordinates to basse for events
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {

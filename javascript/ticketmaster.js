@@ -30,7 +30,8 @@ userchoice8 = []
 userchoice9 = []
 youtubeLink = []
 
-
+var newDateStart
+var newDateEnd
 var search = "seattle"
 // var currentLocation = "currentLocation"
 var seattle = (47.608013 + "," + -122.335167)
@@ -101,18 +102,21 @@ var seattle = (47.608013 + "," + -122.335167)
 //   mapFor()
 // })
 
+
+  //on click of search by location changes the search value to currentlocation, then runs userchoices
 $(document).on("click", "#searchByLocationButton", function (event) {
-  search="currentLocation"
+  search = "currentLocation"
   userChoices()
 })
-//on click on search seattle, gets inputs from users.
+//on click of search by location changes the search value to seattle, then runs userchoices
 $(document).on("click", "#searchButton", function (event) {
   //this checks which distance they choose
-    search="seattle"
-    userChoices()
-  })
-  //  
- function userChoices() { 
+  search = "seattle"
+  userChoices()
+})
+//  
+function userChoices() {
+  //this checks which distance they choose
   if ($("#distance").val() === "1") {
     radius = 5
   }
@@ -122,17 +126,79 @@ $(document).on("click", "#searchButton", function (event) {
   if ($("#distance").val() === "3") {
     radius = 50
   }
-setDatesForSearch()
-  function setDatesForSearch () {
-    var dateChoice = $("#date-choice").val();
-    if(dateChoice==="1"){
-      console.log("this week")
-    }
-    if (dateChoice==="2") {
-      console.log("next week")
-    }
-    }
+  setDatesForSearch()
 
+  //this checks the variable that the user entered for dates
+  function setDatesForSearch() {
+    var dateChoice = $("#date-choice").val();
+    if (dateChoice === "1") {
+      var dateObj = new Date();
+      var month = dateObj.getUTCMonth() + 1; //months from 1-12
+      var day = dateObj.getUTCDate();
+      var year = dateObj.getUTCFullYear();
+      if (day <10) {
+        day = ("0" + day);
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
+      newDateStart = year + "-" + month + "-" + day;
+      Date.prototype.addDays = function (days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      var date = new Date();
+      var oneWeek = (date.addDays(7));
+      var month = oneWeek.getUTCMonth() + 1; //months from 1-12
+      var day = oneWeek.getUTCDate();
+      var year = oneWeek.getUTCFullYear();
+      if (day <10) {
+        day = ("0" + day);
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
+      newDateEnd = year + "-" + month + "-" + day;
+    }
+    if (dateChoice === "2") {
+      Date.prototype.addDays = function (days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      var date = new Date();
+      var oneWeek = (date.addDays(7));
+       month = oneWeek.getUTCMonth() + 1; //months from 1-12
+       day = oneWeek.getUTCDate();
+       year = oneWeek.getUTCFullYear();
+       console.log(day);
+      if (day <10) {
+        day = ("0" + day);
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
+      newDateStart = year + "-" + month + "-" + day;
+      Date.prototype.addDays = function (days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      var date = new Date();
+      var twoWeeks = (date.addDays(14));
+      var month = twoWeeks.getUTCMonth() + 1; //months from 1-12
+      var day = twoWeeks.getUTCDate();
+      var year = twoWeeks.getUTCFullYear();
+      if (day <10) {
+        day = ("0" + day);
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
+      newDateEnd = year + "-" + month + "-" + day;
+    }
+  }
   subGenre()
   function subGenre() {
     var subGenress = $("#subGenre").val();
@@ -187,23 +253,24 @@ setDatesForSearch()
     }
   }
   mapFor()
-
 }
-
 //after we have cordinates of user and variables such as genre and distance this starts the ajax pull to ticketmaster
 function bandInfo(startLatLon) {
 
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + ""
+  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime="+newDateStart+"T14:00:00Z&endDateTime="+newDateEnd+"T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + ""
 
   $.ajax({
     url: seattleQueryURL,
     method: "GET"
   }).then(function (response) {
     console.log(response)
+    console.log(newDateStart);
+    console.log(newDateEnd);
     embed = response._embedded.events;
     console.log('embed', embed);
-
+    // console.log(newdateStart)
+    // console.log(newDatePlusWeek)
     //this runs the ajax call information we need into a bunch of arrays
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
@@ -225,7 +292,6 @@ function bandInfo(startLatLon) {
           var longit = embed[i]._embedded.venues[0].location.longitude
           var image = embed[i].images[0].url
           images.push(image)
-
           bandNames.push(bandName)
           venues.push(venue)
           latss.push(latit)
