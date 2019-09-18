@@ -23,7 +23,7 @@
 
 
 <body>
-    <div id="header-container" class="main-card-container"></div>
+    
     <!-- Main Materialize Container -->
     <div class="container">
         <h1>Rock Events in Washington</h1>
@@ -44,20 +44,18 @@
                     <option value="11">Rockabilly</option>
                     <option value="12">Traditional Rock</option>
                 </select>
-                <label class="black-text">Search by Sub Genre</label>
+                <label class="black-text"></label>
             </div>
 
             <div class="input-field col s4">
-                <select>
-                    <!-- "this weekend" is using a filter.  All Dates will populate everything
-                        and date range will populate a popup calendar -->
-                    <!-- click event-shows all info- click on show in maps -->
+                <select id="date-choice">
+                  
                     <option value="" disabled selected>Dates</option>
-                    <option value="1">All Dates</option>
-                    <option value="2">This Weekend</option>
-                    <option value="3">Date Range</option>
+                    <option value="1">This week</option>
+                    <option value="2">Next week</option>
+                  
                 </select>
-                <label id="searchButton" class="black-text">Search by Dates</label>
+                <label id="searchButton" class="black-text"></label>
             </div>
 
             <div class="input-field col s4">
@@ -67,47 +65,49 @@
                     <option value="2">20 Miles</option>
                     <option value="3">50 Miles</option>
                 </select>
-                <label id="searchButton" class="black-text">Search by Distance</label>
+                <label id="searchButton" class="black-text"></label>
             </div>
         </div>
 
         <div class="row">
             <div class="col s12">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Search by Location
-                    <i class="material-icons center">send</i>
-                </button>
-                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search
+                <button id="searchByLocationButton" class="btn waves-effect waves-light" type="submit" name="action">Search by Location
                     <i class="material-icons right">send</i>
                 </button>
+                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search in Seattle
+                    <i class="material-icons right">send</i>
+                </button>
+                
             </div>
         </div>
     </div>
-    <div id="card-container" class="container">
+    <div id="card-container">
         <div class="main-container">
-            <div id = "card" class="row">
+            <div id="card" class="row">
                 <div id=card-info class="col l8">
 
                 </div>
-                <div class="col l4">
-                    <div id="map"></div>
+                <div id ="div-for-map"class="col l4 sticky">
+                    <div id =content class = "sticky">
+                            <div id="map" class = "sticky"></div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div id="map"></div> -->
-    <div id="buttons-view">
-    </div>
-    <footer class="page-footer">
-        <div class="container">
+
+
+    ​
+        <footer class="page-footer">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Footer Content</h5>
                     <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
-                        footer
-                        content.</p>
+                        footer content.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Info</h5>
+                    <h5 class="white-text">Rock Events in Washington Info</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
                         <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
@@ -115,54 +115,28 @@
                     </ul>
                 </div>
             </div>
-        </div> -->
-        </div>
-        </div>
-        </div>
-        <div id="events"></div>
-        </div>
-
-        </div>
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
-                            footer content.</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Rock Events in Washington Info</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="footer-copyright">
-                <div class="container">
-                    © 2019 Copyright
-                </div>
+                © 2019 Copyright
+            </div>
             </div>
         </footer>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script> -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
         <script src="javascript\maps.js"></script>
+        <script src="./javascript/ticketmaster.js"></script>
         <script src="javascript\Itunes.js"></script>
-        <script src="javascript\TicketMaster.js"></script>
         <script src="javascript\email.js"></script>
         </script>
 
