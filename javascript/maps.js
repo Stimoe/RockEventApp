@@ -6,7 +6,7 @@ var venueForMarkers=[]
 var name1
 var name2
 var name3
-
+var latLon
 
 //this function creates the cards based off the users input
 function cards() {
@@ -49,6 +49,7 @@ function mapFor() {
   if (search === "seattle") {
     seattleLocation()
   }
+ 
 }
 //end leahs code
 
@@ -67,16 +68,14 @@ function getLocation() {
       startLat = lat
       startLong = lng
       latLon = (startLat + "," + startLong)
-      bandInfo(latLon)
+      // bandInfo(latLon)
+      console.log(latLon)
+      usersLocationQuery(latLon)
     })
+   
   }
+  
 }
-
-
-
-
-
-
 
 //if we dont have the users location this runs the map over seattle and supplies those cordinates for the ajax pull
 function seattleLocation() {
@@ -86,7 +85,9 @@ function seattleLocation() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   latLon = (47.608013 + "," + -122.335167)
-  bandInfo(latLon)
+console.log(latLon)
+  // bandInfo(latLon)
+  seattleQuery(latLon)
 }
 //this doesnt work currently
 
