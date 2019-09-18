@@ -32,79 +32,87 @@ youtubeLink = []
 
 
 var search = "seattle"
-var currentLocation = "currentLocation"
+// var currentLocation = "currentLocation"
 var seattle = (47.608013 + "," + -122.335167)
-//on click on search seattle, gets inputs from users.
-$(document).on("click", "#searchButton", function (event) {
-//this checks which distance they choose
-  if ($("#distance").val() === "1") {
-    radius = 5
-  }
-  if ($("#distance").val() === "2") {
-    radius = 20
-  }
-  if ($("#distance").val() === "3") {
-    radius = 50
-  }
-  subGenre()
-  //this checks which subgenre they choose
-  function subGenre() {
-    var subGenress = $("#subGenre").val();
+//  if ($("#distance").val() === "1") {
+//     radius = 5
+//   }
+//   if ($("#distance").val() === "2") {
+//     radius = 20
+//   }
+//   if ($("#distance").val() === "3") {
+//     radius = 50
+//   }
+//   subGenre()
+//   //this checks which subgenre they choose
+//   function subGenre() {
+//     var subGenress = $("#subGenre").val();
 
-    if (subGenress === "1") {
+//     if (subGenress === "1") {
 
-      subGenreFromUser = ("Alternative Rock")
-    }
-    if (subGenress === "2") {
+//       subGenreFromUser = ("Alternative Rock")
+//     }
+//     if (subGenress === "2") {
 
-      subGenreFromUser = ("Blues Rock")
-    }
-    if (subGenress === "3") {
+//       subGenreFromUser = ("Blues Rock")
+//     }
+//     if (subGenress === "3") {
 
-      subGenreFromUser = ("British Invasion")
-    }
-    if (subGenress === "4") {
+//       subGenreFromUser = ("British Invasion")
+//     }
+//     if (subGenress === "4") {
 
-      subGenreFromUser = ("Death Metal")
-    }
-    if (subGenress === "5") {
+//       subGenreFromUser = ("Death Metal")
+//     }
+//     if (subGenress === "5") {
 
-      subGenreFromUser = ("Hair Metal")
-    }
-    if (subGenress === "6") {
+//       subGenreFromUser = ("Hair Metal")
+//     }
+//     if (subGenress === "6") {
 
-      subGenreFromUser = ("Hard Rock")
-    }
-    if (subGenress === "7") {
+//       subGenreFromUser = ("Hard Rock")
+//     }
+//     if (subGenress === "7") {
 
-      subGenreFromUser = ("Metal")
-    }
-    if (subGenress === "8") {
+//       subGenreFromUser = ("Metal")
+//     }
+//     if (subGenress === "8") {
 
-      subGenreFromUser = ("Progressive Rock")
-    }
-    if (subGenress === "9") {
+//       subGenreFromUser = ("Progressive Rock")
+//     }
+//     if (subGenress === "9") {
 
-      subGenreFromUser = ("Punk Rock")
-    }
-    if (subGenress === "10") {
+//       subGenreFromUser = ("Punk Rock")
+//     }
+//     if (subGenress === "10") {
 
-      subGenreFromUser = ("Rock & Roll")
-    }
-    if (subGenress === "11") {
+//       subGenreFromUser = ("Rock & Roll")
+//     }
+//     if (subGenress === "11") {
 
-      subGenreFromUser = ("Rockabilly")
-    }
-    if (subGenress === "12") {
+//       subGenreFromUser = ("Rockabilly")
+//     }
+//     if (subGenress === "12") {
 
-      subGenreFromUser = ("Traditional Rock")
-    }
-  }
-  //this decides which function to run for the map, either based off seattle or at the users location
-  mapFor()
-})
+//       subGenreFromUser = ("Traditional Rock")
+//     }
+//   }
+//   //this decides which function to run for the map, either based off seattle or at the users location
+//   mapFor()
+// })
 
 $(document).on("click", "#searchByLocationButton", function (event) {
+  search="currentLocation"
+  userChoices()
+})
+//on click on search seattle, gets inputs from users.
+$(document).on("click", "#searchButton", function (event) {
+  //this checks which distance they choose
+    search="seattle"
+    userChoices()
+  })
+  //  
+ function userChoices() { 
   if ($("#distance").val() === "1") {
     radius = 5
   }
@@ -114,6 +122,17 @@ $(document).on("click", "#searchByLocationButton", function (event) {
   if ($("#distance").val() === "3") {
     radius = 50
   }
+setDatesForSearch()
+  function setDatesForSearch () {
+    var dateChoice = $("#date-choice").val();
+    if(dateChoice==="1"){
+      console.log("this week")
+    }
+    if (dateChoice==="2") {
+      console.log("next week")
+    }
+    }
+
   subGenre()
   function subGenre() {
     var subGenress = $("#subGenre").val();
@@ -168,7 +187,8 @@ $(document).on("click", "#searchByLocationButton", function (event) {
     }
   }
   mapFor()
-})
+
+}
 
 //after we have cordinates of user and variables such as genre and distance this starts the ajax pull to ticketmaster
 function bandInfo(startLatLon) {
@@ -265,7 +285,6 @@ function createArrayWithAllEventInfoForSameGenre() {
   cards(eventsFromUserChoices)
   console.log(eventsFromUserChoices)
 }
-
 
 
 // function itunesLink() {
