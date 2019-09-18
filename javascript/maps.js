@@ -30,12 +30,12 @@ function cards() {
         <div class="card-action">
         <a id="button-view" class="waves-effect waves-light btn venue-buttons"><i class="material-icons left">map</i>Location</a>
 
-            <a class="waves-effect waves-light btn"><i class="material-icons left">music_video</i>button</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">music_video</i>Youtube</a>
             <button class="venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view">Venue Location</button>
-            <a href="${eventsFromUserChoices[8][i]}" id="itunes">YouTube</a>
+            <a href="${eventsFromUserChoices[8][i]}" id="itunes"></i>Button</a>
 
             <a href="#" id="event-details">Email Event Details</a>
-            <a class="waves-effect waves-light btn"><i class="material-icons left">email</i>button</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">email</i>Notifications</a>
            
         </div>
     </div>
