@@ -1,7 +1,8 @@
 var startLat
 var startLong
 var makeMarker = {}
-
+var markerToMake={}
+var venueForMarkers=[]
 // var cardHorizontalDiv = $('<div class="card horizontal">')
 // var cardImageDiv = $('<div class="card-image">')
 // cardImageDiv.append('<img>').attr('src', "https://www.thegraciouspantry.com/wp-content/uploads/2018/08/clean-eating-lunch-box-burritos-v-1-.jpg")
@@ -52,7 +53,7 @@ var makeMarker = {}
 
 
 
-
+//this function creates the cards based off the users input
 function cards() {
   // console.log(eventsFromUserChoices)
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
@@ -64,10 +65,7 @@ function cards() {
     a.attr("class", "venue-buttons")
     // a.text(eventsFromUserChoices[5][i]);
     $("#buttons-view").append(a)
-
-
-
-
+    
     $(".main-container>.row").append(` <div class="col s2 m7"> 
     <h2 class="header">Horizontal Card</h2>
     <div class="card horizontal">
@@ -82,7 +80,7 @@ function cards() {
         </div> 
 
         <div class="card-action">
-            <button id="button-view">Venue Location</button>
+            <button data-name3 = ${ eventsFromUserChoices[7][i]} (data-name2 =${ eventsFromUserChoices[6][i]} data-name1= ${ eventsFromUserChoices[5][i]}class="venue-buttons" id="button-view">Venue Location</button>
             <a href="" id="itunes">iTunes</a>
             <a href="#" id="event-details">Email Event Details</a>
            
@@ -94,7 +92,7 @@ function cards() {
 }
 
 
-
+//this function is used to get the users location, make a map and supply the cordinates to the ticketmaster api
 
 
 // function getLocation() {
@@ -121,22 +119,8 @@ function cards() {
 
 
 
-// function seattleLocation() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: 47.608013, lng: -122.335167},
-//     zoom: 8
-//   });
-//   latLon = (47.608013 + "," + -122.335167)
-//   bandInfo(latLon)
-// }
 
-
-
-
-
-
-
-
+//if we dont have the users location this runs the map over seattle and supplies those cordinates for the ajax pull
 function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'),{
     zoom: 12,
@@ -146,6 +130,36 @@ function seattleLocation() {
   latLon = (47.608013 + "," + -122.335167)
   bandInfo(latLon)
 }
+//this doesnt work currently
+function displayNew(){
+      
+  $("#buttons-view").empty();
+  for (var j = 0; j < eventsFromUserChoices[0].length; j++) {
+      
+    var a = $("<button>");
+    a.attr({"data-name1": eventsFromUserChoices[5][j]}) 
+    a.attr({"data-name2": eventsFromUserChoices[6][j]})
+    a.attr({"data-name3": eventsFromUserChoices[7][j]})
+   a.attr("class","venue-buttons")
+    // a.text(eventsFromUserChoices[5][j]);
+    $("#buttons-view").append(a)
+}}
+//this doesnt work either, it is supposed to draw the longitude/latitude/venue name out of the venue button for placing a marker
+$(document).on("click", ".venue-buttons", function(event) {
+  event.preventDefault();
+  var lats=$(this).attr("data-name2")
+  var lon=$(this).attr("data-name3")
+   var ven=$(this).attr("data-name1")
+lat2= JSON.parse(lats)
+lon2= JSON.parse(lon)
+ven2=JSON.stringify(ven)
+console.log("venue name" +ven2)
+  markerToMake={lat: lat2, lng: lon2}
+   console.log(markerToMake)
+  venueMarkers(markerToMake, ven2)
+})
+
+//after we have the information from the button this function places the markers
 function venueMarkers() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
