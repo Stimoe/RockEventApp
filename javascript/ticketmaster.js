@@ -39,7 +39,7 @@ var seattle = (47.608013 + "," + -122.335167)
 
 
 
-  //on click of search by location changes the search value to currentlocation, then runs userchoices
+//on click of search by location changes the search value to currentlocation, then runs userchoices
 $(document).on("click", "#searchByLocationButton", function (event) {
   search = "currentLocation"
   userChoices()
@@ -72,12 +72,12 @@ function userChoices() {
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
       var day = dateObj.getUTCDate();
       var year = dateObj.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -89,12 +89,12 @@ function userChoices() {
       var month = oneWeek.getUTCMonth() + 1; //months from 1-12
       var day = oneWeek.getUTCDate();
       var year = oneWeek.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateEnd = year + "-" + month + "-" + day;
     }
     if (dateChoice === "2") {
@@ -105,16 +105,16 @@ function userChoices() {
       }
       var date = new Date();
       var oneWeek = (date.addDays(7));
-       month = oneWeek.getUTCMonth() + 1; //months from 1-12
-       day = oneWeek.getUTCDate();
-       year = oneWeek.getUTCFullYear();
-       console.log(day);
-      if (day <10) {
+      month = oneWeek.getUTCMonth() + 1; //months from 1-12
+      day = oneWeek.getUTCDate();
+      year = oneWeek.getUTCFullYear();
+      console.log(day);
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -126,12 +126,12 @@ function userChoices() {
       var month = twoWeeks.getUTCMonth() + 1; //months from 1-12
       var day = twoWeeks.getUTCDate();
       var year = twoWeeks.getUTCFullYear();
-      if (day <10) {
+      if (day < 10) {
         day = ("0" + day);
-    }
-    if (month <10) {
-      month = ("0" + month);
-  }
+      }
+      if (month < 10) {
+        month = ("0" + month);
+      }
       newDateEnd = year + "-" + month + "-" + day;
     }
   }
