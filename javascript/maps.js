@@ -160,8 +160,14 @@ function venueMarkers() {
   });
 }
 
-
-
+function mapFor() {
+    if (search === "currentLocation") {
+      getLocation()
+    }
+    if (search === "seattle") {
+      seattleLocation()
+    }
+  }
 
 
 
