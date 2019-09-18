@@ -35,72 +35,7 @@ var newDateEnd
 var search = "seattle"
 // var currentLocation = "currentLocation"
 var seattle = (47.608013 + "," + -122.335167)
-//  if ($("#distance").val() === "1") {
-//     radius = 5
-//   }
-//   if ($("#distance").val() === "2") {
-//     radius = 20
-//   }
-//   if ($("#distance").val() === "3") {
-//     radius = 50
-//   }
-//   subGenre()
-//   //this checks which subgenre they choose
-//   function subGenre() {
-//     var subGenress = $("#subGenre").val();
 
-//     if (subGenress === "1") {
-
-//       subGenreFromUser = ("Alternative Rock")
-//     }
-//     if (subGenress === "2") {
-
-//       subGenreFromUser = ("Blues Rock")
-//     }
-//     if (subGenress === "3") {
-
-//       subGenreFromUser = ("British Invasion")
-//     }
-//     if (subGenress === "4") {
-
-//       subGenreFromUser = ("Death Metal")
-//     }
-//     if (subGenress === "5") {
-
-//       subGenreFromUser = ("Hair Metal")
-//     }
-//     if (subGenress === "6") {
-
-//       subGenreFromUser = ("Hard Rock")
-//     }
-//     if (subGenress === "7") {
-
-//       subGenreFromUser = ("Metal")
-//     }
-//     if (subGenress === "8") {
-
-//       subGenreFromUser = ("Progressive Rock")
-//     }
-//     if (subGenress === "9") {
-
-//       subGenreFromUser = ("Punk Rock")
-//     }
-//     if (subGenress === "10") {
-
-//       subGenreFromUser = ("Rock & Roll")
-//     }
-//     if (subGenress === "11") {
-
-//       subGenreFromUser = ("Rockabilly")
-//     }
-//     if (subGenress === "12") {
-
-//       subGenreFromUser = ("Traditional Rock")
-//     }
-//   }
-//   //this decides which function to run for the map, either based off seattle or at the users location
-//   mapFor()
-// })
 
 
   //on click of search by location changes the search value to currentlocation, then runs userchoices
@@ -320,6 +255,7 @@ function makeArraYs() {
   locations.push(venues)
   locations.push(latss)
   locations.push(longg)
+  itunesLink()
   createArrayWithAllEventInfoForSameGenre()
 }
 //this checks the users choice of subgenre vs the ajax call.  if it matches it puts all the information from that line into more arrays
@@ -353,49 +289,49 @@ function createArrayWithAllEventInfoForSameGenre() {
 }
 
 
-// function itunesLink() {
-//   // console.log('bandNames', bandNames);
-//   // console.log('bandNames length', bandNames.length);
-//   for (var i = 0; i < bandNames.length; i++) {
-//     // console.log('forloop triggered', bandNames[i])
-//     $.ajax({
-//       url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
-//       method: 'GET'
-//     })
-//       .then(function (response) {
-//       //  console.log( "response in itunes"+response)
+function itunesLink() {
+  // console.log('bandNames', bandNames);
+  // console.log('bandNames length', bandNames.length);
+  for (var i = 0; i < bandNames.length; i++) {
+    // console.log('forloop triggered', bandNames[i])
+    $.ajax({
+      url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+      method: 'GET'
+    })
+      .then(function (response) {
+      //  console.log( "response in itunes"+response)
 
-//         var responseObject = JSON.parse(response);
-//           // console.log(" right before if in itunes" +responseObject.results)
-//         // console.log("responseObject" +responseObject)
-//         console.log('response', responseObject);
-//         // if (responseObject.results[0].hasOwnProperty('artistName')) {
+        var responseObject = JSON.parse(response);
+          // console.log(" right before if in itunes" +responseObject.results)
+        // console.log("responseObject" +responseObject)
+        console.log('response', responseObject);
+        // if (responseObject.results[0].hasOwnProperty('artistName')) {
 
 
-//           if (responseObject.resultCount >= 0){
-//           // console.log(responseObject.results[0].artistName);
-//           // console.log(`${responseObject.results[0].artistName} is in the bandname array? ${bandNames.indexOf(responseObject.results[0].artistName)}')
-//             console.log(responseObject.results[0].artistName)
+          if (responseObject.resultCount >= 0){
+          // console.log(responseObject.results[0].artistName);
+          // console.log(`${responseObject.results[0].artistName} is in the bandname array? ${bandNames.indexOf(responseObject.results[0].artistName)}')
+            console.log(responseObject.results[0].artistName)
 
-//           console.log(bandNames[i]? bandNames[i]:"no match");
-//           // var indexToInsert = bandNames.indexOf(responseObject.results[0].artistName);
-//           // console.log('index to insert' + indexToInsert);
-//           // if (indexToInsert >-1){
-//           // artistLinks[indexToInsert] = responseObject.results[0].artistLinkUrl;
-//           // artistLinks.push(responseObject.results[0].artistLinkUrl);
-//           // if(responseObject.results[0].hasOwnProperty("artistLinkUrl")){
-//           artistUrl = (responseObject.results[0].artistLinkUrl);
-//           console.log("artist url in itunes" + artistUrl);
-//           artistLinks.push(artistUrl)
-//           }
-//           else {
-//             console.log("no website")
-//             artistLinks.push("no website")
-//           }
+          console.log(bandNames[i]? bandNames[i]:"no match");
+          // var indexToInsert = bandNames.indexOf(responseObject.results[0].artistName);
+          // console.log('index to insert' + indexToInsert);
+          // if (indexToInsert >-1){
+          // artistLinks[indexToInsert] = responseObject.results[0].artistLinkUrl;
+          // artistLinks.push(responseObject.results[0].artistLinkUrl);
+          // if(responseObject.results[0].hasOwnProperty("artistLinkUrl")){
+          artistUrl = (responseObject.results[0].artistLinkUrl);
+          console.log("artist url in itunes" + artistUrl);
+          artistLinks.push(artistUrl)
+          }
+          else {
+            console.log("no website")
+            artistLinks.push("no website")
+          }
 
-//           // console.log("artist link" + artistLinks)
-//         }  )}
-//         // console.log("this is after it runs" +artistLinks)
+          // console.log("artist link" + artistLinks)
+        }  )}
+        // console.log("this is after it runs" +artistLinks)
 
-//         // console.log(" this has urls in it" +bigArrayWithAllInfoOfEvents)
-//       }
+        // console.log(" this has urls in it" +bigArrayWithAllInfoOfEvents)
+      }

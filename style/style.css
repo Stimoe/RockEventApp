@@ -1,13 +1,13 @@
 #main-div{
     border-color: red;
 }
-/* #main-container{
+#main-container{
     margin: 0px; 
     content: center;
-} */
+}
 #div-for-map{
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     float: right;
     position: sticky;
 }
@@ -24,12 +24,14 @@
 #card-contents {            
     padding: 0px;
 }
-#map {
-    height: 500px;
-    position: sticky
-  }
-div.sticky {
-    position: sticky;
+
+#map
+{
+    position: fixed !important; 
+    height: 400px !important;
+    width: 400px !important;
+   bottom: 10% !important;
+    right: 5% !important;
 }
 
 
