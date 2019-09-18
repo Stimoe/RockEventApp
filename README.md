@@ -79,6 +79,34 @@ __________________________________________________________________
 
 __________________________________________________________________
 
+9/16 Monday
+           J-Anne : Installed Node.js
+                    Worked on footer, social media icons, e-mail imput
+           Thomas : Created marker points on map
+                    Assigned sub genres to a variable that connects to API
+                    Connected "venue location" to Map API
+           Michelle : Finished date range and distance values
+                      Created artist card
+           Leah : Reviewed, pushed & merged branch updated to origin development
+                  Working on abstracting correct information from itunes API
+__________________________________________________________________
 
+9/17 Tueday Thomas : Google Map API (search by location)
+                     Google Map API (search by venue)
+                     How map populated on screen load
+                     Making map visible and pinned to site
+                     Pseudo code labels to all code
+           Michelle : Changing values on drop down menu
+                      Attach background to website
+                      Narrow distance values
+                      Fixed how window displays
+           Leah : Worked on Apple API
+                  Fixing values on how API gives Artist informataion
+           J-Anne : Created buttons on artist card
+                    Title style updated
+                    Enlarged artist image display
+                    Cleaned up hovering text in code
+__________________________________________________________________
+                      
 >> Time Line <<
 9/19/2019: DUE DATE!!!
