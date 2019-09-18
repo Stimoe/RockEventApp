@@ -1,10 +1,10 @@
 #main-div{
     border-color: red;
 }
-#main-container{
+/* #main-container{
     margin: 0px; 
     content: center;
-}
+} */
 #div-for-map{
     height: 400px;
     width: 400px;

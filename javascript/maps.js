@@ -18,7 +18,7 @@ function cards() {
     $("#buttons-view").append(a)
     
     $(".main-container>.row").append(` <div class="col s2 m7"> 
-    <h2 class="header">Horizontal Card</h2>
+    
     <div class="card horizontal">
     <div class="card-image">
     <img id ="band-image" src="${eventsFromUserChoices[3][i]}">
