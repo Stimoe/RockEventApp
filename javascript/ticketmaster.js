@@ -209,7 +209,7 @@ function userChoices() {
 
 
 function usersLocationQuery(startLatLon){
- var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
+ var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime="+newDateStart+"T14:00:00Z&endDateTime="+newDateEnd+"T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + "&size=80"
 
   $.ajax({
     url: locationQueryURL,
@@ -220,8 +220,6 @@ function usersLocationQuery(startLatLon){
 })
 
 }
- 
-  
     //this runs the ajax call information we need into a bunch of arrays
     function useQuery(){
       console.log(embed);
@@ -255,7 +253,7 @@ function usersLocationQuery(startLatLon){
         }
       }
     }
-    itunesLink()
+    makeArraYs()
     
   }
 
@@ -276,29 +274,42 @@ function makeArraYs() {
   locations.push(venues)
   locations.push(latss)
   locations.push(longg)
- console.log(artistLinks)
- console.log(bigArrayWithAllInfoOfEvents)
+//  console.log(artistLinks)
+//  console.log(bigArrayWithAllInfoOfEvents)
+// console.log(artistLinks)
+console.log(bigArrayWithAllInfoOfEvents)
   createArrayWithAllEventInfoForSameGenre(bigArrayWithAllInfoOfEvents)
 }
 //this checks the users choice of subgenre vs the ajax call.  if it matches it puts all the information from that line into more arrays
-function createArrayWithAllEventInfoForSameGenre() {
+function createArrayWithAllEventInfoForSameGenre(arr) {
+  console.log(arr)
+  // var iTunesArr = arr[9]
+  // console.log(iTunesArr)
+  // console.log(iTunesArr[1])
+  // console.log(iTunesArr[2])
+  // console.log(iTunesArr[3])
+  // console.log("sub genre",subGenreFromUser)
+  // console.log(arr[4][l] === subGenreFromUser)
  
-  for (var l = 0; l < bigArrayWithAllInfoOfEvents[2].length; l++) {
-    if (bigArrayWithAllInfoOfEvents[4][l] === subGenreFromUser) {
-      userchoice1.push(bigArrayWithAllInfoOfEvents[0][l])
-      userchoice2.push(bigArrayWithAllInfoOfEvents[1][l])
-      userchoice3.push(bigArrayWithAllInfoOfEvents[2][l])
-      userchoice4.push(bigArrayWithAllInfoOfEvents[3][l])
-      userchoice5.push(bigArrayWithAllInfoOfEvents[4][l])
-      userchoice6.push(bigArrayWithAllInfoOfEvents[5][l])
-      userchoice7.push(bigArrayWithAllInfoOfEvents[6][l])
-      userchoice8.push(bigArrayWithAllInfoOfEvents[7][l])
-      userchoice9.push(bigArrayWithAllInfoOfEvents[8][l])
-      userchoice10.push(bigArrayWithAllInfoOfEvents[9][l])
+  for (var l = 0; l < arr[2].length; l++) {
+    if (arr[4][l] === subGenreFromUser) {
+      console.log(arr[9][l])
+      userchoice1.push(arr[0][l])
+      userchoice2.push(arr[1][l])
+      userchoice3.push(arr[2][l])
+      userchoice4.push(arr[3][l])
+      userchoice5.push(arr[4][l])
+      userchoice6.push(arr[5][l])
+      userchoice7.push(arr[6][l])
+      userchoice8.push(arr[7][l])
+      userchoice9.push(arr[8][l])
+      userchoice10.push(arr[9][l])
     }
-    
-    console.log(bigArrayWithAllInfoOfEvents)
+    // console.log(bigArrayWithAllInfoOfEvents
   }
+  combineUserChoices()
+}
+  function combineUserChoices(){
   //this pushes all the choices that match up for subgenre into 1 array of all the information we need
   eventsFromUserChoices.push(userchoice1)
   eventsFromUserChoices.push(userchoice2)
@@ -311,35 +322,35 @@ function createArrayWithAllEventInfoForSameGenre() {
   eventsFromUserChoices.push(userchoice9)
   eventsFromUserChoices.push(userchoice10)
   cards(eventsFromUserChoices)
-  console.log(eventsFromUserChoices)
+  // console.log(eventsFromUserChoices)
 }
 
 
-function itunesLink() {
-  for (var i = 0; i < bandNames.length; i++) {
-    $.ajax({
-      url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
-      method: 'GET',
-    })
-      .then(function (response) {
-        if (response.hasOwnProperty()) {
-          // console.log("no website")
-          artistLinks.push("no website")
-        } else {
-          var responseObject = JSON.parse(response);
-          // console.log('response', responseObject);
-          result = responseObject.results[0];
-          // console.log('result', result);
-          var urls = result.artistLinkUrl;
-          // console.log('urls', urls);
-          artistLinks.push(urls)
-        }
-      }).catch(function (err) {
-        // console.log('this time it errored')
-        artistLinks.push('no website')
-      })
-  }
-  // console.log('artist links array', artistLinks);
-  makeArraYs();
+// function itunesLink() {
+//   for (var i = 0; i < bandNames.length; i++) {
+//     $.ajax({
+//       url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+//       method: 'GET',
+//     })
+//       .then(function (response) {
+//         // if (response.hasOwnProperty()) {
+//         //   // console.log("no website")
+//         //   artistLinks.push("no website")
+//         // } else {
+//           var responseObject = JSON.parse(response);
+//           // console.log('response', responseObject);
+//           result = responseObject.results[0].artistLinkUrl;
+//           // console.log('result', result);
+//           // var urls = result.artistLinkUrl;
+//           // console.log('urls', urls);
+//           artistLinks.push(result)
+        
+//       }).catch(function (err) {
+//         // console.log('this time it errored')
+//         artistLinks.push('no website')
+//       })
+//       // setTimeout(function(){makeArraYs(artistLinks)},2000);
+//   }
+//   // console.log('artist links array', artistLinks);
   
-}
+// }

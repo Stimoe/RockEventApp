@@ -23,9 +23,10 @@ function cards() {
 
         <div id= "card-contents" class="card-content">
             <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
-            <h6 id="venue-name">Venue Name: ${eventsFromUserChoices[5][i]}</h6>
+            <h6 id="venue-name">Venue Name: ${eventsFromUserChoices[5][i]}   |  Date:  ${eventsFromUserChoices[0][i]}   |  Time:  ${eventsFromUserChoices[1][i]}</h6>
             <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div> 
+            </div> 
+          
 
         <div class="card-action">
         <a id="button-view" class="waves-effect waves-light btn venue-buttons"><i class="material-icons left">map</i>Location</a>
