@@ -1,11 +1,4 @@
 
-//url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&latlong="+latlon,
-
-
-// var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&postalCode=98101&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z"
-
-
-// var queryURL ="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+latLon+""
 
 var embed = []
 var genre = []
@@ -41,9 +34,9 @@ youtubeLink = []
 var search = "seattle"
 var currentLocation = "currentLocation"
 var seattle = (47.608013 + "," + -122.335167)
-
+//on click on search seattle, gets inputs from users.
 $(document).on("click", "#searchButton", function (event) {
-
+//this checks which distance they choose
   if ($("#distance").val() === "1") {
     radius = 5
   }
@@ -54,6 +47,7 @@ $(document).on("click", "#searchButton", function (event) {
     radius = 50
   }
   subGenre()
+  //this checks which subgenre they choose
   function subGenre() {
     var subGenress = $("#subGenre").val();
 
@@ -106,6 +100,7 @@ $(document).on("click", "#searchButton", function (event) {
       subGenreFromUser = ("Traditional Rock")
     }
   }
+  //this decides which function to run for the map, either based off seattle or at the users location
   mapFor()
 })
 
@@ -174,6 +169,8 @@ $(document).on("click", "#searchByLocationButton", function (event) {
   }
   mapFor()
 })
+
+//after we have cordinates of user and variables such as genre and distance this starts the ajax pull to ticketmaster
 function bandInfo(startLatLon) {
 
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
@@ -186,6 +183,8 @@ function bandInfo(startLatLon) {
     console.log(response)
     embed = response._embedded.events;
     console.log('embed', embed);
+
+    //this runs the ajax call information we need into a bunch of arrays
     for (var i = 0; i < embed.length; i++) {
       if (embed[i].classifications[0].hasOwnProperty('subGenre')) {
         genre.push(embed[i].classifications[0].subGenre.name)
@@ -219,7 +218,7 @@ function bandInfo(startLatLon) {
     makeArraYs();
   })
 }
-
+//this takes the arrays with the information we need and puts them into a bigger array
 function makeArraYs() {
   bigArrayWithAllInfoOfEvents.push(date)
   bigArrayWithAllInfoOfEvents.push(time)
@@ -237,7 +236,7 @@ function makeArraYs() {
   locations.push(longg)
   createArrayWithAllEventInfoForSameGenre()
 }
-
+//this checks the users choice of subgenre vs the ajax call.  if it matches it puts all the information from that line into more arrays
 function createArrayWithAllEventInfoForSameGenre() {
   console.log(bigArrayWithAllInfoOfEvents)
   for (var l = 0; l < bigArrayWithAllInfoOfEvents[2].length; l++) {
@@ -253,6 +252,7 @@ function createArrayWithAllEventInfoForSameGenre() {
       userchoice9.push(bigArrayWithAllInfoOfEvents[8][l])
     }
   }
+  //this pushes all the choices that match up for subgenre into 1 array of all the information we need
   eventsFromUserChoices.push(userchoice1)
   eventsFromUserChoices.push(userchoice2)
   eventsFromUserChoices.push(userchoice3)
