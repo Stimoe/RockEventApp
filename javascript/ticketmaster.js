@@ -258,7 +258,7 @@ function userChoices() {
 function bandInfo(startLatLon) {
 
   // var locationQueryURL="https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime=2019-09-14T14:00:00Z&endDateTime=2019-09-25T14:00:00Z&radius=5&latlong="+startLatLon+""
-  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime="+newDateStart+"T14:00:00Z&endDateTime="+newDateEnd+"T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + ""
+  var seattleQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=Rock&apikey=2yfzA8sRxB5Z2ujcvJv5y6mV7gCVIKK4&startDateTime="+newDateStart+"T14:00:00Z&endDateTime="+newDateEnd+"T14:00:00Z&radius=" + radius + "&latlong=" + startLatLon + "&size=80"
 
   $.ajax({
     url: seattleQueryURL,
