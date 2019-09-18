@@ -53,7 +53,7 @@ var venueForMarkers=[]
 
 
 
-
+//this function creates the cards based off the users input
 function cards() {
   // console.log(eventsFromUserChoices)
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
@@ -65,10 +65,7 @@ function cards() {
     a.attr("class", "venue-buttons")
     // a.text(eventsFromUserChoices[5][i]);
     $("#buttons-view").append(a)
-
-
-
-
+    
     $(".main-container>.row").append(` <div class="col s2 m7"> 
     <h2 class="header">Horizontal Card</h2>
     <div class="card horizontal">
@@ -83,7 +80,7 @@ function cards() {
         </div> 
 
         <div class="card-action">
-            <button id="button-view">Venue Location</button>
+            <button data-name3 = ${ eventsFromUserChoices[7][i]} (data-name2 =${ eventsFromUserChoices[6][i]} data-name1= ${ eventsFromUserChoices[5][i]}class="venue-buttons" id="button-view">Venue Location</button>
             <a href="" id="itunes">iTunes</a>
             <a href="#" id="event-details">Email Event Details</a>
            
@@ -95,7 +92,7 @@ function cards() {
 }
 
 
-
+//this function is used to get the users location, make a map and supply the cordinates to the ticketmaster api
 
 
 // function getLocation() {
@@ -123,7 +120,7 @@ function cards() {
 
 
 
-
+//if we dont have the users location this runs the map over seattle and supplies those cordinates for the ajax pull
 function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'),{
     zoom: 12,
@@ -133,7 +130,7 @@ function seattleLocation() {
   latLon = (47.608013 + "," + -122.335167)
   bandInfo(latLon)
 }
-
+//this doesnt work currently
 function displayNew(){
       
   $("#buttons-view").empty();
@@ -144,10 +141,10 @@ function displayNew(){
     a.attr({"data-name2": eventsFromUserChoices[6][j]})
     a.attr({"data-name3": eventsFromUserChoices[7][j]})
    a.attr("class","venue-buttons")
-    a.text(eventsFromUserChoices[5][j]);
+    // a.text(eventsFromUserChoices[5][j]);
     $("#buttons-view").append(a)
 }}
-
+//this doesnt work either, it is supposed to draw the longitude/latitude/venue name out of the venue button for placing a marker
 $(document).on("click", ".venue-buttons", function(event) {
   event.preventDefault();
   var lats=$(this).attr("data-name2")
@@ -162,7 +159,7 @@ console.log("venue name" +ven2)
   venueMarkers(markerToMake, ven2)
 })
 
-
+//after we have the information from the button this function places the markers
 function venueMarkers() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
