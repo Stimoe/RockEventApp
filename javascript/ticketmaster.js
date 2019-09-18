@@ -110,7 +110,6 @@ $(document).on("click", "#searchButton", function (event) {
 })
 
 $(document).on("click", "#searchByLocationButton", function (event) {
-
   if ($("#distance").val() === "1") {
     radius = 5
   }
