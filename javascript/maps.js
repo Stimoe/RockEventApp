@@ -54,7 +54,7 @@ var makeMarker = {}
 
 
 function cards() {
-  console.log(eventsFromUserChoices)
+  // console.log(eventsFromUserChoices)
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
 
     var a = $("<button>");
@@ -97,27 +97,48 @@ function cards() {
 
 
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+// function getLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function (position) {
 
-      lat = position.coords.latitude,
-        lng = position.coords.longitude
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: new google.maps.LatLng(lat, lng),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      });
-      startLat = lat
-      startLong = lng
-      latLon = (startLat + "," + startLong)
-      bandInfo(latLon)
-    })
-  }
-}
+//       lat = position.coords.latitude,
+//         lng = position.coords.longitude
+//       var map = new google.maps.Map(document.getElementById('map'), {
+//         zoom: 12,
+//         center: new google.maps.LatLng(lat, lng),
+//         mapTypeId: google.maps.MapTypeId.ROADMAP
+//       });
+//       startLat = lat
+//       startLong = lng
+//       latLon = (startLat + "," + startLong)
+//       bandInfo(latLon)
+//     })
+//   }
+// }
+
+
+
+
+
+
+// function seattleLocation() {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: {lat: 47.608013, lng: -122.335167},
+//     zoom: 8
+//   });
+//   latLon = (47.608013 + "," + -122.335167)
+//   bandInfo(latLon)
+// }
+
+
+
+
+
+
+
 
 function seattleLocation() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('map'),{
     zoom: 12,
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
