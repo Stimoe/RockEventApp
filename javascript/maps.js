@@ -1,7 +1,8 @@
 var startLat
 var startLong
 var makeMarker = {}
-
+var markerToMake={}
+var venueForMarkers=[]
 // var cardHorizontalDiv = $('<div class="card horizontal">')
 // var cardImageDiv = $('<div class="card-image">')
 // cardImageDiv.append('<img>').attr('src', "https://www.thegraciouspantry.com/wp-content/uploads/2018/08/clean-eating-lunch-box-burritos-v-1-.jpg")
@@ -121,20 +122,6 @@ function cards() {
 
 
 
-// function seattleLocation() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: 47.608013, lng: -122.335167},
-//     zoom: 8
-//   });
-//   latLon = (47.608013 + "," + -122.335167)
-//   bandInfo(latLon)
-// }
-
-
-
-
-
-
 
 
 function seattleLocation() {
@@ -146,6 +133,36 @@ function seattleLocation() {
   latLon = (47.608013 + "," + -122.335167)
   bandInfo(latLon)
 }
+
+function displayNew(){
+      
+  $("#buttons-view").empty();
+  for (var j = 0; j < eventsFromUserChoices[0].length; j++) {
+      
+    var a = $("<button>");
+    a.attr({"data-name1": eventsFromUserChoices[5][j]}) 
+    a.attr({"data-name2": eventsFromUserChoices[6][j]})
+    a.attr({"data-name3": eventsFromUserChoices[7][j]})
+   a.attr("class","venue-buttons")
+    a.text(eventsFromUserChoices[5][j]);
+    $("#buttons-view").append(a)
+}}
+
+$(document).on("click", ".venue-buttons", function(event) {
+  event.preventDefault();
+  var lats=$(this).attr("data-name2")
+  var lon=$(this).attr("data-name3")
+   var ven=$(this).attr("data-name1")
+lat2= JSON.parse(lats)
+lon2= JSON.parse(lon)
+ven2=JSON.stringify(ven)
+console.log("venue name" +ven2)
+  markerToMake={lat: lat2, lng: lon2}
+   console.log(markerToMake)
+  venueMarkers(markerToMake, ven2)
+})
+
+
 function venueMarkers() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
