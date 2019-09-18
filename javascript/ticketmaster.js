@@ -39,7 +39,7 @@ var seattle = (47.608013 + "," + -122.335167)
 
 
 
-//on click of search by location changes the search value to currentlocation, then runs userchoices
+  //on click of search by location changes the search value to currentlocation, then runs userchoices
 $(document).on("click", "#searchByLocationButton", function (event) {
   search = "currentLocation"
   userChoices()
@@ -72,12 +72,12 @@ function userChoices() {
       var month = dateObj.getUTCMonth() + 1; //months from 1-12
       var day = dateObj.getUTCDate();
       var year = dateObj.getUTCFullYear();
-      if (day < 10) {
+      if (day <10) {
         day = ("0" + day);
-      }
-      if (month < 10) {
-        month = ("0" + month);
-      }
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -89,12 +89,12 @@ function userChoices() {
       var month = oneWeek.getUTCMonth() + 1; //months from 1-12
       var day = oneWeek.getUTCDate();
       var year = oneWeek.getUTCFullYear();
-      if (day < 10) {
+      if (day <10) {
         day = ("0" + day);
-      }
-      if (month < 10) {
-        month = ("0" + month);
-      }
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
       newDateEnd = year + "-" + month + "-" + day;
     }
     if (dateChoice === "2") {
@@ -105,16 +105,16 @@ function userChoices() {
       }
       var date = new Date();
       var oneWeek = (date.addDays(7));
-      month = oneWeek.getUTCMonth() + 1; //months from 1-12
-      day = oneWeek.getUTCDate();
-      year = oneWeek.getUTCFullYear();
-      console.log(day);
-      if (day < 10) {
+       month = oneWeek.getUTCMonth() + 1; //months from 1-12
+       day = oneWeek.getUTCDate();
+       year = oneWeek.getUTCFullYear();
+       console.log(day);
+      if (day <10) {
         day = ("0" + day);
-      }
-      if (month < 10) {
-        month = ("0" + month);
-      }
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
       newDateStart = year + "-" + month + "-" + day;
       Date.prototype.addDays = function (days) {
         var date = new Date(this.valueOf());
@@ -126,12 +126,12 @@ function userChoices() {
       var month = twoWeeks.getUTCMonth() + 1; //months from 1-12
       var day = twoWeeks.getUTCDate();
       var year = twoWeeks.getUTCFullYear();
-      if (day < 10) {
+      if (day <10) {
         day = ("0" + day);
-      }
-      if (month < 10) {
-        month = ("0" + month);
-      }
+    }
+    if (month <10) {
+      month = ("0" + month);
+  }
       newDateEnd = year + "-" + month + "-" + day;
     }
   }
@@ -253,7 +253,7 @@ function usersLocationQuery(startLatLon){
         }
       }
     }
-    itunesLink()
+    makeArraYs()
     
   }
 
@@ -283,13 +283,13 @@ console.log(bigArrayWithAllInfoOfEvents)
 //this checks the users choice of subgenre vs the ajax call.  if it matches it puts all the information from that line into more arrays
 function createArrayWithAllEventInfoForSameGenre(arr) {
   console.log(arr)
-  var iTunesArr = arr[9]
-  console.log(iTunesArr.length)
-  console.log(iTunesArr[1])
-  console.log(iTunesArr[2])
-  console.log(iTunesArr[3])
-  console.log("sub genre",subGenreFromUser)
-  console.log(arr[4][l] === subGenreFromUser)
+  // var iTunesArr = arr[9]
+  // console.log(iTunesArr)
+  // console.log(iTunesArr[1])
+  // console.log(iTunesArr[2])
+  // console.log(iTunesArr[3])
+  // console.log("sub genre",subGenreFromUser)
+  // console.log(arr[4][l] === subGenreFromUser)
  
   for (var l = 0; l < arr[2].length; l++) {
     if (arr[4][l] === subGenreFromUser) {
@@ -326,31 +326,31 @@ function createArrayWithAllEventInfoForSameGenre(arr) {
 }
 
 
-function itunesLink() {
-  for (var i = 0; i < bandNames.length; i++) {
-    $.ajax({
-      url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
-      method: 'GET',
-    })
-      .then(function (response) {
-        // if (response.hasOwnProperty()) {
-        //   // console.log("no website")
-        //   artistLinks.push("no website")
-        // } else {
-          var responseObject = JSON.parse(response);
-          // console.log('response', responseObject);
-          result = responseObject.results[0].artistLinkUrl;
-          // console.log('result', result);
-          // var urls = result.artistLinkUrl;
-          // console.log('urls', urls);
-          artistLinks.push(result)
+// function itunesLink() {
+//   for (var i = 0; i < bandNames.length; i++) {
+//     $.ajax({
+//       url: `http://itunes.apple.com/WebObjects/MZStoreServices.woa/wa/itmsSearch?lang=1&output=json&media=music&limit=1&term=${bandNames[i].split(" ").join("+")}`,
+//       method: 'GET',
+//     })
+//       .then(function (response) {
+//         // if (response.hasOwnProperty()) {
+//         //   // console.log("no website")
+//         //   artistLinks.push("no website")
+//         // } else {
+//           var responseObject = JSON.parse(response);
+//           // console.log('response', responseObject);
+//           result = responseObject.results[0].artistLinkUrl;
+//           // console.log('result', result);
+//           // var urls = result.artistLinkUrl;
+//           // console.log('urls', urls);
+//           artistLinks.push(result)
         
-      }).catch(function (err) {
-        // console.log('this time it errored')
-        artistLinks.push('no website')
-      })
-      setTimeout(function(){makeArraYs(artistLinks)},2000);
-  }
-  // console.log('artist links array', artistLinks);
+//       }).catch(function (err) {
+//         // console.log('this time it errored')
+//         artistLinks.push('no website')
+//       })
+//       // setTimeout(function(){makeArraYs(artistLinks)},2000);
+//   }
+//   // console.log('artist links array', artistLinks);
   
-}
+// }
