@@ -16,9 +16,13 @@
 }
 
 #band-image {
-    max-width: 100px;
-    max-height: 100px;
+    width: 200px;
+    height: 150px;
+    margin: 20px;
+}
 
+.page-footer {
+ background-color: darkred;
 }
 
 #card-contents {            
@@ -33,16 +37,28 @@
    bottom: 10% !important;
     right: 5% !important;
 }
-
 .container.menu {
     background-color: rgba(0,0,0,0.2);
 }
+
+/* card background style */
+div.card.horizontal{
+    background-color: rgba(0,0,0,0.7);
+    border: 1px solid gray;
+    width: 750px;
+}
+
+#artist-name, #venue-name {
+   color: gainsboro 
+}
+
 
   h1 {
       margin-top: 0px;
       padding-top: 30px;
       font-family: 'Metamorphous', cursive;
       text-shadow: 2px 2px #c14100;
+      font-weight: 900;
   }
 
   .select-wrapper input.select-dropdown,
@@ -50,10 +66,22 @@
     font-family: 'Metamorphous', cursive;
     color: black;
     }
+/* h1 {
+    font-family: Helvetica, Impact, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    
+} */
 
+li {
+ text-align: left
 
+}
 
-
+body{
+background-image: url("../images/backgroudImg-v.2.jpg");
+background-repeat:no-repeat;
+background-color: black;
+}
 
 
 
