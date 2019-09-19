@@ -67,7 +67,11 @@ div.card.horizontal{
     width: 75%;
     display: inline-flex;
 }
+.btn:hover{
+    background-color: grey;
+}
 .btn {
+    
     background-color: darkred;
     font-family: 'Metamorphous', cursive;
 }
