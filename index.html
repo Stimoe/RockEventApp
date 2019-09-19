@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Metamorphous&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <!-- SOCIAL MEDIA ICON CDN -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -26,13 +27,15 @@
 
 
 <body>
-    <div class="parallax-container">
-        <div class="parallax"></div>
-    </div>
+
+        <!-- <div class="parallax-container">
+                <div class="parallax"></div>
+              </div> -->
 
     <!-- Main Materialize Container -->
-    <div class="container">
-        <h1 id = "header">Rock Events in Washington</h1>
+    <div class="container menu">
+        <h1>Rock Events in Washington</h1>
+
         <div class="row">
             <div class="input-field col s4">
                 <select id="subGenre">
@@ -88,18 +91,15 @@
             </div>
         </div>
     </div>
-    <div id="card-container">
+    <div id="card-container" class="container">
         <div class="main-container">
             <div id="card" class="row">
                 <div id=card-info class="col l8">
-
-
                 </div>
                 <div id="div-for-map" class="col l4 sticky">
                     <div id=content class="sticky">
                         <div id="map" class="sticky"></div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -137,26 +137,34 @@
                                     <input id="email" type="email" class="validate">
                                     <label for="email">E-mail</label>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col l10 s12">
-                    <!-- SOCIAL MEDIA ICONS -->
-                    <h5><strong>Connect with us!</strong></h5>
-                    <!-- FACEBOOK ICON -->
-                    <a class="waves-effect waves-light btn-floating btn-large social facebook">
-                        <i class="fa fa-facebook"></i></a>
-                    <!-- INSTAGRAM ICON -->
-                    <a class="waves-effect waves-light btn-floating btn-large social instagram">
-                        <i class="fa fa-instagram"></i></a>
-                    <!-- TWITTER ICON -->
-                    <a class="waves-effect waves-light btn-floating btn-large social twitter">
-                        <i class="fa fa-twitter"></i></a>
-                    <!-- SOUNDCLOUD ICON -->
-                    <a class="waves-effect waves-light btn-floating btn-large social soundcloud">
-                        <i class="fa fa-soundcloud"></i></a>
-                </div>
+
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+        <div class="col l10 s12">
+        <!-- SOCIAL MEDIA ICONS -->
+        <h5><strong>Connect with us!</strong></h5>
+        <!-- FACEBOOK ICON -->
+        <a class="waves-effect waves-light btn-floating btn-large social facebook">
+        <i class="fa fa-facebook"></i></a>
+        <!-- INSTAGRAM ICON -->
+        <a class="waves-effect waves-light btn-floating btn-large social instagram">
+        <i class="fa fa-instagram"></i></a>
+        <!-- TWITTER ICON -->
+        <a class="waves-effect waves-light btn-floating btn-large social twitter">
+                <i class="fa fa-twitter"></i></a>
+        <!-- SOUNDCLOUD ICON -->
+        <a class="waves-effect waves-light btn-floating btn-large social soundcloud">
+                <i class="fa fa-soundcloud"></i></a>
+            </div>
+        </div>
+        </div>
+        <div class="footer-copyright">
+            © 2019 Copyright
+        </div>
+        </div>
+
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -171,7 +179,9 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
-    <script src="javascript\maps.js"></script>
+
+    <script src="./javascript/maps.js"></script>
+
     <script src="./javascript/ticketmaster.js"></script>
     <script src="javascript\Itunes.js"></script>
     <script src="javascript\email.js"></script>
