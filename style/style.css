@@ -23,6 +23,9 @@
 
 .page-footer {
  background-color: darkred;
+ font-family: 'Metamorphous', cursive;
+ color: black;
+
 }
 
 #card-contents {            
@@ -39,6 +42,7 @@
 }
 .container.menu {
     background-color: rgba(0,0,0,0.2);
+    
 }
 
 /* card background style */
@@ -77,7 +81,8 @@ div.card.horizontal{
 } */
 
 li {
- text-align: left
+ text-align: left;
+ list-style-type: none;
 
 }
 
@@ -93,7 +98,17 @@ button{
 
 #searchByLocationButton, #searchButton {
     background-color: darkred;
+    
 }
+
+#socialmedia{
+    color:white;
+}
+
+#connect{
+    font-size: 105%;
+}
+
 
  /* #div-map-div {
     width: 500px;
