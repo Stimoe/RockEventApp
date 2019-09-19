@@ -10,6 +10,7 @@ var latLon
 
 //this function creates the cards based off the users input
 function cards() {
+  console.log(eventsFromUserChoices);
 
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
 
@@ -23,8 +24,7 @@ function cards() {
         <div id= "card-contents" class="card-content">
             <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
             <h6 id="venue-name">Event Info: |  Date: ${eventsFromUserChoices[0][i]} | ${eventsFromUserChoices[5][i]} | Time: ${eventsFromUserChoices[1][i]}</h6>
-            <p>Text information about event here</p>
-            </div> 
+        t </div> 
           
         <div class="card-action">
         <a id="venue-name" class="waves-effect waves-light btn venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view"><i class="material-icons left">map</i>Maps</a>
@@ -86,8 +86,8 @@ function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
 
-  var map = new google.maps.Map(document.getElementById('map'),{
-    zoom: 11,
+    // var map = new google.maps.Map(document.getElementById('map'),{
+    //   zoom: 11,
 
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -96,7 +96,7 @@ function seattleLocation() {
 
   console.log(latLon)
 
-// console.log(latLon)
+  // console.log(latLon)
 
   // bandInfo(latLon)
   seattleQuery(latLon)
@@ -120,18 +120,18 @@ $(document).on("click", ".venue-buttons", function (event) {
   console.log("stringify latitude" + lats2);
   console.log("stringify longitude" + long2);
 
-  var lats=$(this).attr("data-lat")
-  var lon=$(this).attr("data-long")
-   var ven=$(this).attr("data-venue")
-// console.log(ven)
-lats2=JSON.parse(lats)
-long2=JSON.parse(lon)
+  var lats = $(this).attr("data-lat")
+  var lon = $(this).attr("data-long")
+  var ven = $(this).attr("data-venue")
+  // console.log(ven)
+  lats2 = JSON.parse(lats)
+  long2 = JSON.parse(lon)
 
-ven2=JSON.stringify(ven)
-// console.log("venue name" +ven2)
+  ven2 = JSON.stringify(ven)
+  // console.log("venue name" +ven2)
 
-// console.log("stringify latitude" +lats2);
-// console.log("stringify longitude"+long2);
+  // console.log("stringify latitude" +lats2);
+  // console.log("stringify longitude"+long2);
 
 
   markerToMake = {

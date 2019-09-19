@@ -57,10 +57,10 @@ function userChoices() {
     radius = 5
   }
   if ($("#distance").val() === "2") {
-    radius = 20
+    radius = 15
   }
   if ($("#distance").val() === "3") {
-    radius = 50
+    radius = 25
   }
   setDatesForSearch()
 
