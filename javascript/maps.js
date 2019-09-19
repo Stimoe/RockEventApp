@@ -86,8 +86,7 @@ function seattleLocation() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
 
-  var map = new google.maps.Map(document.getElementById('map'),{
-    zoom: 11,
+ 
 
     center: new google.maps.LatLng(47.608013, -122.335167),
     mapTypeId: google.maps.MapTypeId.ROADMAP
