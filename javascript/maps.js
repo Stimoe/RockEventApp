@@ -14,7 +14,7 @@ function cards() {
 
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
 
-    $(".main-container>.row").append(` <div class="col s2 m7"> 
+    $(".main-container>.row").append(` <div id ="basic-cards" class="col s6 m7"> 
     
     <div class="card horizontal">
     <div class="card-image">
@@ -165,11 +165,11 @@ $(function() {
   var $window = $(window);
 
   $window.bind("scroll resize", function() {
-      var gap = $window.height() - $el.height() - 10;
-      var visibleFoot = 172 - $window.scrollBottom();
+      var gap = $window.height() - $el.height() - 30;
+      var visibleFoot = 190 - $window.scrollBottom();
       var scrollTop = $window.scrollTop()
       
-      if(scrollTop < 172 + 10){
+      if(scrollTop < 172 + 50){
           $el.css({
               top: (172 - scrollTop) + "px",
               bottom: "auto"
@@ -177,11 +177,11 @@ $(function() {
       }else if (visibleFoot > gap) {
           $el.css({
               top: "auto",
-              bottom: visibleFoot + "px"
+              bottom: visibleFoot + "100px"
           });
       } else {
           $el.css({
-              top: 0,
+              top: 35,
               bottom: "auto"
           });
       }
