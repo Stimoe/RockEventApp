@@ -34,6 +34,27 @@
     right: 5% !important;
 }
 
+.container.menu {
+    background-color: rgba(0,0,0,0.2);
+}
+
+  h1 {
+      margin-top: 0px;
+      padding-top: 30px;
+      font-family: 'Metamorphous', cursive;
+      text-shadow: 2px 2px #c14100;
+  }
+
+  .select-wrapper input.select-dropdown,
+  .dropdown-content>li>span {
+    font-family: 'Metamorphous', cursive;
+    color: black;
+    }
+
+
+
+
+
 
 
  /* #div-map-div {

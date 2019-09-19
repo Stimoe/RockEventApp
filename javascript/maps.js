@@ -10,7 +10,8 @@ var latLon
 
 //this function creates the cards based off the users input
 function cards() {
-
+  console.log(eventsFromUserChoices);
+  
   for (let i = 0; i < eventsFromUserChoices[0].length; i++) {
     
     $(".main-container>.row").append(` <div class="col s2 m7"> 
