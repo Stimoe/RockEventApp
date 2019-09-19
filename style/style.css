@@ -16,11 +16,13 @@
 }
 
 #band-image {
-    max-width: 200px;
-    max-height: 300px;
+    width: 200px;
+    height: 150px;
     margin: 20px;
-    
+}
 
+.page-footer {
+ background-color: darkred;
 }
 
 #card-contents {            
@@ -47,6 +49,11 @@ li {
 
 }
 
+body{
+background-image: url("../images/backgroudImg-v.2.jpg");
+background-repeat:no-repeat;
+background-color: black;
+}
 
 
 

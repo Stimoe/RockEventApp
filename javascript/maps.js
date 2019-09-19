@@ -17,18 +17,17 @@ function cards() {
     
     <div class="card horizontal">
     <div class="card-image">
-    <img id ="band-image" src="${eventsFromUserChoices[3][i]}">
-    </div>
+    <img id ="band-image" src="${eventsFromUserChoices[3][i]}"></div>
     <div class="card-stacked">
 
         <div id= "card-contents" class="card-content">
             <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
             <h6 id="venue-name">Event Info: |  Date: ${eventsFromUserChoices[0][i]} | ${eventsFromUserChoices[5][i]} | Time: ${eventsFromUserChoices[1][i]}</h6>
+            <p>Text information about event here</p>
             </div> 
           
-
         <div class="card-action">
-        <a id="venue-name" class="waves-effect waves-light btn venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view"><i class="material-icons left">map</i>Location on Maps</a>
+        <a id="venue-name" class="waves-effect waves-light btn venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view"><i class="material-icons left">map</i>Maps</a>
 
             <a href="${eventsFromUserChoices[8][i]}"class="waves-effect waves-light btn"><i class="material-icons left">music_video</i>Youtube</a>
       
@@ -39,6 +38,8 @@ function cards() {
     </div>`)
   }
 }
+
+
 
 
 //this function is used to get the users location, make a map and supply the cordinates to the ticketmaster api
