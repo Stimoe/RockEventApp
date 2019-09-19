@@ -24,7 +24,7 @@ function cards() {
         <div id= "card-contents" class="card-content">
             <h5 id="artist-name">${eventsFromUserChoices[2][i]}</h5>
             <h6 id="venue-name">Event Info: |  Date: ${eventsFromUserChoices[0][i]} | ${eventsFromUserChoices[5][i]} | Time: ${eventsFromUserChoices[1][i]}</h6>
-        </div> 
+        t </div> 
           
         <div class="card-action">
         <a id="venue-name" class="waves-effect waves-light btn venue-buttons" data-venue="${(eventsFromUserChoices[5][i])}", data-lat="${eventsFromUserChoices[6][i]}", data-long="${eventsFromUserChoices[7][i]}" id="button-view"><i class="material-icons left">map</i>Maps</a>
