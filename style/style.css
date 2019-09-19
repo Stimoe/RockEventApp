@@ -16,9 +16,13 @@
 }
 
 #band-image {
-    max-width: 100px;
-    max-height: 100px;
+    width: 200px;
+    height: 150px;
+    margin: 20px;
+}
 
+.page-footer {
+ background-color: darkred;
 }
 
 #card-contents {            
@@ -32,6 +36,23 @@
     width: 400px !important;
    bottom: 10% !important;
     right: 5% !important;
+}
+
+h1 {
+    font-family: Helvetica, Impact, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+    
+}
+
+li {
+ text-align: left
+
+}
+
+body{
+background-image: url("../images/backgroudImg-v.2.jpg");
+background-repeat:no-repeat;
+background-color: black;
 }
 
 
