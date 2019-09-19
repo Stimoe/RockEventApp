@@ -6,11 +6,20 @@
     content: center;
     
 }
+/* #card-info {
+    position: relative;
+    
+    
+} */
+/* #card {
+    position: relative;
+   
+} */
 #div-for-map{
     height: 20%;
     width: 20%;
     float: right;
-    position: absolute;
+    position: fixed;
 }
 #content {
     position: sticky;
@@ -55,8 +64,22 @@ div.card.horizontal{
    color: gainsboro 
 }
 #basic-cards {
-    width: 70%;
+    width: 75%;
     display: inline-flex;
+}
+.btn {
+    background-color: darkred;
+    font-family: 'Metamorphous', cursive;
+}
+#search-buttons {
+    margin-bottom: 25px;
+    text-align: center
+}
+.select-wrapper input.select-dropdown, .dropdown-content>li>span{
+    color: darkred !important;
+}
+.btn-floating{
+    background-color: black !important;
 }
 
 
