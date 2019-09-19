@@ -17,17 +17,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Metamorphous&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!-- SOCIAL MEDIA ICON CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 
 
 <body>
-    
+
+    <!-- <div class="parallax-container">
+                <div class="parallax"></div>
+              </div> -->
+
     <!-- Main Materialize Container -->
-    <div class="container">
+    <div class="container menu">
         <h1>Rock Events in Washington</h1>
-        <div class="row">
+
+        <div id="input-row" class="row">
             <div class="input-field col s4">
                 <select id="subGenre">
                     <option value="" disabled selected>Sub Genre</option>
@@ -49,11 +58,11 @@
 
             <div class="input-field col s4">
                 <select id="date-choice">
-                  
+
                     <option value="" disabled selected>Dates</option>
                     <option value="1">This week</option>
                     <option value="2">Next week</option>
-                  
+
                 </select>
                 <label id="searchButton" class="black-text"></label>
             </div>
@@ -62,91 +71,125 @@
                 <select id="distance">
                     <option value="" disabled selected>Distance</option>
                     <option value="1">5 Miles</option>
-                    <option value="2">20 Miles</option>
-                    <option value="3">50 Miles</option>
+                    <option value="2">15 Miles</option>
+                    <option value="3">25 Miles</option>
                 </select>
                 <label id="searchButton" class="black-text"></label>
             </div>
         </div>
-
         <div class="row">
-            <div class="col s12">
-                <button id="searchByLocationButton" class="btn waves-effect waves-light" type="submit" name="action">Search by Location
+            <div id="search-buttons" class="col s12">
+                <button id="searchByLocationButton" class="btn waves-effect waves-light" type="submit"
+                    name="action">Search by Location
                     <i class="material-icons right">send</i>
                 </button>
-                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search in Seattle
+                <button id="searchButton" class="btn waves-effect waves-light" type="submit" name="action">Search in
+                    Seattle
                     <i class="material-icons right">send</i>
                 </button>
-                
+
             </div>
         </div>
     </div>
-    <div id="card-container">
+    <div id="card-container" class="container">
         <div class="main-container">
+            
             <div id="card" class="row">
-                <div id=card-info class="col l8">
+                <div id=card-info class="col l12">
 
-                </div>
-                <div id ="div-for-map"class="col l4 sticky">
-                    <div id =content class = "sticky">
-                            <div id="map" class = "sticky"></div>
+                    <div id="div-for-map">
+                        <div id=content class="sticky">
+                            <div id="map" class="sticky"></div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 
 
-    ​
-        <footer class="page-footer">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your
-                        footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Rock Events in Washington Info</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Faq's</a></li>
-                    </ul>
-                </div>
+    <footer id="footer" class="page-footer">
+        <div class="row">
+            <div class="col l3 s12">
+                <!-- FOOTER CONTACT INFORMATION -->
+                <li><a class="grey-text text-lighten-3" href="#!"><b>About Us</b></a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Our Team</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
+                <br>
+                <li><a class="grey-text text-lighten-3" href="#!"><b>Contact Us</b></a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Send us an e-mail!</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">1325 4th Ave</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Seattle, WA 98101</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Phone : 1-800-808-8080</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Fax : 1-808-000-000</a></li>
             </div>
-            </div>
-            <div class="footer-copyright">
-                © 2019 Copyright
-            </div>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script> -->
+            <!-- FOOTER EMAIL IMPUT -->
+            <div class="col l3 s12">
+                <div class="row">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">E-mail</label>
+                                </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
-        <script src="javascript\maps.js"></script>
-        <script src="./javascript/ticketmaster.js"></script>
-        <script src="javascript\Itunes.js"></script>
-        <script src="javascript\email.js"></script>
-        </script>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="social-info" class="col l10 s12">
+                    <!-- SOCIAL MEDIA ICONS -->
+                    <h5><strong>Connect with us!</strong></h5>
+                    <!-- FACEBOOK ICON -->
+                    <a class="waves-effect waves-light btn-floating btn-large social facebook">
+                        <i class="fa fa-facebook"></i></a>
+                    <!-- INSTAGRAM ICON -->
+                    <a class="waves-effect waves-light btn-floating btn-large social instagram">
+                        <i class="fa fa-instagram"></i></a>
+                    <!-- TWITTER ICON -->
+                    <a class="waves-effect waves-light btn-floating btn-large social twitter">
+                        <i class="fa fa-twitter"></i></a>
+                    <!-- SOUNDCLOUD ICON -->
+                    <a class="waves-effect waves-light btn-floating btn-large social soundcloud">
+                        <i class="fa fa-soundcloud"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2019 Copyright
+        </div>
+        </div>
 
-        <script> document.addEventListener('DOMContentLoaded', function () {
-                var dropDown = document.querySelectorAll('.dropdown-trigger');
-                var instances = M.Dropdown.init(dropDown);
-                var select = document.querySelectorAll('select');
-                var instances = M.FormSelect.init(select);
-            });
-        </script>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzjpYpTtvMYchl51VMmy-NaZNhLTcaYic"></script>
+
+    <script src="./javascript/maps.js"></script>
+
+    <script src="./javascript/ticketmaster.js"></script>
+    <script src="javascript\Itunes.js"></script>
+    <script src="javascript\email.js"></script>
+    </script>
+
+    <script> document.addEventListener('DOMContentLoaded', function () {
+            var dropDown = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(dropDown);
+            var select = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(select);
+        });
+    </script>
 </body>
 
 </html>
