@@ -4,7 +4,7 @@
 Project: "The Rock Event"
 ___________________________________________________________________________________________________________________________________
 >> Badass Team <<
-Tomas Stimac: Lead back-end developer
+Tomas Stimac: Lead back-end developer Link to portoflio page at, https://stimoe.github.io/Thomas-Portfolio-Page/
 Michelle Santiago: Lead front end developer
 J-Anne Carlson: Project manager doing full-stack
 Leah Munson: Back end developer
@@ -20,6 +20,7 @@ to  return informaton using different api's and return relevant information base
 We will start on making our application mobile ready and branch outwards to web application ready on a desktop / laptop.
 
 Future Deveopment: Expand the locator for google maps to include the west coast and potentially other genres.
+Link to deployed site at https://stimoe.github.io/RockEventApp/
 ____________________________________________________________________________________________________________________________________
 
 >> Work Log <<
